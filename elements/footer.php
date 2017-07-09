@@ -38,27 +38,23 @@
 				</p>
 			  </div>
 			  <div class="col-md-3">
-				<h3>Useful Links</h3>
-				<p>
-					<span>This may be the very useful and quick link for proper information</span><br><br>
-					<a href="#">Our Services</a><br>
-					<a href="#">About us</a><br>
-					<a href="#">Our Network</a><br>
-					<a href="#">Our Products</a><br>
-				</p>
-				<h3>Friends</h3>
-				<p>
-					<a href="#">Yahoo.com</a><br>
-					<a href="#">Canon</a>
-				</p>
+				<h3>Plan du site</h3>
+                  <ul>
+                      <li><a href="/index.php">Accueil</a></li>
+                      <li><a href="/pages/electronique/elec.php">Electronique</a></li>
+                      <li><a href="/pages/informatique/info.php">Informatique</a></li>
+                      <li><a href="/pages/services.php">Services</a></li>
+                      <li><a href="/pages/voyages.php">Voyages</a></li>
+                      <li><a href="/pages/blog.php">Blog</a></li>
+                      <li><a href="/pages/contact.php">Contact</a></li>
+                  </ul>
 				
 			  </div>
 			  <div class="col-md-3">
-				<h3>Contact us</h3>
+				<h3>Contact</h3>
 				<p>
-					<strong>Business plate Ltd.</strong><br>
-					480 Bridgewater Road, London, W1<br>
-					United Kingdon<br>
+					<strong>SHFNET</strong><br>
+
 					P : +44 (0) 1234567890<br>
 					E : info@businessplate.com<br>
 					W :	www.businessplate.com<br>
@@ -75,7 +71,7 @@
     <!-- footerBottomSection -->	
 	<div class="footerBottomSection">
 		<div class="container">
-			&copy; 2014, Allright reserved. <a href="#">Terms and Condition</a> | <a href="#">Privacy Policy</a> 
-			<div class="pull-right"> <a href="index.html"><img src="assets/custom/img/logo1.png" alt="My web solution" /></a></div>
+			&copy; 2017, All right reserved. <a href="/pages/conditions.php">Terms and Condition</a> | <a href="/pages/policy.php">Privacy Policy</a>
+			<div class="pull-right"> <a href="/index.php"><img src="/assets/custom/img/logo1.png" alt="My web solution" /></a></div>
 		</div>
 	</div>

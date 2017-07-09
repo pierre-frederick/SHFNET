@@ -1,3 +1,7 @@
+<?php
+require_once '/includes/functions.php'; // fichier des fonctions
+require_once '/includes/articles.php'; // fichier des fonctions
+?>
    <!-- highlightSection -->
     <div class="highlightSection">
 		<div class="container">
@@ -17,228 +21,41 @@
 			</div>
 		</div>
 	</div>
-    <!-- bodySection -->
-		<div class="serviceBlock">
-		<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-compress"></i>
-							<div class="desc">
-								
-								<h4>Fully Responsive</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-code"></i>
-							<div class="desc">
-								
-								<h4>HTML5 + CSS3</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-thumbs-up"></i>
-							<div class="desc">
-								
-								<h4>Launch Ready</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-desktop"></i>
-							<div class="desc">
-								
-								<h4>Fully Responsive</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-html5"></i> 
-							<div class="desc">
-								
-								<h4>HTML5 + CSS3</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-css3"></i>
-							<div class="desc">
-								
-								<h4>Launch Ready</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-github"></i>
-							<div class="desc">
-								
-								<h4>Fully Responsive</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-android"></i>
-							<div class="desc">
-								
-								<h4>HTML5 + CSS3</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="clearfix">
-							<i class="fa fa-tablet"></i>
-							<div class="desc">
-								
-								<h4>Launch Ready</h4>
-								<p>Lorem ipsum dolor sit amet, Morem ipsum dolor sit amet consectetur adipisicing elit. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-		</div>
-		</div>
-	<hr>
-	
-	
-    <div class="bodySection" style="display:none">
-		<div class="container">		
-			<div class="ourServices">
-				<div class="row">
-					<div class="col-md-3"> 
-						<div class="cntr">
-							<img src="assets/custom/img/Office.png" class="img-circle" title="project one">
-							<h3><a href="#">Responsive Design</a></h3>
-						</div>
-						<p>
-						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-						<br><br><a href="#">more details</a>
-						</p>
-					</div>
-					<div class="col-md-3"> 
-						<div class="cntr">
-							<img src="assets/custom/img/Office.png" class="img-circle" title="project one">
-							<h3><a href="#">CSS & HTML5</a></h3>
-						</div>
-						<p>
-						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-						<br><br><a href="#">more details</a>
-						</p>
-					</div>
-					<div class="col-md-3"> 
-						<div class="cntr">
-							<img src="assets/custom/img/Office.png" class="img-circle" title="project one">
-							<h3><a href="#">Clean</a></h3>
-						</div>
-						<p>
-						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-						<br><br><a href="#">more details</a>
-						</p>
-					</div>
-					<div class="col-md-3"> 
-						<div class="cntr">
-							<img src="assets/custom/img/Office.png" class="img-circle" title="project one">
-							<h3><a href="#">SEO Frendly</a></h3>
-						</div>
-						<p>
-						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-						<br><br><a href="#">more details</a>
-						</p>
-					</div>
-				</div>			
-				</div>
-				</div>
-				</div>
-
-					
-					
 
         <div class="services">
 			<div class="container">
+                <h3 class="title">Les derniers articles publiés sur le site</h3>
 				<div class="row">
-					<div class="col-md-3">
-								<img src="assets/custom/img/bootstrap-templates-office3.png" class="" title="project one">				
-								<h3><a class="hover-effect" href="#">Huge Work</a></h3>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-					 </div>
-					<div class="col-md-3">
-								<img src="assets/custom/img/bootstrap-templates-office2.png" class="" title="project one">
-											
-								<h3><a class="hover-effect" href="#">Huge Work</a></h3>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-					 </div>
-					<div class="col-md-3">
-								<img src="assets/custom/img/bootstrap-templates-office1.png" class="" title="project one">
-								
-								<h3><a class="hover-effect" href="#">Huge Work</a></h3>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-					 </div>
-					<div class="col-md-3">
-								<img src="assets/custom/img/bootstrap-templates-office4.png" class="" title="project one">
-									
-								<h3><a class="hover-effect" href="#">Huge Work</a></h3>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-					 </div>
+
+                    <?php
+                    if(isset($_GET['a']))
+                    {
+                        echo $article['contenu'];
+                    }
+                    else
+                    {
+                        $articles = LastArticles($bdd, $idCategorie, $page);
+                        foreach($articles as $article)
+                        {
+                            ?>
+                            <div class="col-md-3">
+                                <img src="<?php echo "/upload/" . $article['categorie'] . "/" .$article['url'] ?>" class="" title="project one">
+                                    <h3><a class="hover-effect" href="/blog.php?a=<?php echo $article['id'];?>"><?php echo $article['title']; ?></a></h3>
+                                    <h3 class="post-subtitle">
+                                        <?php echo $article['subtitle']; ?>
+                                    </h3>
+                                <p class="post-meta">Posté par <a href="/pages/apropos.php"> <?php echo $article['author']; ?> </a> <?php $date = strtotime($article['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date) ; ?></p>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                    </div>
 				 </div>	
 			</div>
-		</div>
 
 		
-		<div class="testimonails">
-		<div class="container">
-		<blockquote class="">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,</p>
-                <small>- Rob & Kelly</small>
-            </blockquote>		
-		</div>
-		</div>
+
 		
-		<div class="container">
-		<div class="row">
-			<div class="col-md-4"> 
-				<h3 class="title">Reason to choose us</h3>
-				<p>
-				On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
-				</p>
-				<ul>
-					<li>Tick mark here Reason one</li>
-					<li>Tick mark here  Reason one</li>
-					<li>Tick mark here  Reason one</li>
-					<li>Reason one</li>
-					<li>Reason one</li>
-					<li>Reason one</li>
-				</ul>
-				<p>
-				On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
-				</p>
-				<p>
-				On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
-				</p>
-			</div>
-		</div>
-		</div>
-	</div>
-	</div>
+
     

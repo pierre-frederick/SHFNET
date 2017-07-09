@@ -24,6 +24,13 @@ function ListeCategories(PDO $BDD)
 
 }
 
+function GetCategorie(PDO $BDD, $id)
+{
+    $request = $BDD->query('SELECT * FROM site.public.categorie WHERE id="\'.$id.\'"');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+
+}
+
 
 function GetArticle(PDO $BDD, $id)
 {
@@ -36,7 +43,7 @@ function LastArticles(PDO $BDD, $categorie = null, $p = 1)
 {
 	if($categorie == null)
 	{
-		$request = $BDD->prepare('SELECT author, date, title, subtitle, id FROM site.public.articles ORDER BY date DESC LIMIT ? OFFSET ?');
+		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, url FROM site.public.articles ORDER BY date DESC LIMIT ? OFFSET ?');
 		$request->execute(array(4, ($p-1)*4));
 	}
 	else

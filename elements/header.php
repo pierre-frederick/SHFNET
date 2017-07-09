@@ -3,10 +3,10 @@
 	<div class="top">
     <div class="container">
         <div class="row-fluid">
-            <ul class="phone-mail">
+            <!-- <ul class="phone-mail">
                 <li><i class="fa fa-phone"></i><span>Site 1</span></li>
                 <li><i class="fa fa-envelope"></i><span>Site 2</span></li>
-            </ul>
+            </ul> -->
             <ul class="loginbar">
                 <li><a href="#" class="login-btn">Help</a></li>
                 <li class="devider">&nbsp;</li>
@@ -27,25 +27,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><img src="assets/custom/img/logo.png" alt="My web solution" /></a>
+          <a class="navbar-brand" href="/index.php"><img src="/img/logo_shfnet.png" width = 150 alt="My web solution" /></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="/index.php">Accueil</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+              <a href="/pages/electronique/elec.php" class="dropdown-toggle" data-toggle="dropdown">Electronique <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="/pages/electronique/theorie/index.php">Théorie</a></li>
+                  <li><a href="/pages/electronique/caisse_a_outils/index.php">Caisse à outil</a></li>
+                <li><a href="/pages/electronique/circuits_communs/index.php">Circuits Communs</a></li>
+                <li><a href="/pages/electronique/arduino/index.php">Arduino</a></li>
               </ul>
             </li>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#about">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                  <a href="/pages/informatique/info.php" class="dropdown-toggle" data-toggle="dropdown">Informatique <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/pages/informatique/linux/index.php">Linux</a></li>
+                      <li><a href="/pages/informatique/montage_pc/index.php">Montage PC</a></li>
+                      <li><a href="/pages/informatique/domotique/index.php">Domotique</a></li>
+                      <li><a href="/pages/informatique/raspi/index.php">Raspberry Pi</a></li>
+                  </ul>
+              </li>
+              <li><a href="/pages/services.php">Services</a></li>
+              <li><a href="/pages/voyages.php">Voyages</a></li>
+            <li><a href="/pages/blog.php">Blog</a></li>
+            <li><a href="/pages/contact.php">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
