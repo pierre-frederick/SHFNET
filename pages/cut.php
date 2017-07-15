@@ -42,9 +42,9 @@
   <?php include("elements/header.php"); ?>
 
   <?php include("elements/banner.php"); ?>
-  <?php include("elements/static.php"); ?>
   <?php include("elements/articles.php"); ?>
-  <?php include("elements/marks.php"); ?>
+  <?php include("elements/projects.php"); ?>
+  <?php include("elements/citation.php"); ?>
   <?php include("elements/footer.php"); ?>
 
 

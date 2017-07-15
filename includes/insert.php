@@ -43,7 +43,7 @@ if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categori
 
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 	$subtitle = filter_input(INPUT_POST, 'subtitle', FILTER_SANITIZE_STRING);
-    $contenu = filter_input(INPUT_POST, 'subtitle', FILTER_SANITIZE_STRING);
+    $contenu = $_POST['contenu']; //danger si application hors panneau admin
     $legende = filter_input(INPUT_POST, 'legende', FILTER_SANITIZE_STRING);
     $auteur = filter_input(INPUT_POST, 'auteur', FILTER_SANITIZE_STRING);
 	//$purifier = new HTMLPurifier();
@@ -52,7 +52,7 @@ if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categori
 		$date = date("Y-m-d H:i:s");
 			$qry = $bdd->prepare('INSERT INTO site.public.articles (author, date, title, subtitle , contenu, categorie, url, legende) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 			$qry->execute(array($auteur, $date, $title, $subtitle, $contenu, $_POST['categorie'], $_FILES['fic']['name'], $legende));
-			header('Location: /blog.php');
+			header('Location: /admin/blog.php');
 			exit(0);
 }
 //header('Location: /?error=Une erreur est survenue.');

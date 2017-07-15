@@ -8,15 +8,15 @@
                 <li><i class="fa fa-envelope"></i><span>Site 2</span></li>
             </ul> -->
             <ul class="loginbar">
-                <li><a href="#" class="login-btn">Help</a></li>
+                <li><a href="/portfolio" class="login-btn">A propos de l'auteur</a></li>
                 <li class="devider">&nbsp;</li>
-                <li><a href="#" class="login-btn">Login</a></li>
+                <li><a href="https://intranet.shfnet.fr" class="login-btn">Login</a></li>
             </ul>
         </div>
     </div>
 	</div>
 	
-    <!-- topHeaderSection -->	
+    <!-- Menu -->
     <div class="topHeaderSection">		
     <div class="header">			
 		<div class="container">
@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.php"><img src="/img/logo_shfnet.png" width = 150 alt="My web solution" /></a>
+          <a class="navbar-brand" href="/index.php"><img src="/img/logo_shfnet.png" width = 150 alt="Logo SHFNET" /></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -51,11 +51,12 @@
                       <li><a href="/pages/informatique/montage_pc/index.php">Montage PC</a></li>
                       <li><a href="/pages/informatique/domotique/index.php">Domotique</a></li>
                       <li><a href="/pages/informatique/raspi/index.php">Raspberry Pi</a></li>
+                      <li><a href="/pages/informatique/git.php">Git</a></li>
                   </ul>
               </li>
               <li><a href="/pages/services.php">Services</a></li>
               <li><a href="/pages/voyages.php">Voyages</a></li>
-            <li><a href="/pages/blog.php">Blog</a></li>
+            <li><a href="/blog.php">Blog</a></li>
             <li><a href="/pages/contact.php">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->

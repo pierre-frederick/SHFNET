@@ -1,6 +1,6 @@
 <?php 
 require_once 'includes/functions.php'; // fichier des fonctions
-require_once 'includes/articles.php'; // fichier des fonctions
+require_once 'includes/projects.php'; // fichier des fonctions
 ?>
 
 

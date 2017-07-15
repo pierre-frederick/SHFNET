@@ -1,0 +1,68 @@
+body {
+  padding-top: 20px;
+  background-color: #afd1dd;
+background-repeat:repeat;
+background-position: top right;
+font-family: 'Bitter', serif;
+}
+
+.header {
+	padding-top: 20px;
+	background-color: #f7f6f6;
+}
+
+.pdf {
+	padding-bottom: 20px;
+}
+
+.content{
+	background-color: #f7f6f6;
+	margin-top : 20px; 
+	padding-left : 30px; 
+	padding-right : 30px;
+}
+
+.aside{
+	background-color: #ffffff;
+	margin-top : 20px;
+}
+
+
+.title{
+	font-size : 18px; 
+	margin-top: 30px;
+	border-bottom-style : solid; 
+	border-bottom-color : #afd1dd; 
+	margin-bottom : 10px; 
+	border-width: 5px;
+}
+
+.item{
+	border-left-style : solid; 
+	border-left-color : #464646; 
+	padding-left : 10px; 
+	border-width: 5px;
+}
+
+
+
+#uds{
+	display: block; 
+	margin-top : 100 px; 
+}
+
+
+/* pour permettre que les deux colonnes aient la même hauteur !! */
+.row{
+	overflow: hidden;
+}
+
+[class*="col-"]{
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+}
+
+.footer {
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
