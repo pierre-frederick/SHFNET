@@ -41,7 +41,7 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
 
 <body>
@@ -50,18 +50,17 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
         <div class="container">
             <div class="row">
-                <h1>Blog</h1>
-            <ul>
+                <h1 class="title">Blog</h1>
+                Catégorie :
+                <div class="btn-group" role="group" aria-label="categorie">
                 <?php
                     foreach($ListeCategories as $categorie) { ?>
-                            <li>
-                                <a href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
-                            </li>
+                            <a class="btn btn-default" href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
                                 <?php
                     } ?>
-                        </ul>
+                </div>
 
-
+                <hr>
                 <?php
                 if(isset($_GET['a']))
                 {
@@ -73,7 +72,11 @@ require_once 'includes/articles.php'; // fichier des fonctions
                     foreach($articles as $article)
                     {
                     ?>
-                            <div class="post-preview">
+                            <div class="post-preview row">
+                                <div class="col-md-3">
+                                    <img src="<?php echo "/upload/" . $article['categorie'] . "/" .$article['url'] ?>" class="" title="<?php echo $article['url'] ?>">
+                                </div>
+                                <div class="col-md-9">
                     <a href="blog.php?a=<?php echo $article['id'];?>">
                                     <h2 class="post-title">
                             <?php echo $article['title']; ?>
@@ -82,29 +85,60 @@ require_once 'includes/articles.php'; // fichier des fonctions
                             <?php echo $article['subtitle']; ?>
                                     </h3>
                                 </a>
-                        <p class="post-meta">Posté par <a href="#"> <?php echo $article['author']; ?> </a> le  <?php $date = new DateTime($article['date']); echo strftime("%e %B %Y", $date->getTimestamp()); ?></p>
+                        <p class="post-meta">Posté par <a href="#"> <?php echo $article['author']; ?> </a> le  <?php $date = strtotime($article['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date) ; ?></p>
+
+                                </div>
                             </div>
                     <hr>
                     <?php
                     }
                     ?>
 
-                <ul>
+                <nav aria-label="navigation">
+                    <ul class="pager">
                 <?php if($page > 1) { ?>
                     <li class="previous">
-                        <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page-1); else echo '?c='.$getCategorie.'&p='.($page-1); ?>" >&larr; New</a>
+                        <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page-1); else echo '?c='.$getCategorie.'&p='.($page-1); ?>" ><span aria-hidden="true">&larr;</span> Newer posts</a>
                     </li>
                 <?php } ?>
                     <li class="next">
-                         <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page+1); else echo '?c='.$getCategorie.'&p='.($page+1); ?>" >Old &rarr;</a>
+                         <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page+1); else echo '?c='.$getCategorie.'&p='.($page+1); ?>" >Older Posts <span aria-hidden="true">&rarr;</span></a>
                     </li>
-                </ul>
 
+                    </ul>
+                </nav>
                     <?php
                 }
                 ?>
+
             </div>
         </div>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+
+
+        <!-- JS Global Compulsory -->
+        <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- JS Implementing Plugins -->
+        <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
+        <!-- JS Page Level -->
+        <script type="text/javascript" src="/assets/custom/js/app.js"></script>
+        <script type="text/javascript" src="/assets/custom/js/index.js"></script>
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                App.init();
+                App.initSliders();
+                Index.initParallaxSlider();
+            });
+        </script>
+
 </body>
 </html>
 

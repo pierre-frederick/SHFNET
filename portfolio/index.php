@@ -33,9 +33,9 @@
             <a class="btn btn-success" href="/" role="button">Retour au site</a>
         </div>
         <div class="col-md-5 col-md-offset-4 text-center">
-        <p>Télécharger au format pdf : <a class="btn btn-primary" href="files/CV_denys.pdf" role="button"> <img src="img/blank.png" class="flag flag-fr" alt="Français" /> </a>
+        <p>Télécharger au format pdf : <a class="btn btn-primary" href="files/CV_denys_fr.pdf" role="button"> <img src="img/blank.png" class="flag flag-fr" alt="Français" /> </a>
             <a class="btn btn-primary" href="files/CV_denys_en.pdf" role="button"> <img src="img/blank.png" class="flag flag-gb" alt="Anglais" /> </a>
-            <a class="btn btn-primary" href="files/CV_denys_fr.pdf" role="button"> <img src="img/blank.png" class="flag flag-de" alt="Allemand" /> </a></p>
+            <a class="btn btn-primary" href="files/CV_denys_de.pdf" role="button"> <img src="img/blank.png" class="flag flag-de" alt="Allemand" /> </a></p>
         </div>
     </div>
 

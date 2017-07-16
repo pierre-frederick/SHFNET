@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Initiation perfectionnnement arduino avancé">
+    <meta name="description" content="Caisse à outil électronique shfnet">
     <meta name="author" content="Pierre-Frédérick DENYS">
-    <title>Arduino</title>
+    <title>Caisse à outil</title>
     <!-- Bootstrap core CSS -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
     <link rel="shortcut icon" href="/img/favicon.ico">
+    <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
 
 
@@ -33,17 +34,29 @@
 
 <div class="container">
     <div class="article">
-        <h1 class="title">Arduino</h1>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Coming soon !</h2>
-                <p>Page sur arduino. </p>
+        <h1 class="title"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>  Caisse à outil</h1>
+
+        <div class="row minimenu">
+            <div class="col-md-6 col-md-offset-3">
+
+                <div class="list-group">
+                    <a href="recup_composants.php" class="list-group-item">
+                        <h4 class="list-group-item-heading">Récupération des composants</h4>
+                        <p class="list-group-item-text">Economisez et ayez toujours un stock de pièces de rechange.</p>
+                    </a>
+                    <a href="brochage_composants.php" class="list-group-item ">
+                        <h4 class="list-group-item-heading">Brochage des composants</h4>
+                        <p class="list-group-item-text">Vous oubliez tout le temps de sens de branchement de ce transistor ?</p>
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
+</div>
+<?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
 
 
-    <?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
 
     <!-- JS Global Compulsory -->
     <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>

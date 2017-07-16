@@ -22,7 +22,7 @@
       <!-- Custom styles -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
       <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-        <link rel="shortcut icon" href="/img/favicon.ico">
+        <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
   </head>
 
   <body>

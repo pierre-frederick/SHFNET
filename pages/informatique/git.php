@@ -26,7 +26,9 @@
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
     <link href="/assets/custom/css/prism.css" rel="stylesheet" />
     <script src="/assets/custom/js/prism.js"></script>
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
+    <script src="https://use.fontawesome.com/da91765651.js"></script>
+
 </head>
 
 
@@ -37,7 +39,7 @@
 
 <div class="container">
     <div class="article">
-        <h1 class="title">Utilisation de Git</h1>
+        <h1 class="title"><i class="fa fa-code-fork"></i>    Utilisation de Git</h1>
 
 
         <div class="row introduction">
@@ -202,13 +204,12 @@ doc/**/*.txt</code></pre>
                         <li><b>HEAD : </b> pojnte vers la dernière validation faite.</li>
                     </ul>
 
-                    <pre><code class="language-bash">git init</code></pre>
-                    https://www.youtube.com/GitHubGuides
                 </div>	<!-- Fin de col-9 content -->
 
 
-
             </div>
+        </div>
+    </div>
 </div>
 
 
@@ -227,7 +228,6 @@ doc/**/*.txt</code></pre>
     <!-- JS Page Level -->
     <script type="text/javascript" src="/assets/custom/js/app.js"></script>
     <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
 
     <script type="text/javascript">
         jQuery(document).ready(function() {

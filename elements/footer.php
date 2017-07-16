@@ -34,13 +34,7 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
 
 
                   <?php
-                  if(isset($_GET['a']))
-                  {
-                      echo $article['contenu'];
-                  }
-                  else
-                  {
-                      $articles = LastArticles($bdd, $idCategorie, $page);
+                      $articles = LastArticles($bdd, null, 1);
                       foreach($articles as $article)
                       {
                           ?>
@@ -50,7 +44,6 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
                           </p>
                           <?php
                       }
-                  }
                   ?>
 			  </div>
 			  <div class="col-md-3">
@@ -71,11 +64,11 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
 				<p>
 					<strong>SHFNET</strong><br>
 
-					M : contact@shfnet.fr<br>
-					W :	shfnet.fr<br>
+                    <i class="fa fa-envelope"></i>   contact@shfnet.fr<br>
+                    <i class="fa fa-mouse-pointer"></i>   shfnet.fr<br>
 				</p>
 				<h3>Stay Connected</h3>
-				<p>social networks
+				<p><a href=""><i class="fa fa-facebook-square fa-2x"></i></a>  <a href=""><i class="fa fa-twitter-square fa-2x"></i></a>   <a href=""><i class="fa fa-flickr fa-2x"></i></a>
 				</p>
 
 			  </div>

@@ -48,7 +48,7 @@ function LastArticles(PDO $BDD, $categorie = null, $p = 1)
 	}
 	else
 	{
-		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie FROM site.public.articles WHERE categorie = ? ORDER BY date DESC LIMIT ? OFFSET ?');
+		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, url FROM site.public.articles WHERE categorie = ? ORDER BY date DESC LIMIT ? OFFSET ?');
 		$request->execute(array($categorie, 4, ($p-1)*4));
 	}
 	return $request->fetchAll(PDO::FETCH_ASSOC);

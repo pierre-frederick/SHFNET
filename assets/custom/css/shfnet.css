@@ -1,11 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
-
-
-a, h1, h2, h3, h4, p{
+h2, h3, h4, p, a{
     color:#858585;
     font-family:'Open Sans',Helvetica,Arial,sans-serif;
 }
 
 .topHeaderSection {
     border-bottom: 1px solid #D1D1D1;
+}
+
+h1.title {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 4em;
+    border-bottom : none;
+    color: black;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    color: black;
+}
+
+.minimenu {
+    text-align: center;
 }

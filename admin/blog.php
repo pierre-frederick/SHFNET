@@ -30,7 +30,7 @@ require_once '../includes/articles.php'; // fichier des fonctions
     <!-- Custom styles for this template -->
 
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
     <!-- Include Bootstrap Datepicker -->
     <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
