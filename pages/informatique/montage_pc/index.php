@@ -62,83 +62,103 @@
                   <li><a href="#configuration">Exemples de Configurations </a></li>
               </ul>
               </div>
-
-              <h2 id="composants"></h2>
+              <hr />
+              <h2 id="composants">Choix des composants</h2>
               <!-- Processeur -->
               <div class="row paragraph">
                   <div class="col-md-8 ptext">
                       <h3 id="processeur">Le processeur</h3>
-                      <p>Deux marques dominent dans la fonte de processeurs, AMD et Intel. </p>
+                      <p>Deux marques dominent dans la fonte de processeurs, AMD et Intel.</p>
                       <p>Il existe plusieurs gammes de processeurs pour chaque constructeurs, qui correspondent à des utilisations particulières : Chez Intel,</p>
                           <ul>
-                              <li> Celereon et pentium : processeurs premier prix ; faibles performances.</li>
-                              <li>I3 : pour la bureautique, le multimédia et le home-cinéma (2 coeurs)</li>
-                              <li>I5 pour le jeu, le multimédia (2 et 4 cœurs)</li>
-                              <li>I7 pour le jeu avancé, le montage vidéo, la modélisation 3D  (4 cœurs)</li>
-                              <li>Les processeurs Xeon et Opteron sont destinés à un usage sur des serveurs uniquement.</li>
+                              <li><b>Celereon et pentium : </b>processeurs premier prix ; faibles performances.</li>
+                              <li><b>I3 :</b> pour la bureautique, le multimédia et le home-cinéma (2 coeurs)</li>
+                              <li><b>I5 : </b> pour le jeu, le multimédia (2 et 4 cœurs)</li>
+                              <li><b>I7 : </b>pour le jeu avancé, le montage vidéo, la modélisation 3D  (4 cœurs)</li>
+                              <li><b>Xeon et Opteron :</b> sont destinés à un usage sur des serveurs uniquement.</li>
                           </ul>
-
+                      <p>Chez AMD, </p>
+                          <ul>
+                              <li><b>gamme : </b>.</li>
+                          </ul>
                       <p>Pour comparer un processeur, dans une même gamme, il faut se référer aux benchmarks (tests des processeurs dans des conditions équivalentes, afin d’en comparer leurs performances) et aux conseils associés.
                           Il est parfois plus intéressant de prendre un i5 haut de gamme qu’un i7 d’entrée de gamme.</p>
                           Le nombre de cœur conditionne également la vitesse du processeur, car c’est sa capacité à effectuer des opérations en parallèle.
                       <p>Le socket correspond au type de connecteur utilisé pour connecter le processeur à la carte mère. L’architecture des processeurs évolue au fil des années, et de nouveaux sockets apparaissent :</p>
                       <ul>
-                          <li>socket 1151 pour l’architecture Kabylake et  Skylake</li>
-                          <li>1150 = Haswell ( Processeurs Intel 2013 )</li>
-                          <li>1155 = IvyBridge / SandyBridge ( Processeurs Intel 2011/2012 )</li>
-                          <li>2011 = IvyBridge-E ( Processeurs haut de gamme Intel 2012/2013 )</li>
+                          <li><b>Socket 1151 :</b> pour l’architecture Kabylake et  Skylake</li>
+                          <li><b>Socket 1150 :</b> pour l’architecture Haswell ( Processeurs Intel 2013 )</li>
+                          <li><b>Socket 1155 :</b> pour l’architecture IvyBridge / SandyBridge ( Processeurs Intel 2011/2012 )</li>
+                          <li><b>Socket 2011 :</b> pour l’architecture IvyBridge-E ( Processeurs haut de gamme Intel 2012/2013 )</li>
                       </ul>
                       <p>On choisit donc un processeur suivant sa gamme et en fonction de l’utilisation finale du PC.</p>
 
-                      <p>Prix :</p> Il existe deux types de conditionnement, en boîte, comme son nom l'indique livré dans un carton avec un ventirad
-                      et OEM, pour lequel le processeur est livré dans un blister sans ventirad. La garantie est égalemen limitée pour les processeurs OEM.
+                      <p>Il existe deux types de conditionnement, en boîte, comme son nom l'indique livré dans un carton avec un ventirad
+                      et OEM, pour lequel le processeur est livré dans un blister sans ventirad. La garantie est égalemen limitée pour les processeurs OEM.</p>
 
 
                       <div class="alert alert-success" role="alert">
-
-                          <ul>
-                              <li>Entrée de gamme : moins de 100 euros</li>
-                              <li>Milieu de gamme : de 100 à 200 euros</li>
-                              <li>Haut de gamme : plus de 200 euros</li>
-                          </ul>
+                          <div class="row">
+                              <div class="col-md-1"><i class="glyphicon glyphicon-euro fa-4x"></i></div>
+                              <div class="col-md-11">
+                                  <ul>
+                                      <li><b>Entrée de gamme :</b> moins de 100 euros</li>
+                                      <li><b>Milieu de gamme :</b> de 100 à 200 euros</li>
+                                      <li><b>Haut de gamme :</b> plus de 200 euros</li>
+                                  </ul>
+                              </div>
+                          </div>
                       </div>
 
                   </div>
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/processeur1.jpg" alt="Processeur">
-                      <img class="img-responsive" src="img/processeur2.jpg" alt="Processeur">
+                      <img class="img-responsive" src="img/processeur.jpg" alt="Processeur">
                   </div>
               </div>
               <hr />
               <!-- Carte mère -->
               <div class="row">
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/recup_condensateurs.jpg" alt="Récupération condensateurs">
+                      <img class="img-responsive" src="img/carte_mere.jpg" alt="Carte mère">
                   </div>
                   <div class="col-md-8 ptext">
-                      <h3 id="cartemere">Les condensateurs</h3>
-                      <p>Composant central d’un PC, sa qualité n’est pas à négliger. Il faut choisir sa carte mère en fonction de l’utilisation finale de la machine.
-                          Bureautique et home-cinéma Entrée de gamme entre 50€ et 100€
-                          Pour la bureautique (navigation web, traitement de texte…), une carte mère d’entrée de gamme suffit amplement
+                      <h3 id="cartemere">La carte mère</h3>
+                      <p>Composant central d’un PC, sa qualité n’est pas à négliger. Il faut choisir sa carte mère en fonction de l’utilisation finale de la machine. </p>
+                      <ul>
+                          <li><b> Bureautique et home-cinéma :</b> (navigation web, traitement de texte…), une carte mère d’entrée de gamme suffit amplement.
                           Pour le home-Cinéma, on privilégiera une carte mère de petite taille, afin de se loger dans un boitier adapté à cette utilisation. Prêter attention à la qualité des sorties audio si vous ne souhaitez pas utiliser de carte son dédiée.
-                          Socket 1155 et FM2+ chez AMD
-                          Besoins de performances et jeu : Milieu de gamme Entre 80 et 100€
-                          Socket 1151 avec chipset Z97
-                          Les interfaces sont nombreuses, avec le support de l’USB3, plusieurs supports pour ajouter de la RAM, présence de2 interface réseau…
-                          Pour le jeu avancé et performances accrues (montage vidéo, modélisation 3D…)
-                          150€ et plus. Socket 1151 et 2011-3 (support de la DDR4) et AM3+ pour AMD
-
-                          Format
-                          •  Un standard ATX présente les dimensions suivantes 305x244mm et accueille un connecteur AGP (pour les cartes graphiques) / 6 emplacements PCI
-                          •  Un standard micro-ATX fait 244x244mm et accueille un connecteur AGP + 3 emplacements PCI
-                          •  Un standard FlexATX propose 229x191mm, un connecteur AGP + 2 emplacements PCI
-                          •  Un standard mini-ATX aura 284x208mm, un connecteur AGP + 4 emplacements PCI
-                          •  Un standard mini-ITX fait 170x170mm et propose un emplacement PCI
-                          •  Un standard nano-ITX présente 120x120mm et un emplacement mini PCI
-                          •  Un standard BTX assure 7 connecteurs pour des dimensions de 325x267mm
-                          •  Un standard micro-BTX offre 4 connecteurs pour 264x267mm
-                          •  Un standard pico-BTX dispose de 203x267mm pour un connecteur
+                          Socket 1155 et FM2+ chez AMD.
+                          <li><b>Besoins de performances et jeu :</b> Socket 1151 avec chipset Z97. Les interfaces sont nombreuses, avec le support de l’USB3, plusieurs supports pour ajouter de la RAM, présence de 2 interface réseau…
+                          <li><b>Pour le jeu avancé et performances accrues : </b> (montage vidéo, modélisation 3D…) Socket 1151 et 2011-3 (support de la DDR4) et AM3+ pour AMD.
+                      </ul>
                       </p>
+                      <b>Formats :</b>
+                      <ul>
+                          <li><b> ATX :</b>  fait 305x244mm et accueille un connecteur AGP (pour les cartes graphiques) / 6 emplacements PCI</li>
+                          <li><b> micro-ATX :</b> fait 244x244mm et accueille un connecteur AGP + 3 emplacements PCI</li>
+                          <li><b> FlexATX :</b> fait 229x191mm, un connecteur AGP + 2 emplacements PCI</li>
+                          <li><b> mini-ATX :</b> fait 284x208mm, un connecteur AGP + 4 emplacements PCI</li>
+                          <li><b>mini-ITX :</b> fait 170x170mm et propose un emplacement PCI</li>
+                          <li><b> nano-ITX :</b>  fait 120x120mm et un emplacement mini PCI</li>
+                          <li><b> BTX :</b> fait 325x267mm et assure 7 connecteurs</li>
+                          <li><b> micro-BTX :</b> fait 264x267mm et offre 4 connecteurs </li>
+                          <li><b> pico-BTX :</b>  fait 203x267mm pour un connecteur</li>
+                      </ul>
+                      </p>
+
+                          <div class="alert alert-success" role="alert">
+                              <div class="row">
+                                  <div class="col-md-1"><i class="glyphicon glyphicon-euro fa-4x"></i></div>
+                                  <div class="col-md-11">
+                                      <ul>
+                                          <li><b>Entrée de gamme :</b> entre 50 et 80 euros</li>
+                                          <li><b>Milieu de gamme :</b> entre 80 et 150 euros</li>
+                                          <li><b>Haut de gamme :</b> plus de 150 euros</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+
                   </div>
 
               </div>
@@ -148,41 +168,55 @@
               <div class="row paragraph">
                   <div class="col-md-8 ptext">
                       <h3 id="memoire">La mémoire</h3>
-                      <p>Choisir la mémoire en fonction de la fréquence et du type supporté par la carte mère.
-                          Pour les PC fixes le format est toujours Dimm et SoDimm pour les protables sauf rares exceptions.
+                      <p>Choisir la mémoire en fonction de la fréquence et du type supporté par la carte mère. Pour les PC fixes le format est toujours Dimm et SoDimm pour les portables sauf rares exceptions.</p>
+                      <p> Les cartes mères travaillant en double canal, il est plus performant d’opter pour 2*2Go que pour une seule barrette de 8Go.</p>
+                      <p><i class="fa fa-check"></i>    <b>Le type de mémoire</b> est le critère essentiel, car les différents types de DDR sont totalement incompatibles physiquement et électroniquement. Il est donc choisi en fonction de la carte mère.
+                      <ul>
+                          <li><b>DDR3 :</b>type le plus utilisé (DDR3L existe mais rare, utilise 1.35v au lieu de 1.5v pour diminuer la consommation.) </li>
+                          <li><b>DDR4 :</b>nouveau type de mémoire encore coûteux </li>
+                      </ul>
+
+                      <p> Pour une configuration multimédia et bureautique, 8Go suffisent, alors que pour le jeu et le montage vidéo ou encore la modélisation 3D, 16Go sont confortables, voire 32Go pour des performances accrues.</p>
+
+                      <p><i class="fa fa-check"></i>    <b>La  fréquence :</b> De la PC 19200 (2400 MHz) est passe partout et fonctionnera quel que soit le chipset de la carte mère. La fréquence ne doit pas être inférieure celle de la carte mère, sinon il y a risque d’instabilité. En cas de fréquence supérieure, celle-ci sera bornée par la fréquence de la carte mère.</p>
+
+                      <p><i class="fa fa-check"></i>    <b>La  quantité :</b>
+                      <ul>
+                        <li><b>2*2 Go :</b> (il faut toujours un kit dual channel) pour les moins fortunés. Tous les jeux passeront mais peut-être avec quelques petits ralentissement. En bureautique simple c'est aussi suffisant.</li>
+                        <li><b>2*4 Go :</b> plus aucun problème dans les jeux, même les plus gourmands. Très bien en multimédia classique et en bureautique avancée.</li>
+                        <li><b>2*8 Go :</b> est pour nous la quantité optimale. De la CAO au jeu en passant par le multitâche intensif.</li>
+                        <li><b> 2*16 Go :</b> est souvent le maximum accepté par les cartes mères ne trouveront leur place que pour la CAO 3D et traitement parallèle de plusieurs images ou retouche photographique professionnelle par lot de plus de 25 images format RAW (situation peu probable).</li>
+                      </ul>
+                      </p>
+
+                      <p><i class="fa fa-check"></i>    <b>La  certification :</b>
+                      <ul>
+                          <li><b>Ecc :</b> fonctionnement sur 72 bits au lieu de 64bits, et possibilité de détection et correction d’erreurs obtenu par l’ajout d’un chip mémoire.</li>
+                          <li><b> Registered :</b>Barrette mémoire sur laquelle a été ajoutée un PLL et des registres pour gérer les signaux de commande et d’horloge à la place du north bridge et ainsi avoir la possibilité d’utiliser des barrettes de plus grande capacité ou en plus grand nombre.</li>
+                          <li><a href="http://www.x86-secret.com/articles/ram/ddreccreg/ddreccreg-2.htm">Plus d'informations</a></li>
+                      </ul>
+
+                      </p>
 
 
-                          Les cartes mères travaillant en double canal, il est plus performant d’opter pour 2*2Go que pour une seule barrette de 8Go.
-                          Le type de mémoire est le critère essentiel, car les différents types de DDR sont totalement incompatibles physiquement et électroniquement. Il est donc choisi en fonction de la carte mère.
-                          La DDR3 : type le plus utilisé (DDR3L existe mais rare, utilise 1.35v au lieu de 1.5v pour diminuer la consommation.
-                          DD4 : nouveau type de mémoire encore couteux
-
-
-                          Pour une configuration multimédia et bureautique, 8Go suffisent, alors que pour le jeu et le montage vidéo ou encore la modélisation 3D, 16Go sont confortables, voire 32Go pour des performances accrues.
-
-                          - Sa fréquence: De la PC 19200 (2400 MHz) est passe partout et fonctionnera quel que soit le chipset de la carte mère. La fréquence ne doit pas être inférieure celle de la carte mère, sinon il y a risque d’instabilité. En cas de fréquence supérieure, celle-ci sera bornée par la fréquence de la carte mère.
-
-                          - Sa quantité:
-                          . 2*2 Go (il faut toujours un kit dual channel) pour les moins fortunés. Tous les jeux passeront mais peut-être avec quelques petits ralentissement. En bureautique simple c'est aussi suffisant.
-                          . 2*4 Go plus aucun problème dans les jeux, même les plus gourmands. Très bien en multimédia classique et en bureautique avancée.
-                          . 2*8 Go est pour nous la quantité optimale. De la CAO au jeu en passant par le multitâche intensif.
-                          . 2*16 Go est souvent le maximum accepté par les cartes mères ne trouveront leur place que pour la CAO 3D et traitement parallèle de plusieurs images ou retouche photographique professionnelle par lot de plus de 25 images format RAW (situation peu probable).
-
-                          Ecc : fonctionnement sur 72 bits au lieu de 64bits, et possibilité de détection et correction d’erreurs obtenu par l’ajout d’un chip mémoire.
-                          Registered :
-                          Barrette mémoire sur laquelle a été ajoutée un PLL et des registres pour gérer les signaux de commande et d’horloge à la place du north bridge et ainsi avoir la possibilité d’utiliser des barrettes de plus grande capacité ou en plus grand nombre.
-                          http://www.x86-secret.com/articles/ram/ddreccreg/ddreccreg-2.htm
 
 
 
                       <div class="alert alert-success" role="alert">
-
-                          <ul>
-                              <li>Entrée de gamme : moins de 100 euros</li>
-                              <li>Milieu de gamme : de 100 à 200 euros</li>
-                              <li>Haut de gamme : plus de 200 euros</li>
-                          </ul>
+                          <div class="row">
+                              <div class="col-md-1"><i class="glyphicon glyphicon-euro fa-4x"></i></div>
+                              <div class="col-md-11">
+                                  <ul>
+                                      <li>Entrée de gamme : moins de 100 euros</li>
+                                      <li>Milieu de gamme : de 100 à 200 euros</li>
+                                      <li>Haut de gamme : plus de 200 euros</li>
+                                  </ul>
+                              </div>
+                          </div>
                       </div>
+
+
+
 
                   </div>
                   <div class="col-md-4 pimage">
