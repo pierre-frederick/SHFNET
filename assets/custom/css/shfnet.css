@@ -25,3 +25,11 @@ h2 {
 .minimenu {
     text-align: center;
 }
+
+.text-justify {
+    text-align: justify;
+}
+
+.articletext{
+    margin-bottom: 10vh;
+}

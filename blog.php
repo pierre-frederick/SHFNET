@@ -51,23 +51,55 @@ require_once 'includes/articles.php'; // fichier des fonctions
         <div class="container">
             <div class="row">
                 <h1 class="title">Blog</h1>
+
+
+
+                <?php
+                if(isset($_GET['a']))
+                { ?>
+                    <a href="javascript:history.go(-1)" class="btn btn-outline-warning">&larr; Retour </a>
+
+
+                <div class="row text-center">
+                    <h2 class="post-title">
+                        <?php echo $article['title']; ?>
+                    </h2>
+                    <h3 class="post-subtitle">
+                        <?php echo $article['subtitle']; ?>
+                    </h3>
+
+                    <div class="col-md-offset-2 col-md-8">
+                        <img src="<?php echo "/upload/" . $article['categorie'] . "/" .$article['url'] ?>" class="" title="<?php echo $article['url'] ?>">
+                    </div>
+                </div>
+
+                    <div class="row text-justify">
+                        <div class="col-md-offset-2 col-md-8 articletext">
+                        <?php echo $article['contenu']; ?>
+                        </div>
+                    </div>
+
+
+
+                 <?php
+                }
+                else
+                {
+                    ?>
                 Catégorie :
                 <div class="btn-group" role="group" aria-label="categorie">
                 <?php
                     foreach($ListeCategories as $categorie) { ?>
-                            <a class="btn btn-default" href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
-                                <?php
+                        <a class="btn btn-default" href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                        <?php
                     } ?>
-                </div>
+            </div>
+                    <hr>
 
-                <hr>
-                <?php
-                if(isset($_GET['a']))
-                {
-                    echo $article['contenu'];
-                }
-                else
-                {
+
+
+
+                    <?php
                     $articles = LastArticles($bdd, $idCategorie, $page);
                     foreach($articles as $article)
                     {
