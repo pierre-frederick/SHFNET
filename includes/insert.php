@@ -4,7 +4,7 @@ require_once '../includes/articles.php'; // fichier des fonctions
 
 if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categorie']) && isset($_POST['contenu']) && isset($_POST['date']) && isset($_POST['auteur']) && isset($_POST['legende']) ) //Si le formulaire est non vide
 {
-    $dossier = '../upload/';
+    $dossier = '../upload/articles/';
     $fichier = basename($_FILES['fic']['name']);
     $taille_maxi = 100000;
     $taille = filesize($_FILES['fic']['tmp_name']);

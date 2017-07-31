@@ -1,6 +1,6 @@
 <?php 
 require_once 'includes/functions.php'; // fichier des fonctions
-require_once 'includes/articles.php'; // fichier des fonctions
+require_once 'includes/projects.php'; // fichier des fonctions
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ require_once 'includes/articles.php'; // fichier des fonctions
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="blog électronique informatique">
+    <meta name="description" content="projets électronique informatique">
     <meta name="author" content="Pierre-Frédérick DENYS">
     <?php
     foreach($metas as $meta=>$value)
@@ -50,9 +50,7 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
         <div class="container">
             <div class="row">
-                <h1 class="title">Blog</h1>
-
-
+                <h1 class="title">Projets <?php  if(isset($_GET['s'])) {echo 'd\''. $_GET['s'];}  ?></h1>
 
                 <?php
                 if(isset($_GET['a']))
@@ -62,20 +60,20 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
                 <div class="row text-center">
                     <h2 class="post-title">
-                        <?php echo $article['title']; ?>
+                        <?php echo $project['title']; ?>
                     </h2>
                     <h3 class="post-subtitle">
-                        <?php echo $article['subtitle']; ?>
+                        <?php echo $project['subtitle']; ?>
                     </h3>
 
                     <div class="col-md-offset-2 col-md-8">
-                        <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" .$article['img'] ?>" class="" title="<?php echo $article['img'] ?>">
+                        <img src="<?php echo "/upload/articles/" . $project['categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
                     </div>
                 </div>
 
                     <div class="row text-justify">
                         <div class="col-md-offset-2 col-md-8 articletext">
-                        <?php echo $article['contenu']; ?>
+                        <?php echo $project['contenu']; ?>
                         </div>
                     </div>
 
@@ -89,8 +87,8 @@ require_once 'includes/articles.php'; // fichier des fonctions
                 Catégorie :
                 <div class="btn-group" role="group" aria-label="categorie">
                 <?php
-                    foreach($ListeCategories as $categorie) { ?>
-                        <a class="btn btn-default" href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                    foreach($ListeCategoriesProjects as $categorie) { ?>
+                        <a class="btn btn-default" href="projects.php?<?php echo "s=" . $subject . "&c=" .$categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
                         <?php
                     } ?>
             </div>
@@ -100,24 +98,24 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
 
                     <?php
-                    $articles = LastArticles($bdd, $idCategorie, $page);
-                    foreach($articles as $article)
+                    $projects = LastProjects($bdd, $subject, $idCategorie, $page);
+                    foreach($projects as $project)
                     {
                     ?>
                             <div class="post-preview row">
                                 <div class="col-md-3">
-                                    <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" .$article['img'] ?>" class="" title="<?php echo $article['legend'] ?>">
+                                    <img src="<?php echo "/upload/articles/" . $subject . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
                                 </div>
                                 <div class="col-md-9">
-                    <a href="blog.php?a=<?php echo $article['id'];?>">
+                    <a href="projects.php?a=<?php echo $project['id'];?>">
                                     <h2 class="post-title">
-                            <?php echo $article['title']; ?>
+                            <?php echo $project['title']; ?>
                                     </h2>
                                     <h3 class="post-subtitle">
-                            <?php echo $article['subtitle']; ?>
+                            <?php echo $project['subtitle']; ?>
                                     </h3>
                                 </a>
-                        <p class="post-meta">Posté par <a href="#"> <?php echo $article['author']; ?> </a> le  <?php $date = strtotime($article['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date) ; ?></p>
+                        <p class="post-meta">Posté le  <?php $date = strtotime($project['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date) ; ?></p>
 
                                 </div>
                             </div>
@@ -130,11 +128,11 @@ require_once 'includes/articles.php'; // fichier des fonctions
                     <ul class="pager">
                 <?php if($page > 1) { ?>
                     <li class="previous">
-                        <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page-1); else echo '?c='.$getCategorie.'&p='.($page-1); ?>" ><span aria-hidden="true">&larr;</span> Newer posts</a>
+                        <a href="<?php if($getCategorie == null) echo 'projects.php?s='.$subject .'&p='.($page-1); else echo 'projects.php?s='.$subject . '?c='. $getCategorie .'&p='.($page-1); ?>" ><span aria-hidden="true">&larr;</span> Newer posts</a>
                     </li>
                 <?php } ?>
                     <li class="next">
-                         <a href="<?php if($getCategorie == null) echo 'blog.php?p='.($page+1); else echo '?c='.$getCategorie.'&p='.($page+1); ?>" >Older Posts <span aria-hidden="true">&rarr;</span></a>
+                         <a href="<?php if($getCategorie == null) echo 'projects.php?s='.$subject .'&p='.($page+1); else echo 'projects.php?s='.$subject . '?c='. $getCategorie.'&p='.($page+1); ?>" >Older Posts <span aria-hidden="true">&rarr;</span></a>
                     </li>
 
                     </ul>

@@ -21,7 +21,7 @@ require_once '/includes/articles.php'; // fichier des fonctions
                         {
                             ?>
                             <div class="col-md-3">
-                                <img src="<?php echo "/upload/" . $article['categorie'] . "/" .$article['url'] ?>" class="" title="<?php echo $article['url'] ?>">
+                                <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" .$article['img'] ?>" class="" title="<?php echo $article['legend'] ?>">
                                     <h3><a class="hover-effect" href="/blog.php?a=<?php echo $article['id'];?>"><?php echo $article['title']; ?></a></h3>
                                     <h3 class="post-subtitle">
                                         <?php echo $article['subtitle']; ?>

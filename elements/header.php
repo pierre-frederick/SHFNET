@@ -36,12 +36,13 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="/index.php">Accueil</a></li>
             <li class="dropdown">
-              <a href="/pages/electronique/elec.php" class="dropdown-toggle" data-toggle="dropdown">Electronique <b class="caret"></b></a>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">Electronique <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/pages/electronique/theorie/index.php">Théorie</a></li>
                   <li><a href="/pages/electronique/caisse_a_outils/index.php">Caisse à outil</a></li>
                 <li><a href="/pages/electronique/circuits_communs/index.php">Circuits Communs</a></li>
                 <li><a href="/pages/electronique/arduino/index.php">Arduino</a></li>
+                  <li><a href="/projects.php?s=élec">Projets</a></li>
               </ul>
             </li>
               <li class="dropdown">
@@ -52,6 +53,7 @@
                       <li><a href="/pages/informatique/domotique/index.php">Domotique</a></li>
                       <li><a href="/pages/informatique/raspi/index.php">Raspberry Pi</a></li>
                       <li><a href="/pages/informatique/git.php">Git</a></li>
+                      <li><a href="/pages/informatique/bootstrap.php">Bootstrap</a></li>
                   </ul>
               </li>
               <li><a href="/pages/services.php">Services</a></li>

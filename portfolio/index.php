@@ -254,7 +254,7 @@
 
     <div class="row footer">
         <div class="col-md-4 col-md-offset-4 text-center">
-            <p>&copy; SHFNET, 2017</p>
+            <p>&copy; SHFNET 2017, thème inspiré de <a href=https://www.behance.net/gallery/23295199/Freebie-2015-Resume-Template">Freebie</a></p>
         </div>
         <div class="col-md-2 col-md-offset-2 text-center">
             <p> <a href="/index.php"><img src="/img/logo_shfnet_footer.png" width = 100 alt="Logo SHFNET" /></a></p>
