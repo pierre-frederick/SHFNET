@@ -53,7 +53,7 @@ require_once 'includes/projects.php'; // fichier des fonctions
                 <h1 class="title">Projets <?php  if(isset($_GET['s'])) {echo 'd\''. $_GET['s'];}  ?></h1>
 
                 <?php
-                if(isset($_GET['a']))
+                if(isset($_GET['project']))
                 { ?>
                     <a href="javascript:history.go(-1)" class="btn btn-outline-warning">&larr; Retour </a>
 
@@ -67,7 +67,7 @@ require_once 'includes/projects.php'; // fichier des fonctions
                     </h3>
 
                     <div class="col-md-offset-2 col-md-8">
-                        <img src="<?php echo "/upload/articles/" . $project['categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
+                        <img src="<?php echo "/upload/projects/" . $project['subject'] . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
                     </div>
                 </div>
 
@@ -104,10 +104,10 @@ require_once 'includes/projects.php'; // fichier des fonctions
                     ?>
                             <div class="post-preview row">
                                 <div class="col-md-3">
-                                    <img src="<?php echo "/upload/articles/" . $subject . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
+                                    <img src="<?php echo "/upload/projects/" . $subject . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
                                 </div>
                                 <div class="col-md-9">
-                    <a href="projects.php?a=<?php echo $project['id'];?>">
+                    <a href="projects.php?project=<?php echo $project['id'];?>">
                                     <h2 class="post-title">
                             <?php echo $project['title']; ?>
                                     </h2>

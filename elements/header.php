@@ -10,7 +10,7 @@
             <ul class="loginbar">
                 <li><a href="/portfolio" class="login-btn">A propos de l'auteur</a></li>
                 <li class="devider">&nbsp;</li>
-                <li><a href="https://intranet.shfnet.fr" class="login-btn">Login</a></li>
+                <li><a href="/admin/" class="login-btn">Login</a></li>
             </ul>
         </div>
     </div>

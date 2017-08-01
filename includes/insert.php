@@ -56,5 +56,3 @@ if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categori
 			exit(0);
 }
 //header('Location: /?error=Une erreur est survenue.');
-
-?>

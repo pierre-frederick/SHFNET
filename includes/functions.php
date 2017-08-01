@@ -100,4 +100,8 @@ function GetCategorieProjects(PDO $BDD, $id)
 
 }
 
-?> 
+function LastBanners(PDO $BDD)
+{
+    $request = $BDD->query('SELECT * FROM site.public.banners ORDER BY date DESC LIMIT 5');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
