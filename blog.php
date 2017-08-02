@@ -100,7 +100,7 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
 
                     <?php
-                    $articles = LastArticles($bdd, $idCategorie, $page);
+                    $articles = LastArticles($bdd, $idCategorie, $page, 4);
                     foreach($articles as $article)
                     {
                     ?>

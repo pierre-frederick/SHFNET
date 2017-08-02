@@ -39,17 +39,18 @@ function GetArticle(PDO $BDD, $id)
 	return $request->fetch(PDO::FETCH_ASSOC);
 }
 
-function LastArticles(PDO $BDD, $categorie = null, $p = 1)
+
+function LastArticles(PDO $BDD, $categorie = null, $p = 1, $n=4)
 {
 	if($categorie == null)
 	{
-		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, img, legend FROM site.public.articles ORDER BY date DESC LIMIT ? OFFSET ?');
-		$request->execute(array(4, ($p-1)*4));
+		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, img, legend, contenu FROM site.public.articles ORDER BY date DESC LIMIT ? OFFSET ?');
+		$request->execute(array($n, ($p-1)*$n));
 	}
 	else
 	{
-		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, img, legend FROM site.public.articles WHERE categorie = ? ORDER BY date DESC LIMIT ? OFFSET ?');
-		$request->execute(array($categorie, 4, ($p-1)*4));
+		$request = $BDD->prepare('SELECT author, date, title, subtitle, id, categorie, img, legend, contenu FROM site.public.articles WHERE categorie = ? ORDER BY date DESC LIMIT ? OFFSET ?');
+		$request->execute(array($categorie, $n, ($p-1)*$n));
 	}
 	return $request->fetchAll(PDO::FETCH_ASSOC);
 

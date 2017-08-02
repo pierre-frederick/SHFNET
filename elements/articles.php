@@ -16,7 +16,7 @@ require_once '/includes/articles.php'; // fichier des fonctions
                     }
                     else
                     {
-                        $articles = LastArticles($bdd, $idCategorie, $page);
+                        $articles = LastArticles($bdd, $idCategorie, $page, 4);
                         foreach($articles as $article)
                         {
                             ?>

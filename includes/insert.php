@@ -2,6 +2,12 @@
 require_once '../includes/functions.php'; // fichier des fonctions
 require_once '../includes/articles.php'; // fichier des fonctions
 
+
+if (isset($_GET['modification'])) {
+    $caca=true;
+}
+
+
 if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categorie']) && isset($_POST['contenu']) && isset($_POST['date']) && isset($_POST['auteur']) && isset($_POST['legende']) ) //Si le formulaire est non vide
 {
     $dossier = '../upload/articles/';
