@@ -32,14 +32,27 @@
 
 
 <div class="container">
-    <div class="article">
-        <h1 class="title"><i class="fa fa-handshake-o"></i>   Services</h1>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Coming soon !</h2>
+
+
+
+            <div class="wrapper row2">
+                <div id="container" class="clear">
+
+                    <section id="fof" class="clear">
+                        <div class="hgroup">
+                            <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span></h1>
+                            <h2>Error ! <span>Page Not Found</span></h2>
+                        </div>
+                        <p>Une erreur dans l'url, ou une page pas encore écrite, patience ! </p>
+                        <p><a href="javascript:history.go(-1)">&laquo; Go Back</a> / <a href="/">Go Home &raquo;</a></p>
+                    </section>
+                </div>
             </div>
-        </div>
-    </div>
+
+
+
+
+
 </div>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>

@@ -112,14 +112,14 @@
 
                   </div>
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/processeur.jpg" alt="Processeur">
+                      <img class="img-responsive" src="img/processeur.png" alt="Processeur">
                   </div>
               </div>
               <hr />
               <!-- Carte mère -->
               <div class="row">
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/carte_mere.jpg" alt="Carte mère">
+                      <img class="img-responsive" src="img/carte_mere.png" alt="Carte mère">
                   </div>
                   <div class="col-md-8 ptext">
                       <h3 id="cartemere">La carte mère</h3>
@@ -207,9 +207,9 @@
                               <div class="col-md-1"><i class="glyphicon glyphicon-euro fa-4x"></i></div>
                               <div class="col-md-11">
                                   <ul>
-                                      <li>Entrée de gamme : moins de 100 euros</li>
-                                      <li>Milieu de gamme : de 100 à 200 euros</li>
-                                      <li>Haut de gamme : plus de 200 euros</li>
+                                      <li><b>Entrée de gamme :</b> moins de 100 euros</li>
+                                      <li><b>Milieu de gamme :</b> de 100 à 200 euros</li>
+                                      <li><b>Haut de gamme :</b> plus de 200 euros</li>
                                   </ul>
                               </div>
                           </div>
@@ -220,8 +220,7 @@
 
                   </div>
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/processeur1.jpg" alt="Processeur">
-                      <img class="img-responsive" src="img/processeur2.jpg" alt="Processeur">
+                      <img class="img-responsive" src="img/memoire.png" alt="Mémoire PC">
                   </div>
               </div>
               <hr />
@@ -229,30 +228,36 @@
               <!-- Disques -->
               <div class="row">
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/recup_condensateurs.jpg" alt="Récupération condensateurs">
+                      <img class="img-responsive" src="img/disque_dur.png" alt="Disque dur stockage">
                   </div>
                   <div class="col-md-8 ptext">
                       <h3 id="disques">Les disques</h3>
-                      <p>Le ssd  :
-                          Le format
-                          2,5 pouces. (faire attention à l’épaisseur dans le cas de remplacement d’un disque de portable).
-                          mSATA et M.2: pour les pc portables
-                          M .2 : format pour gain de place, mais n’est pas plus performant que le SATA.
-                          le débit maximal est de 550 Mo/s PCIe X2 (sur deux voies) atteignait 1 Go/s de débit
-                          PCI Express : disque au format carte d’extension, 984 M0/s SSD PCIe 3 X4 un engin capable d’encaisser quasiment 4 Go/
+                      <p><i class="fa fa-check"></i>    <b>Le SSD :</b>  un disque SSD se décline en plusieurs formats :</p>
+                      <ul>
+                          <li><b>2,5 pouces :</b> format standard pour les PC fixes et portables (faire attention à l’épaisseur dans le cas de remplacement d’un disque de portable).</li>
+                          <li><b>mSATA et M.2 :</b> format pour gain de place utilisé dans les PC portables, mais n’est pas plus performant que le SATA. Pour le M.2, le débit maximal est de 550 Mo/s PCIe X2 (sur deux voies) atteignait 1 Go/s de débit</li>
+                          <li><b>PCI Express :</b> disque au format carte d’extension, un SSD PCIe 3 X4 est un engin capable d’encaisser quasiment 4 Go/s.</li>
+                      </ul>
 
-                          Capacité
-                          Généralement, un ssd est utile pour le système d’exploitation et améliorer sa rapidité d’exécution. Il faut prendre en compte que sur un disque de 120Go par exemple on ne pourra exploiter que 110Go après l’avoir formaté.
-                          Le dossier d’installation de windows 10 prend environ 20 Go, le fichier de swap prend un espace égal à la moitié de la RAM, plus le fichier servant à la mise en veille prolongée du pc représentant 75% de la RAM.
-                          120Go est donc le minimum (Il faudra tout de même ajouter un HDD pour les documents).
-                          Il est peu recommandé d’utiliser un disque ssd pour stocker des fichiers recevant des modifications et déplacement fréquents pour minimiser les cycles de lecture/écriture qui sont limités. Cependant, dans le cas d’une utilisation normale, le disque peut durer largement 10ans.
-                          Dans certains cas, notamment pour le traitement de fichier RAW très lourds, et si le budget le permet, il est possible de prévoir un espace supplémentaire pour stocker ces fichiers.
-
-                          Le HDD est actuellement préféré pour le stockage de données, car le prix au Go est dérisoire, et les cycles de lecture/écriture infinis.
-                          Pour le choix d’un disque HDD, il faut calculer l’espace nécessaire au stockage des fichiers en prévoyant une assez grande marge. Un disque d’un To est généralement suffisant et peu couteux.
-                          Dans ce cas, la différence de rapidité entre les modèles est négligeable, et il faut privilégier la fiabilité. Généralement, les disques WD connaissent un taux de panne très faible. Il faut bien choisir le modèle en fonction de son utilisation. En effet les disques d’un NAS ou d’un média center doivent être prévus pour tourner 24/24h et 7/7j (WD RED). Pour une utilisation classique, les WD blue sont un bon choix.
-
+                      <p><i class="fa fa-check"></i>    <b>HDD :</b>  Le HDD est actuellement préféré pour le stockage de données, car le prix au Go est dérisoire, et les cycles de lecture/écriture infinis.</p>
+                      <p> Pour le choix d’un disque HDD, il faut calculer l’espace nécessaire au stockage des fichiers en prévoyant une assez grande marge. Un disque d’un To est généralement suffisant
+                          et peu couteux. <br />
+                          Dans ce cas, la différence de rapidité entre les modèles est négligeable, et il faut privilégier la fiabilité. Généralement, les disques WD connaissent un taux de panne très faible.<br />
+                          Il faut bien choisir le modèle en fonction de son utilisation. En effet les disques d’un NAS ou d’un média center doivent être prévus pour tourner 24/24h et 7/7j (WD RED). <br />
+                          Pour une utilisation classique, les WD blue sont un bon choix.
                       </p>
+
+
+                      <p><i class="fa fa-check"></i>    <b>Capacité :</b> </p>
+                     <p> Généralement, un ssd est utile pour le système d’exploitation et améliorer sa rapidité d’exécution. Il faut prendre en compte que sur un disque de 120Go par exemple on ne pourra exploiter
+                         que 110Go après l’avoir formaté.<br />
+                         Le dossier d’installation de windows 10 prend environ 20 Go, le fichier de swap prend un espace égal à la moitié de la RAM, plus le fichier servant à la mise en veille prolongée du pc
+                         représentant 75% de la RAM.<br />
+                         <b>120Go est donc le minimum </b> (Il faudra tout de même ajouter un HDD pour les documents).<br />
+                         Il est peu recommandé d’utiliser un disque ssd pour stocker des fichiers recevant des modifications et déplacement fréquents pour minimiser les cycles de lecture/écriture qui sont limités.
+                         Cependant, dans le cas d’une utilisation normale, le disque peut durer largement 10ans.<br />
+                         Dans certains cas, notamment pour le traitement de fichier RAW très lourds, et si le budget le permet, il est possible de prévoir un espace supplémentaire pour stocker ces fichiers. </p>
+
                   </div>
 
               </div>
@@ -262,45 +267,46 @@
               <div class="row paragraph">
                   <div class="col-md-8 ptext">
                       <h3 id="alimentation">L'alimentation</h3>
-                      <p>L’alimentation est l’une des pièces les plus importantes d’un PC. Afin de garantir sa longévité, elle doit être de bonne qualité et dotée d’une puissance adaptée.
+                      <p>L’alimentation est l’une des pièces les plus importantes d’un PC. Afin de garantir sa longévité, elle doit être de bonne qualité et dotée d’une puissance adaptée.<br />
                           Une alimentation bas de gamme, sera bruyante, consommera et chauffera plus, du fait de son faible rendement, et fournira une tension dont la stabilité est approximative, ce qui pourra abîmer les composants du PC.
-                          Il faut également bannir les alimentations déjà intégrées aux boitiers qui sont généralement de piètre qualité.
-                          Format
-                          Format ATX : format le plus courant
-                          Format SFX : format pour les plus petits boitiers.
-                          Format TFX : pour les anciens PC professionnels dotés de petits boitiers.
-                          Puissance
-                          Il faut choisir la puissance en fonction de la consommation de tous les composants du PC, en conservant un e marge pour le upgrades, et en ne sur dimensionnant pas trop pour ne pas perdre en rendement.
-                          Voici un configurateur qui vous permettra de calculer la puissance nécessaire à votre configuration, sachant que l’efficacité d’une alimentation se situe à 50-60% de sa charge maximale.
-                          http://www.bequiet.com/fr/psucalculator
-                          Connectique
-                          Il convient de vérifier sur la fiche de l’alimentation si elle est munie d’un nombre suffisant de connecteurs pour votre configuration (cartes graphiques, disques durs…), ce qui est généralement le cas.
-                          Certaines alimentations sont modulaires, ce qui permet d’éliminer les câbles inutiles et améliorer la circulation de l’air dans le boîtier.
+                          Il faut également bannir les alimentations déjà intégrées aux boitiers qui sont généralement de piètre qualité.</p>
 
-                          En général des alimentations de marque Be Quiet, corsair ou seasonic sont un gage de qualité, avec un petit plus pour Be quiet.
-                          Certifications
-                          La certification représente la qualité de l’alimentation, et surtout son rendement, c’est-à-dire sa capacité à fournir l’énergie en composants du PC avec un minimum de pertes.
-                          Il existe 5 niveaux de certifications :
-                          	Alimentation 80 Plus Bronze : environ 85% de rendement à 50% de charge
-                          	Alimentation 80 Plus Argent : environ 88% de rendement à 50% de charge Alimentation 80 Plus Or : environ 90% de rendement à 50% de charge
-                          	Alimentation 80 Plus Platinum : environ 94% de rendement à 50% de charge
-                          	Alimentation 80 Plus Titanium : environ 96% de rendement à 50% de charge
+                      <p><i class="fa fa-check"></i>    <b>Le SSD :</b>  un disque SSD se décline en plusieurs formats :</p>
+                      <ul>
+                          <li><b>Format ATX :</b> format le plus courant</li>
+                          <li><b>Format SFX :</b> format pour les plus petits boitiers.</li>
+                          <li><b>Format TFX :</b> pour les anciens PC professionnels dotés de petits boitiers.</li>
+                      </ul>
 
+                      <p><i class="fa fa-check"></i>    <b>Puissance :</b>  Il faut choisir la puissance en fonction de la consommation de tous les composants du PC, en conservant une marge pour le upgrades,
+                          et en ne sur dimensionnant pas trop pour ne pas perdre en rendement.
+                          Voici un configurateur qui vous permettra de calculer la puissance nécessaire à votre configuration, sachant que l’efficacité d’une alimentation se situe à 50-60% de sa charge maximale :<br />
+                      <a href="http://www.bequiet.com/fr/psucalculator" target="_blank"></a> Be Quiet</p>
+                      <ul>
+                          <li><b>Format ATX :</b> format le plus courant</li>
+                          <li><b>Format SFX :</b> format pour les plus petits boitiers.</li>
+                          <li><b>Format TFX :</b> pour les anciens PC professionnels dotés de petits boitiers.</li>
+                      </ul>
 
+                      <p><i class="fa fa-check"></i>    <b>Connectique :</b>  Il convient de vérifier sur la fiche de l’alimentation si elle est munie d’un nombre suffisant de connecteurs pour votre configuration
+                          (cartes graphiques, disques durs…), ce qui est généralement le cas.
+                          Certaines alimentations sont modulaires, ce qui permet d’éliminer les câbles inutiles et améliorer la circulation de l’air dans le boîtier.</p>
 
-                      <div class="alert alert-success" role="alert">
+                      <p><i class="fa fa-check"></i>    <b>Certification :</b>  En général les alimentations des marques Be Quiet, corsair ou seasonic sont un gage de qualité, avec un petit plus pour Be quiet.<br />
+                          La certification représente la qualité de l’alimentation, et surtout son rendement, c’est-à-dire sa capacité à fournir l’énergie en composants du PC avec un minimum de pertes.  Il existe 5 niveaux de certifications :</p>
+                      <ul>
+                          <li><b>Alimentation 80 Plus Bronze :</b> environ 85% de rendement à 50% de charge</li>
+                          <li><b>Alimentation 80 Plus Argent :</b> environ 88% de rendement à 50% de charge</li>
+                          <li><b>Alimentation 80 Plus Or :</b> environ 90% de rendement à 50% de charge</li>
+                          <li><b>Alimentation 80 Plus Platinum :</b> environ 94% de rendement à 50% de charge</li>
+                          <li><b>Alimentation 80 Plus Titanium :</b> environ 96% de rendement à 50% de charge</li>
+                      </ul>
 
-                          <ul>
-                              <li>Entrée de gamme : moins de 100 euros</li>
-                              <li>Milieu de gamme : de 100 à 200 euros</li>
-                              <li>Haut de gamme : plus de 200 euros</li>
-                          </ul>
-                      </div>
 
                   </div>
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/processeur1.jpg" alt="Processeur">
-                      <img class="img-responsive" src="img/processeur2.jpg" alt="Processeur">
+                      <img class="img-responsive" src="img/alimentation1.png" alt="Processeur">
+                      <img class="img-responsive" src="img/alimentation2.png" alt="Processeur">
                   </div>
               </div>
               <hr />
@@ -308,7 +314,7 @@
               <!-- Boitier -->
               <div class="row">
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/recup_condensateurs.jpg" alt="Récupération condensateurs">
+                      <img class="img-responsive" src="img/boitier.png" alt="Boitier">
                   </div>
                   <div class="col-md-8 ptext">
                       <h3 id="boitier">Le boitier</h3>
@@ -334,19 +340,10 @@
 
 
 
-                      <div class="alert alert-success" role="alert">
-
-                          <ul>
-                              <li>Entrée de gamme : moins de 100 euros</li>
-                              <li>Milieu de gamme : de 100 à 200 euros</li>
-                              <li>Haut de gamme : plus de 200 euros</li>
-                          </ul>
-                      </div>
 
                   </div>
                   <div class="col-md-4 pimage">
-                      <img class="img-responsive" src="img/processeur1.jpg" alt="Processeur">
-                      <img class="img-responsive" src="img/processeur2.jpg" alt="Processeur">
+                      <img class="img-responsive" src="img/radiateur.png" alt="Radiateur PC">
                   </div>
               </div>
               <hr />
@@ -354,7 +351,7 @@
 
 
 
-              Emplacement
+          <!--    Emplacement
               Il est recommandé de ne pas placer votre boitier au niveau du sol pour éviter la poussière, sauf si vous l’équipez de filtres et le dépoussiérez régulièrement.
               Eviter également les variations de températures et l’ensoleillement direct.
               Le minimum de protection est le branchement sur une prise dotée de protection contre les surtensions.
@@ -366,7 +363,7 @@
               Alimentation
               Une alimentation se place soit en haut ou en bas du boitier suivant la configuration du boitier.
               Si elle est en fond de boitier, Il est recommandé de placer l’alimentation de telle sorte qu’elle aspire l’air par le fond (il y a souvent une grille au fond du boitier), pour éviter d’aspirer l’air chaud des autres composants.
-
+            -->
 
           </div>
       </div>

@@ -40,13 +40,13 @@
             <div class="col-md-6 col-md-offset-3">
 
                 <div class="list-group">
-                    <a href="recup_composants.php" class="list-group-item">
-                        <h4 class="list-group-item-heading">Récupération des composants</h4>
-                        <p class="list-group-item-text">Economisez et ayez toujours un stock de pièces de rechange.</p>
+                    <a href="circuits_aop.php" class="list-group-item">
+                        <h4 class="list-group-item-heading">Circuits à AOP</h4>
+                        <p class="list-group-item-text">Mise en pratique des amplificateurs opérationnels.</p>
                     </a>
-                    <a href="brochage_composants.php" class="list-group-item ">
-                        <h4 class="list-group-item-heading">Brochage des composants</h4>
-                        <p class="list-group-item-text">Vous oubliez tout le temps de sens de branchement de ce transistor ?</p>
+                    <a href="circuits_alimentation.php" class="list-group-item ">
+                        <h4 class="list-group-item-heading">Alimentation</h4>
+                        <p class="list-group-item-text">Schémas pour fabriquer ses alimentations secteur.</p>
                     </a>
                 </div>
             </div>

@@ -33,7 +33,7 @@
 
 <div class="container">
     <div class="article">
-        <h1 class="title">Contact</h1>
+        <h1 class="title">Contact    <i class="fa fa-address-card"></i></h1>
         <div class="row">
             <div class="col-md-12">
                 <h2>Coming soon !</h2>

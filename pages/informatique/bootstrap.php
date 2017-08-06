@@ -46,15 +46,9 @@
             <div class="col-md-12 content">
                 <div class="row">
 
-                    <div class="alert alert-info">
-                        L'option -a permet de s'affranchir la phase d'indexation (éviter de faire <code class="language-bash">git add</code>). <code class="language-bash">$ git commit -a</code>
-                    </div>
+                    <p><b>Icônes :  </b> moteur de recherche d'icônes <a href="https://glyphsearch.com/" target="_blank">ici</a>
 
-                    <p><b>Ajouter des dépôts distants :  </b>  Pour ajouter un nouveau dépôt distant Git comme nom court auquel il est facile de faire référence</p>
-                    <pre><code class="language-bash">$ git remote add [nomcourt] [url]</code></pre>
-                    <pre><code class="language-html">	&lt;a&gt; blal   &lt;/a&gt;</code></pre>
-
-                    https://glyphsearch.com/
+                    <hr />
                     
 <!-- DROPDOWN -->
                     <p><b>Dropdown :  </b> élément déroulant vers le bas pouvant être vers le haut avec <code class="language-css">class="dropup"</code>  au lieu de <code class="language-css">class="dropdown"</code> </p>
@@ -93,46 +87,7 @@
                             </div>
                         </div>
                     </div>
-<!-- END BLOC -->
-
-<!-- DROPDOWN -->
-                    <p><b>Dropdown :  </b>  </p>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <pre><code class="language-html">
-&lt;div class="dropdown"&gt;
-    &lt;button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"&gt;
-        Dropdown
-        &lt;span class="caret"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
-        &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-                                </code></pre>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Dropdown
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-<!-- END BLOC -->
-
-
+<!-- END DROPDOWN -->
 
 
 

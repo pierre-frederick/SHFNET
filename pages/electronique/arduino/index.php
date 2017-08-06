@@ -36,19 +36,35 @@
      <div class="article">
          <h1 class="title"><i class="ionicons ion-ios-infinite"></i>   Arduino</h1>
 
+         <h2 class="text-center">Théorie et bases</h2>
          <div class="row minimenu">
              <div class="col-md-6 col-md-offset-3">
-
+                <h2>Théorie</h2>
                  <div class="list-group">
-                     <a href="recup_composants.php" class="list-group-item">
-                         <h4 class="list-group-item-heading">Récupération des composants</h4>
-                         <p class="list-group-item-text">Economisez et ayez toujours un stock de pièces de rechange.</p>
+                     <a href="presentation_arduino.php" class="list-group-item ">
+                         <h4 class="list-group-item-heading">Présentation d'arduino</h4>
+                         <p class="list-group-item-text">Présentation générale et fonctionnement de la carte</p>
                      </a>
-                     <a href="brochage_composants.php" class="list-group-item ">
-                         <h4 class="list-group-item-heading">Brochage des composants</h4>
-                         <p class="list-group-item-text">Vous oubliez tout le temps de sens de branchement de ce transistor ?</p>
+                     <a href="fabriquer_arduino.php" class="list-group-item">
+                         <h4 class="list-group-item-heading">Fabrication Arduino</h4>
+                         <p class="list-group-item-text">Fabriquer un arduino à partir d'un micro-contrôleur.</p>
+                     </a>
+                     <a href="programmer_arduino.php" class="list-group-item">
+                         <h4 class="list-group-item-heading">Programmer sur arduino</h4>
+                         <p class="list-group-item-text">Règles et conseils de programmation.</p>
                      </a>
                  </div>
+                 <h2>Arduino en pratique</h2>
+                 <div class="list-group">
+                     <a href="modules_arduino.php" class="list-group-item">
+                         <h4 class="list-group-item-heading">Modules Arduino</h4>
+                         <p class="list-group-item-text">Fabriquer vous-même vos modules pour prototypage.</p>
+                     </a>
+                 </div>
+
+
+
+
              </div>
          </div>
 
