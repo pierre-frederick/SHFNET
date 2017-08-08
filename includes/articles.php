@@ -2,8 +2,10 @@
 
 $bdd = ConnexionDB();
 
-$ListeCategories = ListeCategoriesArticle($bdd);
-$idCategorie = null;
+if(isset($bdd)) {
+    $ListeCategories = ListeCategoriesArticle($bdd);
+    $idCategorie = null;
+
 
 
 if(isset($_GET['p']) && $_GET['p'] > 0) {
@@ -45,5 +47,4 @@ else if(isset($_GET['a']))
     $metas['og:description'] = $article['subtitle'];
     $date = new DateTime($article['date']);
 }
-
-
+}

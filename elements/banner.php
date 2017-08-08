@@ -10,6 +10,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                 <?php
                 setlocale(LC_ALL, 'fr_FR.UTF-8');
                 $bdd = ConnexionDB();
+                if(isset($bdd)) {
+
                 $banners = LastBanners($bdd);
                 if(!empty($banners)) {
                     foreach($banners as $banner) {?>
@@ -27,12 +29,12 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                             </div>
                         </div>
 
-                    <?php } }
+                    <?php } }}
                 else
                 { ?>
                     <div class="da-slide">
-                        <h2><i>SHFNET</i> <br> <i>Responsive </i> <br> <i>HTML5 & CSS3 & PHP</i></h2>
-                        <p><i>Coming soon !</i> <br> <i>Elec & info</i> <br> <i>Projets et articles</i></p>
+                        <h2><i>SHFNET</i> <br> <i></i> <br> <i></i></h2>
+                        <p><i>Désolé !</i> <br> <i>Nous rencontrons des</i> <br> <i>problèmes techniques</i></p>
                         <div class="da-img"><img src="/assets/custom/img/Responsive-Website-Design-Devices.png" alt="" /></div>
                     </div>
                 <?php  } ?>

@@ -1,6 +1,6 @@
 <?php
 
-
+$PROFILE_DEV = false;
 function ConnexionDB() //Fonction permettant de se connecter à une base de donnée 
 {
 	try
@@ -11,8 +11,12 @@ function ConnexionDB() //Fonction permettant de se connecter à une base de donn
 	}
 	catch (PDOException $e)
 	{
-		throw new Exception($e->getMessage(), $e->getCode());
-	}
+	    //DEV
+		//throw new Exception($e->getMessage(), $e->getCode());
+		//PROD
+        //print "Erreur !: " . $e->getMessage() . "<br/>";
+        $BDD =null;
+    }
 
 	return $BDD;
 }

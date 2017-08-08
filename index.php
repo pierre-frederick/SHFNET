@@ -31,9 +31,9 @@
           <?php include($_SERVER['DOCUMENT_ROOT']."/elements/header.php"); ?>
           <?php include($_SERVER['DOCUMENT_ROOT']."/elements/banner.php"); ?>
           <?php include($_SERVER['DOCUMENT_ROOT']."/elements/aside.php"); ?>
-          <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/articles.php"); ?>
-          <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/projects.php"); ?>
-          <?php include($_SERVER['DOCUMENT_ROOT'] ."/elements/citation.php"); ?>
+          <?php include($_SERVER['DOCUMENT_ROOT']."/elements/articles.php"); ?>
+          <?php include($_SERVER['DOCUMENT_ROOT']."/elements/projects.php"); ?>
+          <?php include($_SERVER['DOCUMENT_ROOT']."/elements/citation.php"); ?>
           <?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
 
 	

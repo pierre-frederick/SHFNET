@@ -34,16 +34,21 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
 
 
                   <?php
+                  if(isset($article) || $PROFILE_DEV == true) {
                       $articles = LastArticles($bdd, null, 1, 3);
-                      foreach($articles as $article)
-                      {
+                      foreach ($articles as $article) {
                           ?>
-                            <p>
-                              <strong><a class="hover-effect" href="/blog.php?a=<?php echo $article['id'];?>"><?php echo $article['title']; ?></a></strong><br>
-                                  <?php echo $article['subtitle']; ?>
+                          <p>
+                              <strong><a class="hover-effect"
+                                         href="/blog.php?a=<?php echo $article['id']; ?>"><?php echo $article['title']; ?></a></strong><br>
+                              <?php echo $article['subtitle']; ?>
                           </p>
                           <?php
                       }
+                  }
+                  else {
+                      echo 'Désolé ! Problème de communication avec la base de donnée';
+                  }
                   ?>
 			  </div>
 			  <div class="col-md-3">

@@ -33,25 +33,30 @@ $bdd = ConnexionDB();
 
 
                 <?php
-                $projects = LastProjects($bdd, null, null, 1);
-                if(isset($projects))
-                {
-                    foreach($projects as $project) {?>
-                    <div class="media">
-                        <a class="pull-left" href="/<?php echo $project['subject']?>/<?php echo $project['id']?>">
-                            <img src="<?php echo $project['img']?>" class="projectImg" title="<?php echo $project['legend']?>">
-                        </a>
-                          <div class="media-body">
-                            <h4 class="media-heading"><?php echo $project['title']?></h4>
-                            <p> <?php echo $project['subtitle']?></p>
-                            <a class="pull-right" href="<?php echo $project['id']?>">more details</a>
-                          </div>
-				    </div>
+                if(isset($article) || $PROFILE_DEV == true) {
+                    $projects = LastProjects($bdd, null, null, 1);
+                    if (isset($projects)) {
+                        foreach ($projects as $project) { ?>
+                            <div class="media">
+                                <a class="pull-left"
+                                   href="/<?php echo $project['subject'] ?>/<?php echo $project['id'] ?>">
+                                    <img src="<?php echo $project['img'] ?>" class="projectImg"
+                                         title="<?php echo $project['legend'] ?>">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><?php echo $project['title'] ?></h4>
+                                    <p> <?php echo $project['subtitle'] ?></p>
+                                    <a class="pull-right" href="<?php echo $project['id'] ?>">more details</a>
+                                </div>
+                            </div>
 
-               <?php } }
-                else
-                {
-                    echo "pas de nouveaux projets";
+                        <?php }
+                    } else {
+                        echo "pas de nouveaux projets";
+                    }
+                }
+                else {
+                    echo 'Désolé ! Problème de communication avec la base de donnée';
                 }
                 ?>
 				
