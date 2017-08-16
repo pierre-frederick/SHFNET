@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="shfnet domotique domoticz">
     <meta name="author" content="Pierre-Frédérick DENYS">
-    <title>Introduction Domoticz</title>
+    <title>Capteurs sans fils sur Domoticz</title>
     <!-- Bootstrap core CSS -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,7 +39,7 @@
 <div class="container">
     <div class="article">
 
-        <h1 class="title"><i class="fa fa-toggle-on"></i>  Introduction à Domoticz</h1>
+        <h1 class="title"><i class="fa fa-toggle-on"></i>  Capteurs sans fils sur Domoticz</h1>
 
         <a href="index.php" class="btn btn-secondary">&larr; Retour au menu</a>
 
@@ -64,9 +64,7 @@
 
         <div class="row menuarticle">
             <ul>
-                <li><a href="#rfxcom">Solution Rfxcom</a></li>
-                <li><a href="#rflink_nodo">Solution RFLink Nodo</a></li>
-                <li><a href="#rflink_diy">Solution RFLink DIY</a></li>
+                <li><a href="#linky">Compteur EDF Linky</a></li>
             </ul>
         </div>
 
@@ -74,7 +72,7 @@
         <!-- RFXCOM -->
         <div class="row paragraph">
             <div class="col-md-6 ptext">
-                <h3 id="rfxcom">RFXCOM </h3>
+                <h3 id="linky">Compteur EDF Linky </h3>
 
                 <p>La solution la plus simple, mais aussi la plus onéreuse est d'utiliser le module prêt à l'emploi de RFXCOM.
                 Il suffit de le connecter pour qu'il fonctionne. Il est vendu au prix de 110 euros.
@@ -127,95 +125,6 @@
             </div>
         </div>
         <hr />
-
-
-        <p>Il faut ensuite télécharger la <a href="http://www.rflink.nl/blog2/download">Dernière version de RFLink</a> et
-        décompresser le zip.</p>
-        <ol>
-            <li>Connecter via USB l'arduino du RFLink à l'ordinateur. </li>
-            <li>Lancer ensuite l'application <b>RFLinkLoader.exe</b></li>
-            <li>Cliquer sur <b>Select File</b> et choisir le fichier <b>rflink.ino.hex</b></li>
-            <li>Cliquer sur <b>Scan Available Ports</b> puis choisir le port série de l'arduino.</li>
-            <li>Cliquer sur <b>Upload Firmware to device</b> et le téléchargement commence (environ 1 minute).</li>
-        </ol>
-        <p>Si le programme ne rencontre pas d'erreur, <b>Programming successful</b> devrait s'afficher.</p>
-        <p>En cliquant sur <b>Serial Port Logging</b> le RFlink commence a reçevoir et décoder les signaux RF a proximité.
-        Si rien ne s'affiche, il y a probablement un problème au niveau du récepteur RF, et de sa connexion.</p>
-        <p>Voici un exemple de message envoyé par le RFLink :</p>
-        <pre><code class="language-bash">10;NewKaku;0cac142;3;ON;</code></pre>
-
-
-
-        <h2>Détails sur le protocole RFLink</h2>
-
-        <p>Les données sont envoyées par liaison série à l'ordinateur (via USB) sous forme de texte, à 57600 bauds. </p>
-        <p><b>Structure des paquets reçus via RF :</b></p>
-        <ul>
-            <li><b>20 :</b> 20 est siginifie réception, 10 signifie émission, et 11 entre deux devices. </li>
-            <li><b>; :</b> séparateur. </li>
-            <li><b>02 :</b> compteur de paquet de 00 à FF. </li>
-            <li><b>NAME :</b> Nom du protocole . </li>
-            <li><b>ID=9999 :</b> ID du device (hexadécimal). </li>
-            <li><b>LABEL=data :</b> champs de commandes pouvant être multiple. Par exemple : SWITCH =1</li>
-        </ul>
-
-        <p><b>Structure des paquets émis (du RFLink) via RF :</b> les messages sont envoyés sans libellé (10;X10;000045;1;OFF)</p>
-        <ul>
-            <li><b>10 :</b>10 signifie émission </li>
-            <li><b>X10 :</b>protocole </li>
-            <li><b>000045 :</b>ID de l'appareil </li>
-            <li><b>1 :</b>bouton 1 </li>
-            <li><b>OFF :</b>action à effectuer </li>
-        </ul>
-
-        <p> Il existe également des commandes utilisées pour des opérations de maintenance et qui peuvent être envoyées depuis
-        l'ordinateur ou domoticz :</p>
-
-        <ul>
-            <li><b>10;REBOOT; :</b>redémarre la plate-forme </li>
-            <li><b>10;PING; :</b>vérifier l'état de la plateforme, réponse <b>20;99;PONG;</b> </li>
-            <li><b>10;VERSION; :</b>renvoie la version et le numéro de build, réponse <b>20;99;"version";</b> </li>
-            <li><b>10;RFDEBUG=ON; :</b>active ou désactive (OFF) l'affichage des paquets RF, réponse <b>20;99;RFDEBUG="state";</b> </li>
-            <li><b>10;RFUDEBUG=ON; :</b>active ou désactive (OFF) le décodage des paquets RF, réponse <b>20;99;RFUDEBUG="state";</b> </li>
-            <li><b>10;QRFDEBUG=ON; :</b>active ou désactive (OFF) le décodage rapide des paquets RF, réponse <b>20;99;QRFDEBUG="state";</b> </li>
-            <li><b>10;RTSCLEAN; :</b>réinitialise la table des codes stockés sur l'EEPROM interne </li>
-            <li><b>10;RTSCLEAN; :</b>réinitialise la table des codes stockés sur l'EEPROM interne </li>
-            <li><b>10;RTSRECLEAN=x; :</b>efface le code x (de 0 à 15) stocké sur l'EEPROM interne </li>
-            <li><b>10;RTSSHOW; :</b>affiche les codes stockés sur l'EEPROM interne </li>
-        </ul>
-        <p>des informations supplémentaires sont disponible sur le  <a href="http://www.rflink.nl/blog2/protref">site du projet</a> </p>
-
-
-        <h2>Connexion d'un RFLink à Domoticz sur Raspberry Pi</h2>
-
-        <div class="alert alert-warning">
-            <strong>Attention</strong> Si vous souhaitez alimenter le RFLink via son port USB connecté au Raspi, il faudra
-            utiliser une alimentation pour le Raspi délivrant au moins 3A, sinon utiliser un bloc secteur pour alimenter
-            l'arduino.
-        </div>
-
-        <p>
-
-        </p>
-        <div class="alert alert-danger">
-            <strong>Attention</strong> Une erreur dans la déclaration du port USB du RFLink pourra entraîner un blocage du
-            Raspberry Pi et le rendre inutilisable. Seul un formatage permet de le récupérer facielement. <br>
-            Pour ne pas en arriver là, sauvegarder l'installation de domoticz avant de configurer le RFLink, et assurez
-            vous de bien choisir le bon port.
-        </div>
-
-        Afin que le raspberry pi détecte bien le RFLink, exécuter les commandes suivantes :
-        <pre><code class="language-bash">sudo service domoticz.sh stop
-dmesg -s 1024
-sudo service domoticz.sh start</code></pre>
-        <p> La commande <code class="language-bash">dmesg -s 1024</code> permet de lister les périphériques USB
-        connectés au Raspi. Le RFLink devrait avoir comme nom <code class="language-bash">ttyACM0</code>.</p>
-        <p>Redémarrer ensuite le service domoticz.</p>
-        <pre><code class="language-bash">sudo service domoticz.sh start</code></pre>
-
-
-
-
 
 
     </div>

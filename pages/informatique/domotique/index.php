@@ -44,6 +44,14 @@
                         <h4 class="list-group-item-heading">Introduction à Domoticz</h4>
                         <p class="list-group-item-text">Choix du matériel et installation</p>
                     </a>
+                    <a href="capteurs_sans_fils.php" class="list-group-item ">
+                        <h4 class="list-group-item-heading">Ajouter des périphériques sans-fil</h4>
+                        <p class="list-group-item-text">Connecter une prise télécommandée, un compteur EDF</p>
+                    </a>
+                    <a href="capteurs_fils.php" class="list-group-item ">
+                        <h4 class="list-group-item-heading">Ajouter des capteurs connectés sur le Raspi</h4>
+                        <p class="list-group-item-text">Connecter un capteur de température, humidité...</p>
+                    </a>
                 </div>
 
             </div>
