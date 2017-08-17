@@ -40,8 +40,14 @@
               <div class="row introduction">
                   <div class="col-md-12">
                       <h2>Introduction</h2>
-                      <p>Un quartz est un composant passif qui résonne à une fréquence stable. Ils sont utilisés sur des horloges, oscillateurs…
-                          Il existe plusieurs types de boîtier, principalement : HC18, HC25, HC33, HC38 ou encore HC49.</p>
+                      <p>Un ventilateur est un élément crucial dans certains systèmes afin de garantir l'élimination de l'excès
+                      de chaleur émis par les composants. Il existe plusieurs milliers de modèles, suivant leurs application. <br />
+                      Généralement associé à un asservissement, il permet de réguler une température dans un boîtier par exemple.<br />
+                      </p>
+                      <p>En électronique, il est recommandé d'utiliser un refroidissement passif à base de radiateurs, car
+                      cela permet de rendre les coffrets étanches et éviter l'empoussièrement et donc le risque de panne.
+                      Cependant, dans certaines applications de puissance (alimentation à découpage, contrôle de moteurs,
+                      régulation de tension</p>
                   </div>
               </div>
 

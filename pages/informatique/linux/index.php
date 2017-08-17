@@ -58,7 +58,7 @@
                                       </a>
                                       <a href="script_bash.php" class="list-group-item">
                                           <h4 class="list-group-item-heading">Scripts Bash et tâches cron</h4>
-                                          <p class="list-group-item-text">Gestion des interfaces ehernet et sans-fil.</p>
+                                          <p class="list-group-item-text">Automatiser des actions système.</p>
                                       </a>
                                   </div>
                                   <h2>Distributions</h2>

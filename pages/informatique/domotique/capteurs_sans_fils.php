@@ -61,7 +61,6 @@
 
 
 
-
         <div class="row menuarticle">
             <ul>
                 <li><a href="#linky">Compteur EDF Linky</a></li>

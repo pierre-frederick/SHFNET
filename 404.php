@@ -41,7 +41,7 @@
                     <section id="fof" class="clear">
                         <div class="hgroup">
                             <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span></h1>
-                            <h2>Error ! <span>Page Not Found</span></h2>
+                            <h2>ZUT ALORS ! <span>Page Not Found</span></h2>
                         </div>
                         <p>Une erreur dans l'url, ou une page pas encore écrite, patience ! </p>
                         <p><a href="javascript:history.go(-1)">&laquo; Go Back</a> / <a href="/">Go Home &raquo;</a></p>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shfnet monitoring système linux">
+    <meta name="author" content="Pierre-Frédérick DENYS">
+    <title>Gestion du stockage sur Linux</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="/assets/custom/css/flexslider.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/assets/custom/css/parallax-slider.css" type="text/css">
+    <!-- CSS Template -->
+    <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+    <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
+    <!-- Police utilisée -->
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link href="/assets/custom/css/prism.css" rel="stylesheet" />
+    <script src="/assets/custom/js/prism.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
+    <script src="https://use.fontawesome.com/da91765651.js"></script>
+
+</head>
+
+
+
+<body>
+<?php include($_SERVER['DOCUMENT_ROOT']."/elements/header.php"); ?>
+
+
+<div class="container">
+    <div class="article">
+        <h1 class="title"><i class="fa fa-eye"></i>   Monitoring Système sous linux</h1>
+
+
+        <div class="row introduction">
+            <div class="col-md-12 content">
+                <div class="row">
+
+                    <h2> Réseau </h2>
+                    <p>La table des partitions située en début de disque contient les informations relatives
+                    à chacune de ses partitions. Il en existe duex types :</p>
+                    <p><b>Partitionnement Intel (Master_boot_record) :</b> zone de 512 octets en début
+                    de disque contenant les informations de 4 partitions primaires maximum. Prise en charge <
+                    2.2 To.</p>
+                    <p><b>Lister les ports ouverts avec <code>netstat</code>:</b> </p>
+                    <pre><code class="language-bash">netstat -paunt</code></pre>
+                    <ul>
+                        <li><b>-a :</b> Tous les ports</li>
+                        <li><b>-t :</b> Tous les ports TCP</li>
+                        <li><b>-u :</b> Tous les ports UDP</li>
+                        <li><b>-l :</b> Tous les ports en écoute</li>
+                        <li><b>-n :</b> Affiche directement les IP. Pas de résolution de nom</li>
+                        <li><b>-p :</b> Affiche le nom du programme et le PID associé</li>
+                    </ul>
+
+                    <p><b>Scanner les ports ouverts avec <code>nmap</code> :</b> nmap scanne de base avec TCP, et
+                    peut scanner en UDP, les différents ports ouverts d'une machine. La commande renvoie également
+                    la version des logiciels utilisée derrière le port</p>
+                    <pre><code class="language-bash">nmap -sS -sU -sV ip_du_serveur</code></pre>
+                    <ul>
+                        <li><b>-sS [ip_clible]:</b> scanner les ports TCP</li>
+                        <li><b>-SU [ip_clible]:</b> scanner les ports UDP</li>
+                        <li><b>-sP :</b> utilisée seule, permet de scanner tout le réseau</li>
+                        <li><b>-O --osscan-guess :</b> permet d'identifier l'OS de la machine</li>
+                    </ul>
+
+                    <div class="alert alert-info">
+                        <b>Scanner tout le réseau :</b> la cible peut être une machine (ip) un réseau (192.168.0.0/24)
+                        ou une plage d'adresse (192.168.100-200).
+                        <pre><code class="language-bash">nmap -sP 192.168.0.0/24</code></pre>
+                    </div>
+
+
+                        <p><b>Afficher les informations des interfaces réseau :</b></p>
+                        <pre><code class="language-bash">netstat -i</code></pre>
+
+                    <h2> Espace disque </h2>
+
+                    <p><b>Afficher l'espace disque disponible :</b></p>
+                    <pre><code class="language-bash">df -fh</code></pre>
+
+                    <p><b>Afficher la taille de fichiers :</b></p>
+                    <pre><code class="language-bash">du -Shc</code></pre>
+
+                    <p><b>Afficher la taille de répertoires :</b></p>
+                    <pre><code class="language-bash">ls -lh</code></pre>
+
+                    <p><b>Afficher les plus gros dossiers du répertoire courant :</b></p>
+                    <pre><code class="language-bash">du -hs ./* | sort -nr | head</code></pre>
+
+                    <h2> Mémoire </h2>
+
+                    <p><b>Surveiller l’utilisation de la RAM :</b> (m pour Mo)</p>
+                    <pre><code class="language-bash">free -m</code></pre>
+
+                    <p><b>Surveiller l’utilisation de la RAM avec <code>htop</code> :</b></p>
+                    <pre><code class="language-bash">htop</code></pre>
+
+                    <h2> Processus </h2>
+
+                    <p><b>Surveiller un processus avec <code>ps</code> :</b> l'option <code>e</code> permet de présenter
+                    l'environnement, <code>a</code> permet d'afficher les processus des autres utilisateurs
+                        et <code>f</code> permet l'affichage sous forme d'arbre.</p>
+                    <pre><code class="language-bash">ps -eaf | grep -i minecraft</code></pre>
+
+                    <p><b>Killer un processus avec <code>kill</code> :</b></p>
+                    <pre><code class="language-bash">kill -15 [PID] (doux)
+kill -9 [PID] (plus violent)</code></pre>
+                    <p><b>Surveiller l’utilisation de la RAM avec <code>htop</code> :</b></p>
+                    <pre><code class="language-bash">htop</code></pre>
+
+                    <p><b>Voir l'heure actuelle du serveur, la durée de fonctionnement du serveur,
+                            le nombre d'users connecté et la charge du système au cours des 1, 5 et 10
+                            dernières minutes <code>uptime</code> :</b></p>
+                    <pre><code class="language-bash">uptime</code></pre>
+
+                    <h2> Audit de sécurité </h2>
+                    <p><b>Détecter les intrusions avec <code>tiger</code> :</b></p>
+                    <p><b>Détecter les rootkits avec <code>chkrootkit</code> :</b></p>
+                    <p><b>Détecter les rootkits avec <code>rkhunter</code> :</b></p>
+                    <p><b>Visualiser le trafic d'un serveur DNS avec <code>dnstop</code> :</b></p>
+
+
+
+
+                </div>	<!-- Fin de col-9 content -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
+
+    <!-- JS Global Compulsory -->
+    <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="/assets/custom/js/app.js"></script>
+    <script type="text/javascript" src="/assets/custom/js/index.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initSliders();
+            Index.initParallaxSlider();
+        });
+    </script>
+
+</body>
+</html>
