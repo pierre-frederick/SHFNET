@@ -20,21 +20,20 @@
     <!-- CSS Template -->
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
 
 
-
 <body>
-<?php include($_SERVER['DOCUMENT_ROOT']."/elements/header.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
 
 <div class="container">
     <div class="article">
-        <h1 class="title"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>  Caisse à outil</h1>
+        <h1 class="title"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Caisse à outil</h1>
 
         <div class="row minimenu">
             <div class="col-md-6 col-md-offset-3">
@@ -46,7 +45,8 @@
                     </a>
                     <a href="brochage_composants.php" class="list-group-item ">
                         <h4 class="list-group-item-heading">Brochage des composants</h4>
-                        <p class="list-group-item-text">Vous oubliez tout le temps de sens de branchement de ce transistor ?</p>
+                        <p class="list-group-item-text">Vous oubliez tout le temps de sens de branchement de ce
+                            transistor ?</p>
                     </a>
                 </div>
             </div>
@@ -54,32 +54,8 @@
 
     </div>
 </div>
-<?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
-
-
-
-    <!-- JS Global Compulsory -->
-    <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
-    <!-- JS Page Level -->
-    <script type="text/javascript" src="/assets/custom/js/app.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
-
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            App.init();
-            App.initSliders();
-            Index.initParallaxSlider();
-        });
-    </script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/javascript.php"); ?>
 
 </body>
 </html>

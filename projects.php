@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'includes/functions.php'; // fichier des fonctions
 require_once 'includes/projects.php'; // fichier des fonctions
 ?>
@@ -12,13 +12,12 @@ require_once 'includes/projects.php'; // fichier des fonctions
     <meta name="description" content="projets électronique informatique">
     <meta name="author" content="Pierre-Frédérick DENYS">
     <?php
-    foreach($metas as $meta=>$value)
-    {
-        if(strpos($meta, 'og:') === 0)
+    foreach ($metas as $meta => $value) {
+        if (strpos($meta, 'og:') === 0)
             $type = 'property';
         else
             $type = 'name';
-        echo '    <meta '.$type.'="'.$meta.'" content="'.$value."\">\n";
+        echo '    <meta ' . $type . '="' . $meta . '" content="' . $value . "\">\n";
     }
     ?>
     <title>SHFNET</title>
@@ -41,133 +40,112 @@ require_once 'includes/projects.php'; // fichier des fonctions
 
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
 
 <body>
-        <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
 
-        <div class="container">
-            <div class="row">
-                <h1 class="title">Projets <?php  if(isset($_GET['s'])) {echo 'd\''. $_GET['s'];}  ?></h1>
+<div class="container">
+    <div class="row">
+        <h1 class="title">Projets <?php if (isset($_GET['s'])) {
+                echo 'd\'' . $_GET['s'];
+            } ?></h1>
 
+        <?php
+        if (isset($_GET['project'])) { ?>
+            <a href="javascript:history.go(-1)" class="btn btn-outline-warning">&larr; Retour </a>
+
+
+            <div class="row text-center">
+                <h2 class="post-title">
+                    <?php echo $project['title']; ?>
+                </h2>
+                <h3 class="post-subtitle">
+                    <?php echo $project['subtitle']; ?>
+                </h3>
+
+                <div class="col-md-offset-2 col-md-8">
+                    <img src="<?php echo "/upload/projects/" . $project['subject'] . "/" . $project['id_categorie'] . "/" . $project['img'] ?>"
+                         class="" title="<?php echo $project['img'] ?>">
+                </div>
+            </div>
+
+            <div class="row text-justify">
+                <div class="col-md-offset-2 col-md-8 articletext">
+                    <?php echo $project['contenu']; ?>
+                </div>
+            </div>
+
+
+            <?php
+        } else {
+            ?>
+            Catégorie :
+            <div class="btn-group" role="group" aria-label="categorie">
                 <?php
-                if(isset($_GET['project']))
-                { ?>
-                    <a href="javascript:history.go(-1)" class="btn btn-outline-warning">&larr; Retour </a>
+                foreach ($ListeCategoriesProjects as $categorie) { ?>
+                    <a class="btn btn-default"
+                       href="projects.php?<?php echo "s=" . $subject . "&c=" . $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                    <?php
+                } ?>
+            </div>
+            <hr>
 
 
-                <div class="row text-center">
-                    <h2 class="post-title">
-                        <?php echo $project['title']; ?>
-                    </h2>
-                    <h3 class="post-subtitle">
-                        <?php echo $project['subtitle']; ?>
-                    </h3>
+            <?php
+            $projects = LastProjects($bdd, $subject, $idCategorie, $page);
+            foreach ($projects as $project) {
+                ?>
+                <div class="post-preview row">
+                    <div class="col-md-3">
+                        <img src="<?php echo "/upload/projects/" . $subject . "/" . $project['id_categorie'] . "/" . $project['img'] ?>"
+                             class="" title="<?php echo $project['img'] ?>">
+                    </div>
+                    <div class="col-md-9">
+                        <a href="projects.php?project=<?php echo $project['id']; ?>">
+                            <h2 class="post-title">
+                                <?php echo $project['title']; ?>
+                            </h2>
+                            <h3 class="post-subtitle">
+                                <?php echo $project['subtitle']; ?>
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posté le <?php $date = strtotime($project['date']);
+                            echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?></p>
 
-                    <div class="col-md-offset-2 col-md-8">
-                        <img src="<?php echo "/upload/projects/" . $project['subject'] . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
                     </div>
                 </div>
-
-                    <div class="row text-justify">
-                        <div class="col-md-offset-2 col-md-8 articletext">
-                        <?php echo $project['contenu']; ?>
-                        </div>
-                    </div>
-
-
-
-                 <?php
-                }
-                else
-                {
-                    ?>
-                Catégorie :
-                <div class="btn-group" role="group" aria-label="categorie">
+                <hr>
                 <?php
-                    foreach($ListeCategoriesProjects as $categorie) { ?>
-                        <a class="btn btn-default" href="projects.php?<?php echo "s=" . $subject . "&c=" .$categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
-                        <?php
-                    } ?>
-            </div>
-                    <hr>
+            }
+            ?>
 
-
-
-
-                    <?php
-                    $projects = LastProjects($bdd, $subject, $idCategorie, $page);
-                    foreach($projects as $project)
-                    {
-                    ?>
-                            <div class="post-preview row">
-                                <div class="col-md-3">
-                                    <img src="<?php echo "/upload/projects/" . $subject . "/" . $project['id_categorie'] . "/" .$project['img'] ?>" class="" title="<?php echo $project['img'] ?>">
-                                </div>
-                                <div class="col-md-9">
-                    <a href="projects.php?project=<?php echo $project['id'];?>">
-                                    <h2 class="post-title">
-                            <?php echo $project['title']; ?>
-                                    </h2>
-                                    <h3 class="post-subtitle">
-                            <?php echo $project['subtitle']; ?>
-                                    </h3>
-                                </a>
-                        <p class="post-meta">Posté le  <?php $date = strtotime($project['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date) ; ?></p>
-
-                                </div>
-                            </div>
-                    <hr>
-                    <?php
-                    }
-                    ?>
-
-                <nav aria-label="navigation">
-                    <ul class="pager">
-                <?php if($page > 1) { ?>
-                    <li class="previous">
-                        <a href="<?php if($getCategorie == null) echo 'projects.php?s='.$subject .'&p='.($page-1); else echo 'projects.php?s='.$subject . '?c='. $getCategorie .'&p='.($page-1); ?>" ><span aria-hidden="true">&larr;</span> Newer posts</a>
-                    </li>
-                <?php } ?>
+            <nav aria-label="navigation">
+                <ul class="pager">
+                    <?php if ($page > 1) { ?>
+                        <li class="previous">
+                            <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page - 1); else echo 'projects.php?s=' . $subject . '?c=' . $getCategorie . '&p=' . ($page - 1); ?>"><span
+                                        aria-hidden="true">&larr;</span> Newer posts</a>
+                        </li>
+                    <?php } ?>
                     <li class="next">
-                         <a href="<?php if($getCategorie == null) echo 'projects.php?s='.$subject .'&p='.($page+1); else echo 'projects.php?s='.$subject . '?c='. $getCategorie.'&p='.($page+1); ?>" >Older Posts <span aria-hidden="true">&rarr;</span></a>
+                        <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page + 1); else echo 'projects.php?s=' . $subject . '?c=' . $getCategorie . '&p=' . ($page + 1); ?>">Older
+                            Posts <span aria-hidden="true">&rarr;</span></a>
                     </li>
 
-                    </ul>
-                </nav>
-                    <?php
-                }
-                ?>
+                </ul>
+            </nav>
+            <?php
+        }
+        ?>
 
-            </div>
-        </div>
-        <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
-
-
-        <!-- JS Global Compulsory -->
-        <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
-        <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- JS Implementing Plugins -->
-        <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
-        <!-- JS Page Level -->
-        <script type="text/javascript" src="/assets/custom/js/app.js"></script>
-        <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
-
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-                App.init();
-                App.initSliders();
-                Index.initParallaxSlider();
-            });
-        </script>
+    </div>
+</div>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/javascript.php"); ?>
 
 </body>
 </html>

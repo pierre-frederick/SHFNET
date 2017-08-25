@@ -1,7 +1,7 @@
 <?php
 $pageArray = array();
-$pageArray['title'] = "La gestion du réseau sur Linux";
-$pageArray['description'] = "Apprenez à gérer le réseau sous linux, les interfaces, les adresses IP";
+$pageArray['title'] = "Distribution Debian";
+$pageArray['description'] = "Découvrez le système d'exploitation universel debian.";
 $pageArray['image'] = "/img/logo_shfnet.png";
 
 ?>
@@ -16,7 +16,7 @@ $pageArray['image'] = "/img/logo_shfnet.png";
 
 <div class="container">
     <div class="article">
-        <h1 class="title"><i class="fa fa-hdd-o"></i> <?php echo $pageArray['title'] ?></h1>
+        <h1 class="title"><i class="fa fa-dedent"></i> <?php echo $pageArray['title'] ?></h1>
         <div class="row">
             <div class="col-md-10">
                 <a href="index.php" class="btn btn-info">&larr; Retour au menu</a>

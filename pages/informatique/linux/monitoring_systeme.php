@@ -1,45 +1,32 @@
+<?php
+$pageArray = array();
+$pageArray['title'] = " Monitoring Système sous linux";
+$pageArray['description'] = "Apprenez à surveiller un système linux, contrôler l'espace disque, la mémoire, 
+    les interfaces réseau. Détecter les situations anormales et les intrusions.";
+$pageArray['image'] = "/img/logo_shfnet.png";
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shfnet monitoring système linux">
-    <meta name="author" content="Pierre-Frédérick DENYS">
-    <title>Gestion du stockage sur Linux</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="/assets/custom/css/flexslider.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="/assets/custom/css/parallax-slider.css" type="text/css">
-    <!-- CSS Template -->
-    <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
-    <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <!-- Police utilisée -->
-    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-    <link href="/assets/custom/css/prism.css" rel="stylesheet" />
-    <script src="/assets/custom/js/prism.js"></script>
-    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
-    <script src="https://use.fontawesome.com/da91765651.js"></script>
 
-</head>
-
-
-
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/head.php"); ?>
 <body>
-<?php include($_SERVER['DOCUMENT_ROOT']."/elements/header.php"); ?>
-
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
 <div class="container">
     <div class="article">
-        <h1 class="title"><i class="fa fa-eye"></i>   Monitoring Système sous linux</h1>
+        <h1 class="title"><i class="fa fa-eye"></i> <?php echo $pageArray['title'] ?></h1>
+
+
+        <div class="row">
+            <div class="col-md-10">
+                <a href="index.php" class="btn btn-info">&larr; Retour au menu</a>
+            </div>
+            <div class="col-md-2">
+                <a href="/" class="btn btn-info">Résumé en fiche</a>
+            </div>
+        </div>
 
 
         <div class="row introduction">
@@ -48,11 +35,11 @@
 
                     <h2> Réseau </h2>
                     <p>La table des partitions située en début de disque contient les informations relatives
-                    à chacune de ses partitions. Il en existe duex types :</p>
+                        à chacune de ses partitions. Il en existe duex types :</p>
                     <p><b>Partitionnement Intel (Master_boot_record) :</b> zone de 512 octets en début
-                    de disque contenant les informations de 4 partitions primaires maximum. Prise en charge <
-                    2.2 To.</p>
-                    <p><b>Lister les ports ouverts avec <code>netstat</code>:</b> </p>
+                        de disque contenant les informations de 4 partitions primaires maximum. Prise en charge <
+                        2.2 To.</p>
+                    <p><b>Lister les ports ouverts avec <code>netstat</code>:</b></p>
                     <pre><code class="language-bash">netstat -paunt</code></pre>
                     <ul>
                         <li><b>-a :</b> Tous les ports</li>
@@ -64,8 +51,8 @@
                     </ul>
 
                     <p><b>Scanner les ports ouverts avec <code>nmap</code> :</b> nmap scanne de base avec TCP, et
-                    peut scanner en UDP, les différents ports ouverts d'une machine. La commande renvoie également
-                    la version des logiciels utilisée derrière le port</p>
+                        peut scanner en UDP, les différents ports ouverts d'une machine. La commande renvoie également
+                        la version des logiciels utilisée derrière le port</p>
                     <pre><code class="language-bash">nmap -sS -sU -sV ip_du_serveur</code></pre>
                     <ul>
                         <li><b>-sS [ip_clible]:</b> scanner les ports TCP</li>
@@ -81,8 +68,8 @@
                     </div>
 
 
-                        <p><b>Afficher les informations des interfaces réseau :</b></p>
-                        <pre><code class="language-bash">netstat -i</code></pre>
+                    <p><b>Afficher les informations des interfaces réseau :</b></p>
+                    <pre><code class="language-bash">netstat -i</code></pre>
 
                     <h2> Espace disque </h2>
 
@@ -109,7 +96,7 @@
                     <h2> Processus </h2>
 
                     <p><b>Surveiller un processus avec <code>ps</code> :</b> l'option <code>e</code> permet de présenter
-                    l'environnement, <code>a</code> permet d'afficher les processus des autres utilisateurs
+                        l'environnement, <code>a</code> permet d'afficher les processus des autres utilisateurs
                         et <code>f</code> permet l'affichage sous forme d'arbre.</p>
                     <pre><code class="language-bash">ps -eaf | grep -i minecraft</code></pre>
 
@@ -131,9 +118,7 @@ kill -9 [PID] (plus violent)</code></pre>
                     <p><b>Visualiser le trafic d'un serveur DNS avec <code>dnstop</code> :</b></p>
 
 
-
-
-                </div>	<!-- Fin de col-9 content -->
+                </div>    <!-- Fin de col-9 content -->
 
 
             </div>
@@ -142,29 +127,8 @@ kill -9 [PID] (plus violent)</code></pre>
 </div>
 
 
-    <?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
-
-    <!-- JS Global Compulsory -->
-    <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
-    <!-- JS Page Level -->
-    <script type="text/javascript" src="/assets/custom/js/app.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            App.init();
-            App.initSliders();
-            Index.initParallaxSlider();
-        });
-    </script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/javascript.php"); ?>
 
 </body>
 </html>

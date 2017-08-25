@@ -20,11 +20,11 @@
     <!-- CSS Template -->
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
-
 
 
 <body>
@@ -34,51 +34,26 @@
 <div class="container">
 
 
+    <div class="wrapper row2">
+        <div id="container" class="clear">
 
-            <div class="wrapper row2">
-                <div id="container" class="clear">
-
-                    <section id="fof" class="clear">
-                        <div class="hgroup">
-                            <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span></h1>
-                            <h2>ZUT ALORS ! <span>Page Not Found</span></h2>
-                        </div>
-                        <p>Une erreur dans l'url, ou une page pas encore écrite, patience ! </p>
-                        <p><a href="javascript:history.go(-1)">&laquo; Go Back</a> / <a href="/">Go Home &raquo;</a></p>
-                    </section>
+            <section id="fof" class="clear">
+                <div class="hgroup">
+                    <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span>
+                    </h1>
+                    <h2>ZUT ALORS ! <span>Page Not Found</span></h2>
                 </div>
-            </div>
-
-
-
+                <p>Une erreur dans l'url, ou une page pas encore écrite, patience ! </p>
+                <p><a href="javascript:history.go(-1)">&laquo; Go Back</a> / <a href="/">Go Home &raquo;</a></p>
+            </section>
+        </div>
+    </div>
 
 
 </div>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
-
-    <!-- JS Global Compulsory -->
-    <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
-    <!-- JS Page Level -->
-    <script type="text/javascript" src="/assets/custom/js/app.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
-
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            App.init();
-            App.initSliders();
-            Index.initParallaxSlider();
-        });
-    </script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/javascript.php"); ?>
 
 </body>
 </html>

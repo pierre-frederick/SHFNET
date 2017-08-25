@@ -1,19 +1,23 @@
-<!DOCTYPE html><html class=''>
+<!DOCTYPE html>
+<html class=''>
 <head>
     <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
+    <link rel='stylesheet prefetch'
+          href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
     <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-    <style class="cp-pen-styles"></style></head><body>
+    <style class="cp-pen-styles"></style>
+</head>
+<body>
 <div class="container">
     <div class="row">
         Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
     </div>
-    <br />
+    <br/>
     <div class="row">
         <div class='col-sm-3'>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control"/>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
@@ -26,21 +30,21 @@
 <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
 <script> $(function () {
-        var bindDatePicker = function() {
+        var bindDatePicker = function () {
             $(".date").datetimepicker({
-                format:'YYYY-MM-DD',
+                format: 'YYYY-MM-DD',
                 icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",
                     up: "fa fa-arrow-up",
                     down: "fa fa-arrow-down"
                 }
-            }).find('input:first').on("blur",function () {
+            }).find('input:first').on("blur", function () {
                 // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
                 // update the format if it's yyyy-mm-dd
                 var date = parseDate($(this).val());
 
-                if (! isValidDate(date)) {
+                if (!isValidDate(date)) {
                     //create date based on momentjs (we have that)
                     date = moment().format('YYYY-MM-DD');
                 }
@@ -49,7 +53,7 @@
             });
         }
 
-        var isValidDate = function(value, format) {
+        var isValidDate = function (value, format) {
             format = format || false;
             // lets parse the date to the best of our knowledge
             if (format) {
@@ -61,7 +65,7 @@
             return isNaN(timestamp) == false;
         }
 
-        var parseDate = function(value) {
+        var parseDate = function (value) {
             var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
             if (m)
                 value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
@@ -74,4 +78,5 @@
     //# sourceURL=pen.js
 
 </script>
-</body></html>
+</body>
+</html>

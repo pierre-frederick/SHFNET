@@ -20,16 +20,15 @@
     <!-- CSS Template -->
     <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
     <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <script src="https://use.fontawesome.com/da91765651.js"></script>
 </head>
 
 
-
 <body>
-<?php include($_SERVER['DOCUMENT_ROOT']."/elements/header.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
 
 <div class="container">
@@ -39,52 +38,21 @@
         <div class="row introduction">
             <div class="col-md-12">
                 <h2>Transistors</h2>
-                <p>Il existe plusieurs dizaines de format de boîtiers de transistors. Cependant, ceux regroupés dans le tableau ci-dessous
-                sont les plus courants </p>
+                <p>Il existe plusieurs dizaines de format de boîtiers de transistors. Cependant, ceux regroupés dans le
+                    tableau ci-dessous
+                    sont les plus courants </p>
                 <img class="img-responsive" src="img/brochage_transistors.png" alt="Brochage Transistors">
             </div>
         </div>
-        <hr />
-
-
-
-
-
-
-
-
-
-
+        <hr/>
 
 
     </div>
 </div>
 
 
-    <?php include($_SERVER['DOCUMENT_ROOT']."/elements/footer.php"); ?>
-
-    <!-- JS Global Compulsory -->
-    <script type="text/javascript" src="/assets/custom/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="/assets/custom/js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/modernizr.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.cslider.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/back-to-top.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/jquery.sticky.js"></script>
-    <!-- JS Page Level -->
-    <script type="text/javascript" src="/assets/custom/js/app.js"></script>
-    <script type="text/javascript" src="/assets/custom/js/index.js"></script>
-
-
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            App.init();
-            App.initSliders();
-            Index.initParallaxSlider();
-        });
-    </script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/javascript.php"); ?>
 
 </body>
 </html>
