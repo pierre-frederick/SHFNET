@@ -36,4 +36,5 @@
 <link rel="shortcut icon" href="/img/favicon.ico"> <script src="https://use.fontawesome.com/da91765651.js"></script>
 <script src="https://use.fontawesome.com/da91765651.js"></script>
 
+    <meta name="google-site-verification" content="pjJny1h8ZaGhNr0WarKQh17JGIl8ArM_G5sQq_sD59s" />
 </head>

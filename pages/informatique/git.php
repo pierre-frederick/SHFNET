@@ -51,7 +51,7 @@ $pageArray['image'] = "/img/logo_shfnet.png";
                     <p><b>Cloner un dépôt distant :</b> créer une copie du dépôt d'un serveur git distant </p>
                     <p>Suivant le protocole utilisé par le serveur : SSH, GIT ou HTTPS </p>
                     <pre><code class="language-bash">$ git clone username@host:/path/to/the/repository
-$ git clone git://github.com/schacon/grit.git
+$ git clone git://github.com/user/depot.git
 $ git clone https://username@host:/path/to/the/repository
 					</code></pre>
 
