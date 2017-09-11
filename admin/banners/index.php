@@ -18,7 +18,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
             <li class="breadcrumb-item">
                 <a href="/admin/">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Banners</li>
+            <li class="breadcrumb-item active">Gestion site web</li>
+            <li class="breadcrumb-item">Banners</li>
         </ol>
 
 

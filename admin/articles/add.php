@@ -24,8 +24,9 @@ $active = "article";
             <li class="breadcrumb-item">
                 <a href="/admin/">Dashboard</a>
             </li>
-            <li class="breadcrumb-item">Articles</li>
-            <li class="breadcrumb-item active">Add</li>
+            <li class="breadcrumb-item active">Gestion site web</li>
+            <li class="breadcrumb-item active">Articles</li>
+            <li class="breadcrumb-item">Add</li>
         </ol>
 
 

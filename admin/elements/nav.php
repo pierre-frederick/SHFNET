@@ -7,35 +7,74 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/index.php">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">
                 Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="/admin/banners/index.php">
-                    <i class="fa fa-fw fa-area-chart"></i>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/admin/index.php">
+                    <i class="fa fa-id-card"></i>
                     <span class="nav-link-text">
-                Banners</span>
+                Administration</span>
                 </a>
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="/admin/articles/index.php">
-                    <i class="fa fa-fw fa-table"></i>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                    <i class="fa fa-pencil"></i>
                     <span class="nav-link-text">
-                Articles</span>
+                Gestion site web</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                    <li>
+                        <a href="/admin/articles/index.php"><i class="fa fa-fw fa-table"></i> Articles</a>
+                    </li>
+                    <li>
+                        <a href="/admin/projects/index.php"><i class="fa fa-fw fa-table"></i> Projets</a>
+                    </li>
+                    <li>
+                        <a href="/admin/banners/index.php"><i class="fa fa-fw fa-area-chart"></i> Banners</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/favoris/index.php">
+                    <i class="fa fa-star-o"></i>
+                    <span class="nav-link-text">
+                Favoris</span>
                 </a>
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="/admin/projects/index.php">
-                    <i class="fa fa-fw fa-table"></i>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/favoris/index.php">
+                    <i class="fa fa-clipboard"></i>
                     <span class="nav-link-text">
-                Projets</span>
+                Pastebin</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/favoris/index.php">
+                    <i class="fa fa-git-square"></i>
+                    <span class="nav-link-text">
+                Git</span>
+                </a>
+            </li>
+
+
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/RHCore/index.php">
+                    <i class="fa fa-users"></i>
+                    <span class="nav-link-text">
+                RH Core (restricted)</span>
+                </a>
+            </li>
+
         </ul>
 
 
