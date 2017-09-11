@@ -34,7 +34,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                     <a href="/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="/admin/articles/add.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Ajouter
+                    <a href="/admin/projects/add.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Ajouter
                         un projet</a>
                 </div>
 
@@ -79,8 +79,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                                             <td><?php echo $project['contenu']?></td>
                                             <td><?php echo $project['img']?></td>
                                             <td><?php echo $project['legend']?></td>
-                                            <td><a class="delete btn btn-danger" data-toggle="modal" data-id="/admin/banners/delete.php?id=<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
-                                                <a href="/admin/banners/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                            <td><a class="delete btn btn-danger" data-toggle="modal" data-id="/admin/projects/delete.php?id=<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
+                                                <a href="/admin/projects/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                             </td>
                                         </tr>
                                     <?php } }} else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';} ?>
