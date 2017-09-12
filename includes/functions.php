@@ -35,7 +35,6 @@ function GetCategorieArticle(PDO $BDD, $id)
 
 }
 
-
 function GetArticle(PDO $BDD, $id)
 {
 	$request = $BDD->prepare('SELECT * FROM site.public.articles WHERE id = ?');
