@@ -7,14 +7,14 @@ $active = "article";
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/head.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/head.php"); ?>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="/admin/assets/js/gijgo.js" type="text/javascript"></script>
 <link href="/admin/assets/css/gijgo.css" rel="stylesheet" type="text/css" />
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/nav.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/nav.php"); ?>
 
 
 <div class="content-wrapper">
@@ -104,7 +104,7 @@ $active = "article";
 </script>
 
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
 
 </body>
 </html>
