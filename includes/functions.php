@@ -1,20 +1,21 @@
 <?php
+require_once 'identifiants.php'; // fichier des identifiants BDD
 
-$PROFILE_DEV = false;
+$PROFILE_DEV = true;
 function ConnexionDB() //Fonction permettant de se connecter à une base de donnée 
 {
 	try
 	{
 		$options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-		$BDD = new PDO('pgsql:host=localhost;dbname=site', 'postgres', 'root', $options);
+		$BDD = new PDO(ADRESSE_BDD, LOGIN_BDD, PASS_BDD, $options);
 
 	}
 	catch (PDOException $e)
 	{
 	    //DEV
-		//throw new Exception($e->getMessage(), $e->getCode());
+		throw new Exception($e->getMessage(), $e->getCode());
 		//PROD
-        //print "Erreur !: " . $e->getMessage() . "<br/>";
+        print "Erreur !: " . $e->getMessage() . "<br/>";
         $BDD =null;
     }
 
@@ -108,4 +109,47 @@ function LastBanners(PDO $BDD)
 {
     $request = $BDD->query('SELECT * FROM site.public.banners ORDER BY date DESC LIMIT 5');
     return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+function GetAllCategorieFavoris(PDO $BDD)
+{
+    $request = $BDD->query('SELECT * FROM site.public.categorie_favoris;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function GetFavorisById(PDO $BDD, $id)
+{
+    $request = $BDD->prepare('SELECT * FROM site.public.favoris WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function GetFavorisByCategorie(PDO $BDD, $id_categorie)
+{
+    $request = $BDD->prepare('SELECT * FROM site.public.favoris WHERE categorie_id = ?');
+    $request->execute(array($id_categorie));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function setFavoris(PDO $BDD, $nom, $url, $description, $id_categorie)
+{
+    $request = $BDD->prepare('INSERT INTO site.public.favoris(name, link, description, categorie_id) VALUES (:name, :link, :description, :categorie_id)');
+    $request->execute(array('name' => $nom, 'description' => $description, 'link' => $url, 'categorie_id' => $id_categorie));
+}
+
+function deleteFavoris(PDO $BDD, $id)
+{
+    $request = $BDD->prepare('DELETE FROM site.public.favoris WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function GetDomain($url)
+{
+    $domain = parse_url($url, PHP_URL_HOST);
+    return $domain;
+
+
 }

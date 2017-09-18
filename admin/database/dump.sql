@@ -6,3 +6,112 @@ INSERT INTO public.articles (id, author, date, title, subtitle, contenu, categor
 On retient le retour de Firefox et Thunderbird en lieu et place de leurs fork respectifs. Mais &eacute;galement GCC en version 6.3, firefox en version 52 et linux 4.9 comme kernel.
 Une am&eacute;lioration bienvenue concerne la possibilit&eacute; d&#39;utiliser le serveur X sans &ecirc;tre root. L&#39;UEFI est de mieux en mieux support&eacute; sur les noyaux 32 et 64 bits et sur la version live CD. Cela permet notamment d&#39;utiliser le secure boot ou encore installer une version 64 bits sur un noyau 32 bits.
 Cette version tire son nom d&#39;un personnage du film Toy Story (Wikipedia) tout comme les deux prochaines versions en cours de d&eacute;veloppement, Debian 10 qui portera le nom de &#34;Buster&#34; et Debian 11 qui portera le nom de &#34;Bullseye&#34;.', 2, 'sortie_debian_logo.jpg', 'Logo de Debian');
+
+INSERT INTO public.projects (title, date, subtitle, contenu, img, legend, id, subject, id_categorie) VALUES ('titleinfo', '2017-07-31 21:12:21.291000', 'subtitle', 'conten', 'url', 'legend', 3, 'info', 2);
+INSERT INTO public.projects (title, date, subtitle, contenu, img, legend, id, subject, id_categorie) VALUES ('titleélec', '2017-07-31 19:07:49.090000', 'subtitle', 'contenu', 'url', 'legend', 2, 'élec', 1);
+
+INSERT INTO public.categorie_projects (id, name, description, img, legend, subject) VALUES (1, 'raspi', 'raspi', 'rl', 're', 'élec');
+INSERT INTO public.categorie_projects (id, name, description, img, legend, subject) VALUES (2, 'C', 'C', 'C', 'C', 'info');
+
+INSERT INTO public.categorie_article (id, name, description, img, legend) VALUES (1, 'elec', 'elec', '/elec/elec.png', 'No legend provided');
+INSERT INTO public.categorie_article (id, name, description, img, legend) VALUES (2, 'info', 'infogggg
+', '/info/info.png', 'No legend provided');
+
+INSERT INTO public.banners (id, title, subtitle, link, mediatype, urlmedia, date) VALUES (1, 'header', 'sous-header', 'null', 'img', '/assets/custom/img/Responsive-Website-Design-Devices.png', '2017-08-01 20:41:27.688000');
+
+create table articles
+(
+	id serial not null
+		constraint article_pkey
+			primary key,
+	author varchar(255),
+	date timestamp,
+	title varchar(255),
+	subtitle varchar(255),
+	contenu text,
+	categorie integer,
+	img text,
+	legend varchar(255)
+)
+;
+
+create table categorie_article
+(
+	id integer not null
+		constraint categorie_pkey
+			primary key,
+	name varchar(255),
+	description text,
+	img varchar(255),
+	legend varchar(255) default 'No legend provided'::character varying not null
+)
+;
+
+create table projects
+(
+	title varchar(255) not null,
+	date timestamp not null,
+	subtitle varchar(255) not null,
+	contenu text not null,
+	img varchar(255) not null,
+	legend varchar(255) not null,
+	id serial not null
+		constraint projects_id_pk
+			primary key,
+	subject varchar(4),
+	id_categorie integer default 0 not null
+)
+;
+
+create unique index projects_id_uindex
+	on projects (id)
+;
+
+create table banners
+(
+	id serial not null
+		constraint banners_id_pk
+			primary key,
+	title varchar(255) not null,
+	subtitle varchar(255) not null,
+	link text,
+	mediatype varchar(3) not null,
+	urlmedia text not null,
+	date timestamp not null
+)
+;
+
+create unique index banners_id_uindex
+	on banners (id)
+;
+
+create table categorie_projects
+(
+	id serial not null
+		constraint categorie_projects_id_pk
+			primary key,
+	name varchar(255) not null,
+	description text not null,
+	img varchar(255) not null,
+	legend varchar(255) not null,
+	subject varchar(4)
+)
+;
+
+
+create table favoris
+(
+	id serial not null
+		constraint favoris_pkey
+		primary key,
+	name varchar(255),
+	link text,
+	categorie_id integer,
+	description text
+)
+;
+
+create unique index favoris_id_uindex
+	on favoris (id)
+;
+
