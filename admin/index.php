@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/head.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/head.php"); ?>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/nav.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/nav.php"); ?>
 
 
 <div class="content-wrapper">
@@ -82,7 +82,7 @@
 </div>
 <!-- /.content-wrapper -->
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/footer.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
 
 
 </body>
