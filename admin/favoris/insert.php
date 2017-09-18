@@ -12,7 +12,7 @@ if(isset($bdd)) {
     $id_categorie= $_POST['id_categorie'];
     setFavoris($bdd, $nom, $url, $description, $id_categorie);
 } else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';}
-echo "Form Submitted Succesfully";
+echo "Favoris enregistré !";
 $bdd = null ;
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";

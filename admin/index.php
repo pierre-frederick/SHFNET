@@ -45,21 +45,7 @@
                     <br>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card mb-12">
-                        <div class="card-header">
-                            <i class="fa fa-external-link"></i>  Accès rapide
-                        </div>
-                        <div class="card-body">
-                            <h1><span class="badge badge-success">Web</span>
-                                <span class="badge badge-success">VPN</span>
-                                <span class="badge badge-success">Supervision</span>
-                                <span class="badge badge-success">UPS</span></h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 

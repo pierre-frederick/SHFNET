@@ -5,13 +5,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/head.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/head.php"); ?>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/nav.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/nav.php"); ?>
 
 
 <div class="content-wrapper">
+
     <div class="container-fluid">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb">
@@ -20,8 +21,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             </li>
             <li class="breadcrumb-item ">Favoris</li>
         </ol>
-
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -33,18 +32,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                 <div class="col-md-6">
                     <a href="/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>
-                <div class="col-md-6 text-right">
-                    <a href="/admin/articles/add.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Ajouter
-                        un article</a>
-                </div>
-
             </div>
 
 
             <div class="row">
                 <div class="col-md-12">
 
-
+                    <br>
                     <div id="mainform">
                         <div id="form">
                             <div>
@@ -58,15 +52,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                 <select id="id_categorie" name="id_categorie">
                                     <?php $bdd = ConnexionDB();
                                     $categories = GetAllCategorieFavoris($bdd);
-                                    foreach ($categories as $categorie) {?>
+                                    foreach ($categories as $categorie) { ?>
 
-                                     <option value="<?php echo $categorie['id'];  ?>"><?php echo $categorie['name'];  ?></option>
-                                    <?php  } ?>
+                                        <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
+                                    <?php } ?>
                                 </select>
                                 <input id="submit" type="button" value="Submit">
                             </div>
                         </div>
                     </div>
+                    <br>
+
 
                     <div id="divAct">
                         <?php
@@ -80,19 +76,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-
                                             <?php
                                             $favoris = GetFavorisByCategorie($bdd, $categorie['id']);
-                                            foreach ($favoris
-
-                                            as $favori) { ?>
-                                            <div class="col-md-2">
-                                                <a href="<?php echo $favori['link']; ?>"><?php echo $favori['name']; ?></a>
-                                                <img width="40" src="http://www.google.com/s2/favicons?domain=<?php echo GetDomain($favori['link']); ?>"/>
-                                                <a class="delete btn btn-danger" data-toggle="modal" data-id="<?php echo $favori['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                                <?php } ?>
-
+                                            foreach ($favoris as $favori) { ?>
+                                                <div class="col-md-2">
+                                                    <a class="btn btn-info" href="<?php echo $favori['link']; ?>"
+                                                       data-toggle="tooltip" data-placement="top"
+                                                       title="<?php echo $favori['description']; ?>"><img width="20"
+                                                       src="http://www.google.com/s2/favicons?domain=<?php echo GetDomain($favori['link']); ?>"/> <?php echo $favori['name']; ?>
+                                                    </a>
+                                                    <sup><a class="delete" data-toggle="modal"
+                                                            data-id="<?php echo $favori['id'] ?>"
+                                                            data-target="#deleteModal"><i class="fa fa-times-circle"></i></a></sup>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +109,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
         </div>
 
-
     </div>
     <!-- /.container-fluid -->
 
@@ -120,7 +116,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 <!-- /.content-wrapper -->
 
 <!-- Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -136,15 +133,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                <input class="btn btn-danger" type="button" name="lien" onclick="deleteFavori();" value="Supprimer"/>
+                <input class="btn btn-danger" type="button" data-dismiss="modal" name="lien" onclick="deleteFavori();"
+                       value="Supprimer"/>
             </div>
         </div>
     </div>
 </div>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "admin/elements/footer.php"); ?>
-
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
+<script src="/admin/assets/js/notify.js" type="text/javascript"></script>
 <script>
+
     var url;
     $(document).on("click", ".delete", function () {
         url = $(this).data('id');
@@ -154,6 +153,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         $("#divAct").load("index.php #divAct");
     }
 
+    bootstrap_alert = function () {
+    }
+    bootstrap_alert.warning = function (message) {
+        $('#alert_placeholder').html('<div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>').show("slow").delay(3000).hide("slow");
+    }
+
+
     function deleteFavori() {
         var dataString = 'id=' + url;
         $.ajax({
@@ -162,11 +168,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             data: dataString,
             cache: false,
             success: function (result) {
-                alert(result);
+                $.notify({
+                    // options
+                    message: result
+                }, {
+                    // settings
+                    type: 'danger',
+                    offset: 70,
+
+                });
             }
         });
         actualisedata();
+
     }
+
 
     $(document).ready(function () {
         actualisedata();
@@ -178,7 +194,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 // Returns successful data submission message when the entered information is stored in database.
             var dataString = 'nom=' + nom + '&url=' + url + '&description=' + description + '&id_categorie=' + idCat;
             if (nom == '' || url == '' || description == '' || idCat == '') {
-                alert("Please Fill All Fields");
+                $.notify({
+                    // options
+                    message: "Please Fill All Fields"
+                }, {
+                    // settings
+                    type: 'warning',
+                    offset: 70,
+
+                });
             }
             else {
 // AJAX Code To Submit Form.
@@ -188,7 +212,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                     data: dataString,
                     cache: false,
                     success: function (result) {
-                        alert(result);
+
+                        $.notify({
+                            // options
+                            message: result
+                        }, {
+                            // settings
+                            type: 'success',
+                            offset: 70,
+
+                        });
                     }
                 });
                 actualisedata();
