@@ -38,6 +38,9 @@
                     <li>
                         <a href="/admin/banners/index.php"><i class="fa fa-fw fa-area-chart"></i> Banners</a>
                     </li>
+                    <li>
+                        <a href="/admin/travels/index.php"><i class="fa fa-paper-plane-o"></i> Travels</a>
+                    </li>
                 </ul>
             </li>
 

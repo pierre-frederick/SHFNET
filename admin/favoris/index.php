@@ -79,7 +79,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                             <?php
                                             $favoris = GetFavorisByCategorie($bdd, $categorie['id']);
                                             foreach ($favoris as $favori) { ?>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3" style="margin-bottom: 10px;">
                                                     <a class="btn btn-info" href="<?php echo $favori['link']; ?>"
                                                        data-toggle="tooltip" data-placement="top"
                                                        title="<?php echo $favori['description']; ?>"><img width="20"

@@ -1,41 +1,32 @@
+<?php
+$pageArray = array();
+$pageArray['title'] = "Buzzers";
+$pageArray['description'] = "Théorie sur les Buzzers.";
+$pageArray['image'] = "/img/logo_shfnet.png";
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="shfnet theorie buzzer">
-    <meta name="author" content="Pierre-Frédérick DENYS">
-    <title>Buzzers</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="/assets/custom/css/flexslider.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="/assets/custom/css/parallax-slider.css" type="text/css">
-    <!-- CSS Template -->
-    <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <script src="https://use.fontawesome.com/da91765651.js"></script>
-</head>
 
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/head.php"); ?>
 <body>
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
-
 <div class="container">
     <div class="article">
+        <h1 class="title"><i class="fa fa-bell-o"></i> <?php echo $pageArray['title'] ?></h1>
 
-        <h1 class="title"><i class="fa fa-bell-o"></i> Buzzers</h1>
 
-        <a href="index.php" class="btn btn-secondary">&larr; Retour au menu</a>
+        <div class="row">
+            <div class="col-md-10">
+                <a href="index.php" class="btn btn-info">&larr; Retour au menu</a>
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="btn btn-info">Résumé en fiche</a>
+            </div>
+        </div>
+
 
         <div class="row introduction">
             <div class="col-md-12">
@@ -83,6 +74,16 @@
                     tension continue pour qu’il produise un son.<br/>
                 </p>
             </div>
+        </div>
+
+        <div class="sources">
+            <h3>Sources et liens pour en savoir plus :</h3>
+            <ul>
+                <li><a href="">Lien</a>
+                </li>
+
+            </ul>
+
         </div>
 
     </div>

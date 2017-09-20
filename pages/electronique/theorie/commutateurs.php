@@ -1,41 +1,31 @@
+<?php
+$pageArray = array();
+$pageArray['title'] = "Commutateurs";
+$pageArray['description'] = "Commutateurs choix et théorie.";
+$pageArray['image'] = "/img/logo_shfnet.png";
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="shfnet theorie commutateur interrupteur">
-    <meta name="author" content="Pierre-Frédérick DENYS">
-    <title>Commutateurs</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="/assets/custom/css/flexslider.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="/assets/custom/css/parallax-slider.css" type="text/css">
-    <!-- CSS Template -->
-    <link href="/assets/custom/css/business-plate.css" rel="stylesheet">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link href="/assets/custom/css/shfnet.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <script src="https://use.fontawesome.com/da91765651.js"></script>
-</head>
 
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/head.php"); ?>
 <body>
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/elements/header.php"); ?>
 
-
 <div class="container">
     <div class="article">
+        <h1 class="title"><i class="fa fa-toggle-on"></i> <?php echo $pageArray['title'] ?></h1>
 
-        <h1 class="title"><i class="fa fa-toggle-on"></i> Commutateurs</h1>
 
-        <a href="index.php" class="btn btn-secondary">&larr; Retour au menu</a>
+        <div class="row">
+            <div class="col-md-10">
+                <a href="index.php" class="btn btn-info">&larr; Retour au menu</a>
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="btn btn-info">Résumé en fiche</a>
+            </div>
+        </div>
 
         <div class="row introduction">
             <div class="col-md-12">
@@ -60,7 +50,8 @@
         <!-- Type de commutation -->
         <div class="row paragraph">
             <div class="col-md-6 ptext">
-                <h3 id="type">Type de commutation </h3>
+                <span id="type" class="ancre"></span>
+                <h3>Type de commutation </h3>
                 <p>Les types de commutations peuvent être désignés sous plusieurs apellations et sont de deux type :
                     permanents ou momentanés (bouton-poussoir). </p>
                 <ul>
@@ -85,7 +76,8 @@
                      alt="Configuration de contacts interrupteur">
             </div>
             <div class="col-md-6 ptext">
-                <h3 id="configuration">Configuration de contacts</h3>
+                <span id="configuration" class="ancre"></span>
+                <h3>Configuration de contacts</h3>
                 <p>Les types de contact sont appelés RT : repos travail, et désignent le nombre de circuits indépendants
                     disponibles. Par exemple, 2RT est équivalent à
                     deux interrupteurs en parallèle.</p>
@@ -107,7 +99,8 @@
         <!-- Caractéristiques électriques -->
         <div class="row paragraph">
             <div class="col-md-6 ptext">
-                <h3 id="electrique">Caractéristiques électriques </h3>
+                <span id="electrique" class="ancre"></span>
+                <h3>Caractéristiques électriques </h3>
                 <p>Courant maximal et tension maximale. </p>
                 <ul>
                     <li><b>Courant maximal : </b>Il ne faut jamais dépasser le courant maximal admis, et il est
@@ -134,7 +127,8 @@
                      alt="caracteristiques mecaniques">
             </div>
             <div class="col-md-6 ptext">
-                <h3 id="mecanique">Caractéristiques mécaniques</h3>
+                <span id="mecanique" class="ancre"></span>
+                <h3>Caractéristiques mécaniques</h3>
                 <p>Commutateur à glissière, à bascule, rotatif ; étanchéité... </p>
                 <p>On choisis un commutateur en fonction de son environnement d’utilisation.
                     Sa fréquence d’utilisation déterminera sa robustesse. Son milieu d’utilisation déterminera aussi
@@ -150,7 +144,8 @@
         <!-- Interrupteurs spéciaux -->
         <div class="row paragraph">
             <div class="col-md-6 ptext">
-                <h3 id="electrique">Interrupteurs spéciaux </h3>
+                <span id="electrique" class="ancre"></span>
+                <h3>Interrupteurs spéciaux </h3>
                 <p>Interrupteurs ILS, DIL, à clé, à mercure, à flotteur... </p>
 
             </div>
@@ -158,7 +153,17 @@
                 <!--<img class="img-responsive" src="img/commutateurs/caracteristiques_electriques.png" alt="caracteristiques electriques">-->
             </div>
         </div>
-        <hr/>
+
+
+        <div class="sources">
+            <h3>Sources et liens pour en savoir plus :</h3>
+            <ul>
+                <li><a href="">Lien</a>
+                </li>
+
+            </ul>
+
+        </div>
 
     </div>
 </div>

@@ -115,3 +115,36 @@ create unique index favoris_id_uindex
 	on favoris (id)
 ;
 
+
+
+
+
+
+
+
+
+
+
+
+
+create table travels
+(
+	id serial not null
+		constraint travels_pkey
+		primary key,
+	name varchar(60) not null,
+	address varchar(60) not null,
+	lat real not null,
+	lng real,
+	type varchar(30) not null
+)
+;
+
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (1, 'Love.Fish', '580 Darling Street, Rozelle, NSW', -33.861034, 151.17194, 'restaurant');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (2, 'Young Henrys', '76 Wilford Street, Newtown, NSW', -33.898113, 151.17447, 'bar');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (3, 'Hunter Gatherer', 'Greenwood Plaza, 36 Blue St, North Sydney NSW', -33.840282, 151.20747, 'bar');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (4, 'The Potting Shed', '7A, 2 Huntley Street, Alexandria, NSW', -33.91075, 151.19417, 'bar');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (5, 'Nomad', '16 Foster Street, Surry Hills, NSW', -33.879917, 151.21045, 'bar');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (7, 'Single Origin Roasters', '60-64 Reservoir Street, Surry Hills, NSW', -33.881123, 151.20966, 'restaurant');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (8, 'Red Lantern', '60 Riley Street, Darlinghurst, NSW', -33.874737, 151.21553, 'restaurant');
+INSERT INTO public.travels (id, name, address, lat, lng, type) VALUES (6, 'Three Blue bar', '43 Macpherson Street, Bronte, NSW', -33.906357, 151.26376, 'restaurant');
