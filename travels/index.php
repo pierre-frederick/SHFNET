@@ -109,16 +109,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     <!--=============== footer ===============-->
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/travels/elements/footer.php"); ?>
 </div>

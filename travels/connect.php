@@ -16,7 +16,7 @@ function parseToXML($htmlStr)
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier des fonctions
 
 setlocale(LC_ALL, 'fr_FR.UTF-8');
-$bdd = ConnexionDB();
+$bdd = connexionDB();
 
 function getmarkers(PDO $bdd)
 {

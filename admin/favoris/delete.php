@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
 setlocale(LC_ALL, 'fr_FR.UTF-8');
 try {
-    $bdd = ConnexionDB();
+    $bdd = connexionDB();
     if(isset($bdd)) {
         $id=$_POST['id'];
         deleteFavoris($bdd, $id);

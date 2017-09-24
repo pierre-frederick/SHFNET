@@ -1,9 +1,9 @@
 <?php setlocale(LC_ALL, 'fr_FR.UTF-8');
 
-$bdd = ConnexionDB();
+$bdd = connexionDB();
 
 if(isset($bdd)) {
-    $ListeCategories = ListeCategoriesArticle($bdd);
+    $ListeCategories = getAllCategoriesArticle($bdd);
     $idCategorie = null;
 
 
@@ -34,7 +34,7 @@ else if(isset($_GET['a']))
 {
     $getCategorie = null;
     $idArticle = filter_input(INPUT_GET, 'a', FILTER_SANITIZE_STRING);
-    $article = GetArticle($bdd, $idArticle);
+    $article = getArticle($bdd, $idArticle);
         if($article == null) {
             header('Location: /error/404.php');
         }

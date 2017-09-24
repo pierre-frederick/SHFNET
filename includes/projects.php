@@ -1,6 +1,6 @@
 <?php setlocale(LC_ALL, 'fr_FR.UTF-8');
 
-$bdd = ConnexionDB();
+$bdd = connexionDB();
 
 $metas = array('author' => 'Pierre-Frederick DENYS', 'description' => 'Blog de shfnet', 'og:type' => 'website', 'og:author' => 'Pierre-Frederick DENYS', 'og:image' => '/img/shfnet.jpg', 'og:description' => 'Blog de shfnet', 'og:site_name' => 'Blog');
 $idCategorie = null;
@@ -16,7 +16,7 @@ else {
 if(isset($_GET['s']))
 {
     $subject = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
-    $ListeCategoriesProjects = ListeCategoriesProjects($bdd, $subject);
+    $ListeCategoriesProjects = getAllCategoriesProjects($bdd, $subject);
     $getCategorie = null;
 }
 
@@ -24,13 +24,13 @@ if(isset($_GET['s']))
 else if(isset($_GET['s']) && isset($_GET['c']))
 {
     $getCategorie = filter_input(INPUT_GET, 'c', FILTER_SANITIZE_STRING);
-    $ListeCategoriesProjects = ListeCategoriesProjects($bdd, $subject);
+    $ListeCategoriesProjects = getAllCategoriesProjects($bdd, $subject);
 
 }
 else if(isset($_GET['project']))
 {
     $idProject = filter_input(INPUT_GET, 'project', FILTER_SANITIZE_STRING);
-    $project = GetProject($bdd, $idProject);
+    $project = getProject($bdd, $idProject);
     if($project == null) {
         header('Location: /error/404.php');
     }

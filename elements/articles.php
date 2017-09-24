@@ -14,7 +14,7 @@ require_once '/includes/articles.php'; // fichier des fonctions
                         if (isset($_GET['a'])) {
                             echo $article['contenu'];
                         } else {
-                            $articles = LastArticles($bdd, $idCategorie, $page, 4);
+                            $articles = getLastArticles($bdd, $idCategorie, $page, 4);
                             foreach ($articles as $article) {
                                 ?>
                                 <div class="col-md-3">

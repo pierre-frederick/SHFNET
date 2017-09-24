@@ -1,6 +1,6 @@
 <?php
 require_once '/includes/functions.php'; // fichier des fonctions
-$bdd = ConnexionDB();
+$bdd = connexionDB();
 ?>
 
 <div class="container">
@@ -34,7 +34,7 @@ $bdd = ConnexionDB();
 
                 <?php
                 if(isset($article) || $PROFILE_DEV == true) {
-                    $projects = LastProjects($bdd, null, null, 1);
+                    $projects = getLastProjects($bdd, null, null, 1);
                     if (isset($projects)) {
                         foreach ($projects as $project) { ?>
                             <div class="media">

@@ -77,7 +77,7 @@
                   </ul>
               </li>
               <li><a href="/pages/services.php">Services</a></li>
-              <li><a href="/pages/voyages/index.php">Voyages</a></li>
+              <li><a href="/travels/index.php">Voyages</a></li>
             <li><a href="/blog.php">Blog</a></li>
             <li><a href="/pages/contact.php">Contact</a></li>
           </ul>

@@ -41,6 +41,9 @@
                     <li>
                         <a href="/admin/travels/index.php"><i class="fa fa-paper-plane-o"></i> Travels</a>
                     </li>
+                    <li>
+                        <a href="/admin/bd_articles/index.php"><i class="fa fa-paper-plane-o"></i> BD Magazines</a>
+                    </li>
                 </ul>
             </li>
 

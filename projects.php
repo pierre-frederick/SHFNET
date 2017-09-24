@@ -96,7 +96,7 @@ require_once 'includes/projects.php'; // fichier des fonctions
 
 
             <?php
-            $projects = LastProjects($bdd, $subject, $idCategorie, $page);
+            $projects = getLastProjects($bdd, $subject, $idCategorie, $page);
             foreach ($projects as $project) {
                 ?>
                 <div class="post-preview row">

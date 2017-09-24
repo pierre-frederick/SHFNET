@@ -9,10 +9,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
                 <?php
                 setlocale(LC_ALL, 'fr_FR.UTF-8');
-                $bdd = ConnexionDB();
+                $bdd = connexionDB();
                 if(isset($bdd)) {
 
-                $banners = LastBanners($bdd);
+                $banners = getLastBanners($bdd);
                 if(!empty($banners)) {
                     foreach($banners as $banner) {?>
                         <div class="da-slide">

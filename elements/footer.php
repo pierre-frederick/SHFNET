@@ -35,7 +35,7 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
 
                   <?php
                   if(isset($article) || $PROFILE_DEV == true) {
-                      $articles = LastArticles($bdd, null, 1, 3);
+                      $articles = getLastArticles($bdd, null, 1, 3);
                       foreach ($articles as $article) {
                           ?>
                           <p>

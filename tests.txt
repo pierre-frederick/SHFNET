@@ -1,0 +1,43 @@
+
+ALTER SEQUENCE bd_articles_id_seq RESTART WITH 110;
+
+23/09/17
+Ajout de tag
+http://shfnet.dev/admin/bd_articles/insert.php
+application/x-www-form-urlencoded
+type=tag&name=toto&description=toto
+
+23/09/17
+Ajout de magazine
+http://shfnet.dev/admin/bd_articles/insert.php
+application/x-www-form-urlencoded
+type=magazine&titre=toto&numero=3265&date_magazine=1996-09-17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

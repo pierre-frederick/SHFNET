@@ -50,8 +50,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                 <input id="description" type="text">
                                 <label>Catégorie :</label>
                                 <select id="id_categorie" name="id_categorie">
-                                    <?php $bdd = ConnexionDB();
-                                    $categories = GetAllCategorieFavoris($bdd);
+                                    <?php $bdd = connexionDB();
+                                    $categories = getAllCategorieFavoris($bdd);
                                     foreach ($categories as $categorie) { ?>
 
                                         <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
@@ -67,8 +67,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                     <div id="divAct">
                         <?php
                         try {
-                            $bdd = ConnexionDB();
-                            $categories = GetAllCategorieFavoris($bdd);
+                            $bdd = connexionDB();
+                            $categories = getAllCategorieFavoris($bdd);
                             foreach ($categories as $categorie) { ?>
                                 <div class="card mb-12">
                                     <div class="card-header">
@@ -77,13 +77,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                     <div class="card-body">
                                         <div class="row">
                                             <?php
-                                            $favoris = GetFavorisByCategorie($bdd, $categorie['id']);
+                                            $favoris = getFavorisByCategorie($bdd, $categorie['id']);
                                             foreach ($favoris as $favori) { ?>
                                                 <div class="col-md-3" style="margin-bottom: 10px;">
                                                     <a class="btn btn-info" href="<?php echo $favori['link']; ?>"
                                                        data-toggle="tooltip" data-placement="top"
                                                        title="<?php echo $favori['description']; ?>"><img width="20"
-                                                       src="http://www.google.com/s2/favicons?domain=<?php echo GetDomain($favori['link']); ?>"/> <?php echo $favori['name']; ?>
+                                                       src="http://www.google.com/s2/favicons?domain=<?php echo getDomain($favori['link']); ?>"/> <?php echo $favori['name']; ?>
                                                     </a>
                                                     <sup><a class="delete" data-toggle="modal"
                                                             data-id="<?php echo $favori['id'] ?>"

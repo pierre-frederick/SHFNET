@@ -50,7 +50,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Sujet</th>
+                                <th>Type</th>
+                                <th>Catégorie</th>
                                 <th>Date</th>
                                 <th>Titre</th>
                                 <th>Sous-titre</th>
@@ -65,23 +66,24 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
                             <?php
                             setlocale(LC_ALL, 'fr_FR.UTF-8');
-                            $bdd = ConnexionDB();
+                            $bdd = connexionDB();
                             if(isset($bdd)) {
-                                $projects = getAllProjects($bdd);
+                                $projects = getAllProject($bdd);
                                 if(!empty($projects)) {
                                     foreach($projects as $project) {?>
 
                                         <tr>
                                             <td><?php echo $project['id']?></td>
                                             <td><?php echo $project['subject']?></td>
+                                            <td><?php $cat = getCategorieProjects($bdd, $project['id_categorie']); echo $cat['name'] ?></td>
                                             <td><?php $date = strtotime($project['date']); echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?>?></td>
                                             <td><?php echo $project['title']?></td>
                                             <td><?php echo $project['subtitle']?></td>
                                             <td><?php echo $project['contenu']?></td>
                                             <td><?php echo $project['img']?></td>
                                             <td><?php echo $project['legend']?></td>
-                                            <td><a class="delete btn btn-danger" data-toggle="modal" data-id="/admin/projects/delete.php?id=<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
-                                                <a href="/admin/projects/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                            <td><a class="delete btn btn-danger" data-toggle="modal" data-id="/admin/projects/delete.php?id=<?php echo $project['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
+                                                <a href="/admin/projects/edit.php?id=<?php echo $project['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                             </td>
                                         </tr>
                                     <?php } }} else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';} ?>

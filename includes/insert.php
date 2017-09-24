@@ -54,7 +54,7 @@ if(isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['categori
     $auteur = filter_input(INPUT_POST, 'auteur', FILTER_SANITIZE_STRING);
 	//$purifier = new HTMLPurifier();
 	//$editor = $purifier->purify($_POST['editor']);
-		$bdd = ConnexionDB();
+		$bdd = connexionDB();
 		$date = date("Y-m-d H:i:s");
 			$qry = $bdd->prepare('INSERT INTO site.public.articles (author, date, title, subtitle , contenu, categorie, url, legende) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 			$qry->execute(array($auteur, $date, $title, $subtitle, $contenu, $_POST['categorie'], $_FILES['fic']['name'], $legende));
