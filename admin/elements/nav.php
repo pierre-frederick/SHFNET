@@ -23,12 +23,12 @@
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#sitePrincipal" data-parent="#exampleAccordion">
                     <i class="fa fa-pencil"></i>
                     <span class="nav-link-text">
-                Gestion site web</span>
+                Gestion site principal</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                <ul class="sidenav-second-level collapse" id="sitePrincipal">
                     <li>
                         <a href="/admin/articles/index.php"><i class="fa fa-fw fa-table"></i> Articles</a>
                     </li>
@@ -39,13 +39,33 @@
                         <a href="/admin/banners/index.php"><i class="fa fa-fw fa-area-chart"></i> Banners</a>
                     </li>
                     <li>
-                        <a href="/admin/travels/index.php"><i class="fa fa-paper-plane-o"></i> Travels</a>
-                    </li>
-                    <li>
                         <a href="/admin/bd_articles/index.php"><i class="fa fa-paper-plane-o"></i> BD Magazines</a>
                     </li>
                 </ul>
             </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#siteTravels" data-parent="#exampleAccordion">
+                    <i class="fa fa-paper-plane-o"></i>
+                    <span class="nav-link-text">
+                Gestion site travels</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="siteTravels">
+                    <li>
+                        <a href="/admin/travels/banners.php"><i class="fa fa-fw fa-table"></i> Banners</a>
+                    </li>
+                    <li>
+                        <a href="/admin/travels/index.php"><i class="fa fa-map-signs"></i> Voyages</a>
+                    </li>
+                    <li>
+                        <a href="/admin/travels/pictures.php"><i class="fa fa-picture-o"></i> Photos</a>
+                    </li>
+                    <li>
+                        <a href="/admin/travels/maps.php"><i class="fa fa-map-o"></i> Cartes</a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
                 <a class="nav-link" href="/admin/favoris/index.php">
