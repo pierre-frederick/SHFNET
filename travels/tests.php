@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<?php  $centerlat=151.207977; $centerlong=-33.863276;   ?>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -47,19 +48,21 @@
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(-33.863276, 151.207977),
-            zoom: 2
+            center: new google.maps.LatLng(<?php echo $centerlong ?>, <?php echo $centerlat ?>),
+            zoom: 6
         });
         var infoWindow = new google.maps.InfoWindow;
 
         // Change this depending on the name of your PHP or XML file
-        downloadUrl('http://localhost/travels/connect.php', function (data) {
+        downloadUrl('./connect.php', function (data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function (markerElem) {
                 var name = markerElem.getAttribute('name');
                 var address = markerElem.getAttribute('address');
                 var type = markerElem.getAttribute('type');
+                var lien = markerElem.getAttribute('link');
+
                 var point = new google.maps.LatLng(
                     parseFloat(markerElem.getAttribute('lat')),
                     parseFloat(markerElem.getAttribute('lng')));
@@ -73,6 +76,15 @@
                 var text = document.createElement('text');
                 text.textContent = address
                 infowincontent.appendChild(text);
+
+                infowincontent.appendChild(document.createElement('br'));
+                var link = document.createElement('a');
+                link.setAttribute('href',lien);
+                link.setAttribute('target','_BLANK');
+                link.innerHTML = "Découvrir"
+                infowincontent.appendChild(link);
+
+
                 var icon = customLabel[type] || {};
                 var marker = new google.maps.Marker({
                     map: map,

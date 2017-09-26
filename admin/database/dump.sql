@@ -549,3 +549,29 @@ INSERT INTO public.favoris (id, name, link, categorie_id, description) VALUES (5
 INSERT INTO public.projects (title, date, subtitle, contenu, img, legend, id, subject, id_categorie) VALUES ('titleinfo', '2017-07-31 21:12:21.291000', 'subtitle', 'conten', 'url', 'legend', 3, 'info', 2);
 INSERT INTO public.projects (title, date, subtitle, contenu, img, legend, id, subject, id_categorie) VALUES ('titleélec', '2017-07-31 19:07:49.090000', 'subtitle', 'contenu', 'url', 'legend', 2, 'élec', 1);
 
+INSERT INTO public.vg_map (id, name) VALUES (1, 'carte1');
+
+-- auto-generated definition
+CREATE TABLE vg_spot
+(
+	id        SERIAL           NOT NULL
+		CONSTRAINT prk_constraint_vg_spot
+		PRIMARY KEY,
+	name      VARCHAR(255),
+	link      VARCHAR(2000),
+	address   VARCHAR(255)     NOT NULL,
+	lat       DOUBLE PRECISION NOT NULL,
+	lng       DOUBLE PRECISION NOT NULL,
+	type      VARCHAR(30)      NOT NULL,
+	id_vg_map INTEGER
+		CONSTRAINT fk_vg_spot_id_vg_map
+		REFERENCES vg_map
+);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (3, 'Hunter Gatherer', 'https://v4-alpha.getbootstrap.com/components/alerts/', 'Greenwood Plaza, 36 Blue St, North Sydney NSW', -33.840282, 151.207474, 'bar', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (2, 'Young Henrys', 'https://v4-alpha.getbootstrap.com/components/alerts/', '76 Wilford Street, Newtown, NSW', -33.898113, 151.174469, 'bar', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (5, 'Nomad', 'https://v4-alpha.getbootstrap.com/components/alerts/', '16 Foster Street, Surry Hills, NSW', -33.879917, 151.210449, 'bar', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (4, 'The Potting Shed', 'https://v4-alpha.getbootstrap.com/components/alerts/', '7A, 2 Huntley Street, Alexandria, NSW', -33.910751, 151.194168, 'bar', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (7, 'Single Origin Roasters', 'https://v4-alpha.getbootstrap.com/components/alerts/', '60-64 Reservoir Street, Surry Hills, NSW', -33.881123, 151.209656, 'restaurant', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (6, 'Three Blue Ducks', 'https://v4-alpha.getbootstrap.com/components/alerts/', '43 Macpherson Street, Bronte, NSW', -33.906357, 151.263763, 'restaurant', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (8, 'Red Lantern', 'https://v4-alpha.getbootstrap.com/components/alerts/', '60 Riley Street, Darlinghurst, NSW', -33.874737, 151.21553, 'restaurant', 1);
+INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (1, 'Love.Fish', 'https://v4-alpha.getbootstrap.com/components/alerts/', '580 Darling Street, Rozelle, NSW', -33.861034, 151.171936, 'restaurant', 1);

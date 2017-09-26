@@ -243,3 +243,7 @@ function setBdArticleTag(PDO $BDD, $id_article, $id_bd_tag){
     $request->execute(array('id_article' => $id_article, 'id_bd_tag' => $id_bd_tag));
 }
 
+function getAllVgMaps(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM site.public.vg_map;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}

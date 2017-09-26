@@ -21,7 +21,7 @@ $bdd = connexionDB();
 function getmarkers(PDO $bdd)
 {
     try {
-        $request = $bdd->query('SELECT * FROM site.public.travels;');
+        $request = $bdd->query('SELECT * FROM site.public.vg_spot;');
         return $request->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (PDOException $e) {
@@ -41,6 +41,7 @@ foreach ($markers as $marker) {
     // Add to XML document node
     echo '<marker ';
     echo 'name="' . parseToXML($marker['name']) . '" ';
+    echo 'link="' . parseToXML($marker['link']) . '" ';
     echo 'address="' . parseToXML($marker['address']) . '" ';
     echo 'lat="' . $marker['lat'] . '" ';
     echo 'lng="' . $marker['lng'] . '" ';

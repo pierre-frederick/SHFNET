@@ -24,13 +24,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             <li class="breadcrumb-item">
                 <a href="/admin/">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Gestion site web</li>
-            <li class="breadcrumb-item">Travels</li>
+            <li class="breadcrumb-item">Gestion site web</li>
+            <li class="breadcrumb-item active">Travels</li>
+            <li class="breadcrumb-item">Cartes</li>
         </ol>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1>Travels</h1>
+                    <h1>Cartes</h1>
                 </div>
             </div>
 
@@ -47,58 +48,58 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
             <div class="row">
-                <div class="col-md-12">
-                    <!-- FORM -->
-                        <div id="cadre" style="margin-left:100px;width:200px">
-                        </div>
-
-                        <p>
-                            <input type="button" class="btn btn-primary" value="ajouter un champ" onclick="plus()"/>
-
-                            <input type="button" class="btn btn-danger" style="display:none" id="sup"
-                                   value="supprimer un champ" onclick="moins()"/>
-                            <input type="submit" class="btn btn-success" value="Submit2">
-                        </p>
-
-
-                    <input id="addressMap0" type="textbox" value="Sydney, NSW">
-                    <input class="btn btn-success" id="submitMap" value="Geocode" type="button">
-
-                    <div id="map" style="height: 200px; width: 200px;"></div>
-
-
-                </div>
-
 
                 <div class="col-md-12">
-                    <br>
-                    <!-- TAGS -->
+
+
                     <div class="card mb-12">
                         <div class="card-header">
-                            Tags
+                            Cartes
                         </div>
                         <div class="card-body">
-                            <div class="col-md-12">
-                                <form class="form-inline">
-                                    <label class=" mb-2 mr-sm-2 mb-sm-0">Ajouter un nouveau tag : </label>
-                                    <label class="sr-only" for="name">Nom : </label>
-                                    <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="name" type="text"
-                                           placeholder="Nom">
-                                    <label class="sr-only" for="description">Description
-                                        : </label>
-                                    <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="description" type="text"
-                                           placeholder="Description">
-                                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                                <br>
-                            </div>
-                            <div class="table-responsive" id="divActTag">
+                            <h2>Ajouter une nouvelle carte : </h2>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Nom de la carte :</label>
+                                    <input type="text" class="form-control" id="name">
+                                    <div class="form-inline">
+                                        <div class="mb-3 mr-sm-3 mb-sm-0">
+                                            <label for="name">Latitude :</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Ex : 33.863276" >
+                                        </div>
+                                        <div class="mb-3 mr-sm-3 mb-sm-0">
+                                            <label for="name">Longitude :</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Ex : 151.207977">
+                                        </div>
+                                        <div class="mb-3 mr-sm-3 mb-sm-0">
+                                            <label for="name">zoom :</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Ex : 3">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                    <div class="form-group row" id="cadre">
+                                        <!-- Formulaire d'ajout de point -->
+                                    </div>
+                                <input type="button" class="btn btn-primary" value="Ajouter un point" onclick="plus()"/>
+                                <input type="button" class="btn btn-danger" style="display:none" id="sup"
+                                       value="supprimer un champ" onclick="moins()"/>
+                                <div class="form-group">
+                                    <br>
+                                    <input type="submit" class="btn btn-success" id="submitMap" value="Ajouter">
+                                </div>
+
+                            </form>
+
+
+                            <div class="table-responsive" id="divActMap">
                                 <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
                                     <thead>
                                     <tr>
                                         <th>Id</th>
                                         <th>Nom</th>
-                                        <th>Description</th>
+                                        <th>Centre (Lat, Long, Zoom)</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -109,20 +110,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                     setlocale(LC_ALL, 'fr_FR.UTF-8');
                                     $bdd = connexionDB();
                                     if (isset($bdd)) {
-                                        $tags = getAllBdTag($bdd);
-                                        if (!empty($tags)) {
-                                            foreach ($tags as $tag) { ?>
+                                        $maps = getAllVgMaps($bdd);
+                                        if (!empty($maps)) {
+                                            foreach ($maps as $map) { ?>
 
                                                 <tr>
-                                                    <td><?php echo $tag['id'] ?></td>
-                                                    <td><?php echo $tag['name'] ?></td>
-                                                    <td><?php echo $tag['description'] ?></td>
+                                                    <td><?php echo $map['id'] ?></td>
+                                                    <td><?php echo $map['name'] ?></td>
+                                                    <td><?php echo $map['center_lat'] . ", " . $map['center_long'] . ", " . $map['zoom']?></td>
                                                     <th><a class="delete btn btn-danger" data-toggle="modal"
-                                                           data-id="/admin/bd_articles/delete.php?id=<?php echo $tag['id'] ?>"
+                                                           data-id="/admin/bd_articles/delete.php?id=<?php echo $map['id'] ?>"
                                                            data-target="#deleteTagModal"><i
                                                                     class="fa fa-times-circle"></i></a>
-                                                        <a href="/admin/bd_articles/edit.php?id=<?php echo $tag['id'] ?>"
-                                                           class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <!-- <a href="/admin/bd_articles/edit.php?id=<?php echo $map['id'] ?>"
+                                                           class="btn btn-success"><i class="fa fa-pencil"></i></a> -->
                                                     </th>
                                                 </tr>
                                             <?php }
@@ -136,7 +137,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                         </div>
 
                     </div>
-
 
                 </div>
             </div>
@@ -169,7 +169,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                 <input class="btn btn-danger" type="button" data-dismiss="modal" name="lien"
-                       onclick="deleteTag();"
+                       onclick="deleteMap();"
                        value="Supprimer"/>
             </div>
         </div>
@@ -181,12 +181,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 <script src="/admin/assets/js/notify.js" type="text/javascript"></script>
 <script>
 
-    var row, counterField, labelName, fieldName, labelLink, fieldLink, labelAddress, fieldAddress, labelType, fieldType,
-        buttonGeo;
+    var row, counterField, labelName, fieldName, labelLink, fieldLink, labelAddress, fieldAddress, labelType, fieldType, maDiv;
 
     // ajouter un champ avec son "name" propre;
     function plus() {
         row = document.getElementById('cadre');
+        maDiv = document.createElement("div");
         counterField = row.getElementsByTagName('input');
         labelName = document.createElement('label');
         labelLink = document.createElement('label');
@@ -196,51 +196,53 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         fieldLink = document.createElement('input');
         fieldAddress = document.createElement('input');
         fieldType = document.createElement('input');
-        buttonGeo = document.createElement('input');
+
+        maDiv.setAttribute('class', "col-md-3 alert alert-info");
+
         labelName.setAttribute('for', "name" + counterField.length);
         labelName.setAttribute('id', "name" + counterField.length);
         fieldName.setAttribute('type', 'text');
         fieldName.setAttribute('name', "name" + counterField.length);
+        fieldName.setAttribute('class', "form-control");
+
 
         labelLink.setAttribute('for', "link" + counterField.length);
         labelLink.setAttribute('id', "link" + counterField.length);
         fieldLink.setAttribute('type', 'text');
         fieldLink.setAttribute('name', "link" + counterField.length);
+        fieldLink.setAttribute('class', "form-control");
 
         labelAddress.setAttribute('for', "address" + counterField.length);
         labelAddress.setAttribute('id', "address" + counterField.length);
         fieldAddress.setAttribute('type', 'text');
         fieldAddress.setAttribute('name', "address" + counterField.length);
         fieldAddress.setAttribute('id', "addressMap" + counterField.length);
+        fieldAddress.setAttribute('class', "form-control");
 
         labelType.setAttribute('for', "type" + counterField.length);
         labelType.setAttribute('id', "type" + counterField.length);
         fieldType.setAttribute('type', 'text');
         fieldType.setAttribute('name', "type" + counterField.length);
+        fieldType.setAttribute('class', "form-control");
 
-        buttonGeo.setAttribute('class', "btn btn-success");
-        buttonGeo.setAttribute('id', "submitMap");
-        buttonGeo.setAttribute('type', "button");
-        buttonGeo.setAttribute('value', "Geocoder");
+        row.appendChild(maDiv);
 
-        row.appendChild(labelName);
-        row.appendChild(fieldName);
+        maDiv.appendChild(labelName);
+        maDiv.appendChild(fieldName);
 
-        row.appendChild(labelLink);
-        row.appendChild(fieldLink);
+        maDiv.appendChild(labelLink);
+        maDiv.appendChild(fieldLink);
 
-        row.appendChild(labelAddress);
-        row.appendChild(fieldAddress);
+        maDiv.appendChild(labelAddress);
+        maDiv.appendChild(fieldAddress);
 
-        row.appendChild(labelType);
-        row.appendChild(fieldType);
-
-        row.appendChild(buttonGeo);
+        maDiv.appendChild(labelType);
+        maDiv.appendChild(fieldType);
         /*document.getElementById('sup').style.display='inline';*/
-        document.getElementById("name" + (counterField.length - 5)).innerHTML = "Name :";
-        document.getElementById("link" + (counterField.length - 5)).innerHTML = "Link :";
-        document.getElementById("address" + (counterField.length - 5)).innerHTML = "Address :";
-        document.getElementById("type" + (counterField.length - 5)).innerHTML = "Type :";
+        document.getElementById("name" + (counterField.length - 4)).innerHTML = "Nom du lieu :";
+        document.getElementById("link" + (counterField.length - 4)).innerHTML = "Lien :";
+        document.getElementById("address" + (counterField.length - 4)).innerHTML = "Adresse du lieu :";
+        document.getElementById("type" + (counterField.length - 4)).innerHTML = "Type de Lieu :";
     }
 
     // supprimer le dernier champ;
@@ -260,8 +262,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         url = $(this).data('id');
     });
 
-    function actualiseDataTag(divActTag) {
-        $("#divActTag").load("index.php #divActTag");
+    function actualiseDataMap(divActMap) {
+        $("#divActMap").load("index.php #divActMap");
     }
 
 
@@ -272,7 +274,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
     }
 
 
-    function deleteTag() {
+    function deleteMap() {
         var dataString = 'id=' + url;
         $.ajax({
             type: "POST",
@@ -291,7 +293,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                 });
             }
         });
-        actualiseDataTag();
+        actualiseDataMap();
     }
 
 
@@ -340,39 +342,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         });
 
     });
-
-
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8,
-            center: {lat: -34.397, lng: 150.644}
-        });
-        var geocoder = new google.maps.Geocoder();
-
-        document.getElementById('submitMap').addEventListener('click', function () {
-            geocodeAddress(geocoder, map);
-        });
-    }
-
-    function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('addressMap0').value;
-        geocoder.geocode({'address': address}, function (results, status) {
-            if (status === 'OK') {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-
-                console.log(results[0].geometry.location);
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-        });
-    }
-
-
-
 
 </script>
 <script async defer

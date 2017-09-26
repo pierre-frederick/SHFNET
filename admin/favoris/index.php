@@ -40,16 +40,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
                     <br>
                     <div id="mainform">
+
                         <div id="form">
-                            <div>
-                                <label>Nom :</label>
-                                <input id="nom" type="text">
-                                <label>Url :</label>
-                                <input id="url" type="text">
-                                <label>Description :</label>
-                                <input id="description" type="text">
-                                <label>Catégorie :</label>
-                                <select id="id_categorie" name="id_categorie">
+                            <form class="form-inline">
+                                <label class=" mb-1 mr-sm-1 mb-sm-0">Nom :</label>
+                                <input class="form-control mb-1 mr-sm-1 mb-sm-0" id="nom" type="text">
+                                <label class=" mb-1 mr-sm-1 mb-sm-0">Url :</label>
+                                <input class="form-control mb-1 mr-sm-1 mb-sm-0" id="url" type="text">
+                                <label class=" mb-1 mr-sm-1 mb-sm-0">Description :</label>
+                                <input class="form-control mb-1 mr-sm-1 mb-sm-0" id="description" type="text">
+                                <label class=" mb-1 mr-sm-1 mb-sm-0">Cat :</label>
+                                <select id="id_categorie" name="id_categorie" class="custom-select mb-1 mr-sm-1 mb-sm-0">
                                     <?php $bdd = connexionDB();
                                     $categories = getAllCategorieFavoris($bdd);
                                     foreach ($categories as $categorie) { ?>
@@ -57,8 +58,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                         <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
                                     <?php } ?>
                                 </select>
-                                <input id="submit" type="button" value="Submit">
-                            </div>
+                                    <input id="submit" type="button" value="+"  class="btn btn-primary">
+                            </form>
                         </div>
                     </div>
                     <br>
