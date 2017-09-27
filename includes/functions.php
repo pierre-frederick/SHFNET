@@ -247,3 +247,43 @@ function getAllVgMaps(PDO $BDD){
     $request = $BDD->query('SELECT * FROM site.public.vg_map;');
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getVgMapById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_map WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function getAllVgVoyages(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM site.public.vg_voyage;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAllVgCategorie(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM site.public.vg_categorie;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function getVgCategorieById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_categorie WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function getVgVoyageById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_voyage WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function getAllVgCategorieVoyage(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM site.public.vg_categorie_voyage;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAllVgCategorieVoyageById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_categorie_voyage WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
