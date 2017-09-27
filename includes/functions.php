@@ -287,3 +287,17 @@ function getAllVgCategorieVoyageById(PDO $BDD, $id){
     $request->execute(array($id));
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getAllVgVoyagePhotoById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_voyage_photo WHERE id_vg_voyage = ?');
+    $request->execute(array($id));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getVgPhotoById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM site.public.vg_pictures WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+

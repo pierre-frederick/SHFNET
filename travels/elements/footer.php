@@ -3,10 +3,9 @@
 <!--=============== Footer ===============-->
 <footer>
     <div class="policy-box">
-        <span>&#169; Outdoor 2015 . All rights reserved. </span>
+        <span>© SHFNET, 2017</span>
         <ul>
-            <li><a href="#">yourmail@domain.com</a></li>
-            <li><a href="#">+7(111)123456789</a></li>
+            <li><a href="https://shfnet.fr">https://shfnet.fr</a></li>
         </ul>
     </div>
     <!-- footer social -->

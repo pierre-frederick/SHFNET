@@ -575,3 +575,9 @@ INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) 
 INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (6, 'Three Blue Ducks', 'https://v4-alpha.getbootstrap.com/components/alerts/', '43 Macpherson Street, Bronte, NSW', -33.906357, 151.263763, 'restaurant', 1);
 INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (8, 'Red Lantern', 'https://v4-alpha.getbootstrap.com/components/alerts/', '60 Riley Street, Darlinghurst, NSW', -33.874737, 151.21553, 'restaurant', 1);
 INSERT INTO public.vg_spot (id, name, link, address, lat, lng, type, id_vg_map) VALUES (1, 'Love.Fish', 'https://v4-alpha.getbootstrap.com/components/alerts/', '580 Darling Street, Rozelle, NSW', -33.861034, 151.171936, 'restaurant', 1);
+
+
+INSERT INTO public.vg_pictures (id, name, link, description, id_vg_spot) VALUES (1, 'NY', 'https://farm5.staticflickr.com/4284/35336823852_66b61b0b75_z.jpg', 'NY vue d''enhaut', null);
+INSERT INTO public.vg_pictures (id, name, link, description, id_vg_spot) VALUES (2, 'NY', 'https://farm5.staticflickr.com/4283/35117350750_b4533f56cd_z.jpg', 'NY vue d''enhaut', null);
+INSERT INTO public.vg_pictures (id, name, link, description, id_vg_spot) VALUES (3, 'NY', 'https://farm5.staticflickr.com/4240/35373210461_a242e584db_z.jpg', 'NY vue d''enhaut', null);
+INSERT INTO public.vg_pictures (id, name, link, description, id_vg_spot) VALUES (0, 'NY', 'https://farm5.staticflickr.com/4211/35117405180_8387ef03c5_z.jpg', 'NY vue d''enhaut', null);

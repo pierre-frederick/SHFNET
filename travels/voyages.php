@@ -10,18 +10,11 @@ $zoom = 3;
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/travels/elements/head.php"); ?>
 
-<style>
-    /* Always set the map height explicitly to define the size of the div
-     * element that contains the map. */
-    #map {
-        height: 60%;
-        width: 60%;
-    }
-</style>
+
 
 
 <body>
-<div id="map"></div>
+
 <!--Loader  -->
 <div class="loader"><i class="fa fa-refresh fa-spin"></i></div>
 <!--LOader end  -->
@@ -47,7 +40,7 @@ $zoom = 3;
                     </div>
                     <!-- Portfolio counter end -->
                     <div class="filter-holder column-filter">
-                        <div class="filter-button">Catégorie <i class="fa fa-long-arrow-down"></i></div>
+                        <div class="filter-button">Catégories <i class="fa fa-long-arrow-down"></i></div>
                         <div class="gallery-filters hid-filter">
                             <a href="#" class="gallery-filter transition2 gallery-filter_active" data-filter="*">All
                                 Albums</a>
@@ -83,13 +76,13 @@ $zoom = 3;
                                                     echo $Cat['name'] . " ";
                                                 }
                                             } ?>">
-                                                <img src="images/bg/1.jpg" alt="">
+                                                <img src="<?php echo $voyage['image'] ?>" alt="">
                                                 <div class="port-desc-holder">
                                                     <div class="port-desc">
                                                         <div class="overlay"></div>
                                                         <div class="grid-item">
                                                             <h3>
-                                                                <a href="portfolio-single.html"><?php echo $voyage['name'] ?></a>
+                                                                <a href="./voyages.php?voyage=<?php echo $voyage['id'] ?>"><?php echo $voyage['name'] ?></a>
                                                             </h3>
                                                             <span><?php echo $voyage['place'] ?></span>
                                                         </div>
@@ -98,7 +91,7 @@ $zoom = 3;
                                                 <div class="port-subtitle-holder">
                                                     <div class="port-subtitle">
                                                         <h3>
-                                                            <a href="portfolio-single.html"><?php echo $voyage['name'] ?></a>
+                                                            <a href="./voyages.php?voyage=<?php echo $voyage['id'] ?>"><?php echo $voyage['name'] ?></a>
                                                         </h3>
                                                         <span><a href="#"><?php echo $voyage['country'] ?></a> / <?php echo $voyage['city'] ?></span>
                                                     </div>
@@ -137,14 +130,13 @@ $zoom = 3;
                             <!-- Page title section -->
                             <section class="parallax-section">
                                 <div class="overlay"></div>
-                                <div class="bg" style="background-image:url(images/bg/1.jpg)"
+                                <div class="bg" style="background-image:url(<?php echo $voyage['image'] ?>)"
                                      data-top-bottom="transform: translateY(200px);"
                                      data-bottom-top="transform: translateY(-200px);"></div>
                                 <div class="container">
                                     <h2><?php echo $voyage['name'] ?></h2>
                                     <div class="separator-image"><img src="images/separator.png" alt=""></div>
-                                    <h3 class="subtitle">Nunc convallis ante at mi scelerisque quis cursus risus
-                                        auctor. </h3>
+                                    <h3 class="subtitle"><?php echo $voyage['place'] ?></h3>
                                 </div>
                                 <a class="custom-scroll-link sect-scroll" href="#sec1"><i
                                             class="fa fa-angle-double-down"></i></a>
@@ -161,54 +153,29 @@ $zoom = 3;
                                                 <!-- slider-->
                                                 <div class="custom-slider-holder">
                                                     <div class="custom-slider owl-carousel">
-                                                        <!--1  -->
-                                                        <div class="item">
-                                                            <div class="zoomimage"><img src="images/bg/1.jpg"
-                                                                                        class="intense" alt=""><i
-                                                                        class="fa fa-expand"></i></div>
-                                                            <img src="images/bg/1.jpg" class="respimg" alt="">
-                                                            <div class="show-info">
-                                                                <span>Info</span>
-                                                                <div class="tooltip-info">
-                                                                    <h5>Nulla blandit</h5>
-                                                                    <p>Aat posuere sem accumsan nec. Sed non arcu non
-                                                                        sem commodo ultricies. Sed non nisi viverra </p>
+                                                        <?php $idPhotos = getAllVgVoyagePhotoById($bdd, $voyage['id']);
+                                                        if (!empty($idPhotos)) {
+                                                            foreach ($idPhotos as $idPhoto) {
+
+                                                                $photo = getVgPhotoById($bdd, $idPhoto['id']);?>
+                                                                <!--1  -->
+                                                                <div class="item">
+                                                                    <div class="zoomimage"><img src="<?php echo $photo['link'] ?>"
+                                                                                                class="intense" alt=""><i
+                                                                                class="fa fa-expand"></i></div>
+                                                                    <img src="<?php echo $photo['link'] ?>" class="respimg" alt="">
+                                                                    <div class="show-info">
+                                                                        <span>Info</span>
+                                                                        <div class="tooltip-info">
+                                                                            <h5><?php echo $photo['name'] ?></h5>
+                                                                            <p><?php echo $photo['description'] ?> </p>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--1  end-->
-                                                        <!--2  -->
-                                                        <div class="item">
-                                                            <div class="zoomimage"><img src="images/bg/1.jpg"
-                                                                                        class="intense" alt=""><i
-                                                                        class="fa fa-expand"></i></div>
-                                                            <img src="images/bg/1.jpg" class="respimg" alt="">
-                                                            <div class="show-info">
-                                                                <span>Info</span>
-                                                                <div class="tooltip-info">
-                                                                    <h5>Nulla blandit</h5>
-                                                                    <p>Aat posuere sem accumsan nec. Sed non arcu non
-                                                                        sem commodo ultricies. Sed non nisi viverra </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--2 end  -->
-                                                        <!--3  -->
-                                                        <div class="item">
-                                                            <div class="zoomimage"><img src="images/bg/1.jpg"
-                                                                                        class="intense" alt=""><i
-                                                                        class="fa fa-expand"></i></div>
-                                                            <img src="images/bg/1.jpg" class="respimg" alt="">
-                                                            <div class="show-info">
-                                                                <span>Info</span>
-                                                                <div class="tooltip-info">
-                                                                    <h5>Nulla blandit</h5>
-                                                                    <p>Aat posuere sem accumsan nec. Sed non arcu non
-                                                                        sem commodo ultricies. Sed non nisi viverra </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--3 end -->
+                                                                <!--1  end-->
+
+                                                            <?php }
+                                                        } ?>
                                                     </div>
                                                     <div class="customNavigation">
                                                         <a class="prev-slide"><i class="fa fa-angle-left"></i></a>
@@ -226,12 +193,19 @@ $zoom = 3;
                                             <div class="fix-box">
                                                 <div class="project-box">
                                                     <h3>Carte</h3>
-                                                    <p> <?php $map = getVgMapById($bdd, $voyage['id_vg_map'] ); echo $map['name'];
+                                                    <p> <?php $map = getVgMapById($bdd, $voyage['id_vg_map'] );
                                                         $center_lat = $map['center_lat'];
                                                         $center_long = $map['center_long'];
                                                         $zoom = $map['zoom'];
                                                     ?></p>
-                                                    <div id="map"></div>
+
+                                                    <section class="no-padding" id="sec2">
+                                                        <div class="map-box">
+                                                            <div id="map" style="position: absolute; width: 100%; height: 100%; z-index: 4; "></div>
+                                                        </div>
+                                                    </section>
+                                                    <p><?php echo $map['name']; ?></p>
+
                                                 </div>
                                                 <div class="project-box">
                                                     <h3>Info</h3>
@@ -239,11 +213,11 @@ $zoom = 3;
                                                         <li>
                                                             <i class="fa fa-bicycle"></i>
                                                             <div class="pd-holder">
-                                                                <h5>Category : <?php $categories = getAllVgCategorieVoyageById($bdd, $voyage['id']);
+                                                                <h5>Catégorie : <?php $categories = getAllVgCategorieVoyageById($bdd, $voyage['id']);
                                                                     if (!empty($categories)) {
                                                                         foreach ($categories as $categorie) {
                                                                             $Cat = getVgCategorieById($bdd, $categorie['id_vg_categorie']);
-                                                                            echo $Cat['name'] . " ";
+                                                                            echo $Cat['name'] . ", ";
                                                                         }
                                                                     } ?>
                                                                 </h5>
@@ -309,9 +283,7 @@ $zoom = 3;
     function initMap() {
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(<?php echo $center_lat ?>, <?php echo $center_long ?>),
-            zoom: <?php echo $zoom ?>
-        });
+            center: new google.maps.LatLng(<?php echo $center_long ?>, <?php echo $center_lat ?>), zoom: <?php echo $zoom ?>});
 
         var infoWindow = new google.maps.InfoWindow;
 
@@ -384,7 +356,6 @@ $zoom = 3;
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDca_YEHG52wujyMx3C_sAalf_5SOXqfY4&callback=initMap">
 </script>
-
 
 
 </body>
