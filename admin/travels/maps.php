@@ -299,8 +299,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
     $(document).ready(function () {
         actualiseDataTag();
-        $("#submit2").click(function () {
-            var type = "tag";
+        $("#submitMap").click(function () {
+            var type = "map";
             var name = $("#name").val();
             var description = $("#description").val();
 // Returns successful data submission message when the entered information is stored in database.

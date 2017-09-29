@@ -240,7 +240,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
         function deleteArticle() {
-            var dataString = 'id=' + url;
+            var dataString = 'type=article&id=' + url;
             $.ajax({
                 type: "POST",
                 url: "delete.php",

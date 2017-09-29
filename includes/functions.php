@@ -116,6 +116,10 @@ function getLastBanners(PDO $BDD){
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function deleteBanners(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM site.public.banners WHERE id = ?');
+    $request->execute(array($id));
+}
 
 /*
  * **************************** FAVORIS *******************************************

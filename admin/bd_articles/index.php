@@ -163,7 +163,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                                     <td><?php echo $tag['name'] ?></td>
                                                     <td><?php echo $tag['description'] ?></td>
                                                     <th><a class="delete btn btn-danger" data-toggle="modal"
-                                                           data-id="/admin/bd_articles/delete.php?id=<?php echo $tag['id'] ?>"
+                                                           data-id="<?php echo $tag['id'] ?>"
                                                            data-target="#deleteTagModal"><i
                                                                     class="fa fa-times-circle"></i></a>
                                                         <a href="/admin/bd_articles/edit.php?id=<?php echo $tag['id'] ?>"
@@ -282,7 +282,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
         function deleteMagazine() {
-            var dataString = 'id=' + url;
+            var dataString = 'type=magazine&id=' + url;
             $.ajax({
                 type: "POST",
                 url: "delete.php",
@@ -304,7 +304,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         }
 
         function deleteTag() {
-            var dataString = 'id=' + url;
+            var dataString = 'type=tag&id=' + url;
             $.ajax({
                 type: "POST",
                 url: "delete.php",

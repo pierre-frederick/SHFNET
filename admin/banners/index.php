@@ -112,7 +112,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                <input class="btn btn-danger" type="button" name="lien" onclick="window.location.href = url;" value="Supprimer"/>
+                <input class="btn btn-danger" type="button" name="lien" onclick="deleteBanner();" value="Supprimer"/>
             </div>
         </div>
     </div>
@@ -120,12 +120,111 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
-
+<script src="/admin/assets/js/notify.js" type="text/javascript"></script>
 <script>
     var url;
     $(document).on("click", ".delete", function () {
         url = $(this).data('id');
     });
+
+    function actualiseDataBanner(divActBann) {
+        $("#divActBann").load("index.php #divActBann");
+    }
+
+
+    bootstrap_alert = function () {
+    }
+    bootstrap_alert.warning = function (message) {
+        $('#alert_placeholder').html('<div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>').show("slow").delay(3000).hide("slow");
+    }
+
+
+    function v() {
+        var dataString = 'id=' + url;
+        $.ajax({
+            type: "POST",
+            url: "delete.php",
+            data: dataString,
+            cache: false,
+            success: function (result) {
+                $.notify({
+                    // options
+                    message: result
+                }, {
+                    // settings
+                    type: 'danger',
+                    offset: 70,
+
+                });
+            }
+        });
+        actualiseDataBanner();
+    }
+
+
+
+
+    $(document).ready(function () {
+
+        $("#submit").click(function () {
+            var arrayTag = [];
+            var n = $('div[class="checkboxTag"]').length;
+            for (i = 0, n; i < n; i++) {
+                if ($('#inlineCheckbox' + i).prop('checked')) {
+                    console.log("checkbox" + i + "checked");
+                    var value = $('#inlineCheckbox' + i).val();
+                    arrayTag.push(value);
+                }
+            }
+            var arrayTagSerialized = JSON.stringify(arrayTag);
+            var type = "article";
+            var name = $("#name").val();
+            var contenu = $("#contenu").val();
+            var author = $("#author").val();
+            var magazine = $("#magazine").val();
+
+
+// Returns successful data submission message when the entered information is stored in database.
+            var dataString = 'type=' + type + '&name=' + name + '&contenu=' + contenu + '&author=' + author + '&id_bd_magazines=' + magazine + '&tags=' + arrayTagSerialized;
+            if (type == '' || name == '' || contenu == '' || author == '' || magazine == '' || arrayTagSerialized == '') {
+                $.notify({
+                    // options
+                    message: "Please Fill All Fields"
+                }, {
+                    // settings
+                    type: 'warning',
+                    offset: 70,
+
+                });
+            }
+            else {
+// AJAX Code To Submit Form.
+                $.ajax({
+                    type: "POST",
+                    url: "insert.php",
+                    data: dataString,
+                    cache: false,
+                    success: function (result) {
+
+                        $.notify({
+                            // options
+                            message: result
+                        }, {
+                            // settings
+                            type: 'success',
+                            offset: 70,
+
+                        });
+                    }
+                });
+                actualiseDataBanner();
+            }
+            return false;
+        });
+
+
+    });
+
 </script>
 </body>
 </html>
