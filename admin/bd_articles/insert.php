@@ -50,7 +50,7 @@ elseif($_POST['type']=="article" && isset($_POST['name']) && isset($_POST['conte
             $author=filter_var($_POST['author'], FILTER_SANITIZE_STRING);
             $id_bd_magazines=filter_var($_POST['id_bd_magazines'], FILTER_VALIDATE_INT);
             setBdArticle($bdd, $name, $contenu, $author, $id_bd_magazines);
-            $ArticleInsert = getLastArticle($bdd);
+            $ArticleInsert = getBdLastArticle($bdd);
             $tags = json_decode($_POST['tags']);
             foreach ($tags as $tag) {
                 setBdArticleTag($bdd, $ArticleInsert['id'], $tag);

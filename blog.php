@@ -1,6 +1,7 @@
 <?php
-require_once 'includes/functions.php'; // fichier des fonctions
-require_once 'includes/articles.php'; // fichier des fonctions
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier des fonctions
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/articles.php'; // fichier des fonctions
 ?>
 
 <!DOCTYPE html>
@@ -11,19 +12,21 @@ require_once 'includes/articles.php'; // fichier des fonctions
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="blog électronique informatique">
     <meta name="author" content="Pierre-Frédérick DENYS">
-    <?php
-    foreach ($metas as $meta => $value) {
-        if (strpos($meta, 'og:') === 0)
-            $type = 'property';
-        else
-            $type = 'name';
-        echo '    <meta ' . $type . '="' . $meta . '" content="' . $value . "\">\n";
-    }
-    ?>
     <title>SHFNET</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <?php
+    if (isset($metas)) {
+        foreach ($metas as $meta => $value) {
+            if (strpos($meta, 'og:') === 0)
+                $type = 'property';
+            else
+                $type = 'name';
+            echo '    <meta ' . $type . '="' . $meta . '" content="' . $value . "\">\n";
+        }
+    }
+    ?>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -67,7 +70,7 @@ require_once 'includes/articles.php'; // fichier des fonctions
                 </h3>
 
                 <div class="col-md-offset-2 col-md-8">
-                    <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" . $article['img'] ?>"
+                    <img src="<?php echo $article['img'] ?>"
                          class="" title="<?php echo $article['img'] ?>">
                 </div>
             </div>
@@ -81,26 +84,74 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
             <?php
         } else {
-            ?>
-            Catégorie :
-            <div class="btn-group" role="group" aria-label="categorie">
-                <?php
-                foreach ($ListeCategories as $categorie) { ?>
-                    <a class="btn btn-default"
-                       href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+
+
+            if (isset($getCategorie)) {
+
+                if (isset($idCategorie)){
+                    echo $header['title'];
+                }
+                $articles = getArticlesByCategorie($bdd, $idCategorie, $page, 4);
+                foreach ($articles as $article) {
+                    ?>
+                    <div class="post-preview row">
+                        <div class="col-md-3">
+                            <img src="<?php echo $article['img'] ?>"
+                                 class="" title="<?php echo $article['legend'] ?>">
+                        </div>
+                        <div class="col-md-9">
+                            <a href="blog.php?a=<?php echo $article['id']; ?>">
+                                <h2 class="post-title">
+                                    <?php echo $article['title']; ?>
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    <?php echo $article['subtitle']; ?>
+                                </h3>
+                            </a>
+                            <p class="post-meta">Posté par <a href="#"> <?php echo $article['author']; ?> </a>
+                                le <?php $date = strtotime($article['date_article']);
+                                echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?></p>
+
+                        </div>
+                    </div>
+                    <hr>
                     <?php
-                } ?>
-            </div>
-            <hr>
+                }
 
+                ?>
+                <?php
+            } else { ?>
 
-            <?php
-            $articles = getLastArticles($bdd, $idCategorie, $page, 4);
-            foreach ($articles as $article) {
+                Catégories électronique  :
+                <div class="btn-group" role="group" aria-label="categorie">
+                    <?php
+                    foreach ($ListeCategoriesElec as $categorie) { ?>
+                        <a class="btn btn-default"
+                           href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                        <?php
+                    } ?>
+                </div>
+                <hr>
+
+                Catégories informatique :
+                <div class="btn-group" role="group" aria-label="categorie">
+                    <?php
+                    foreach ($ListeCategoriesInfo as $categorie) { ?>
+                        <a class="btn btn-default"
+                           href="blog.php?c=<?php echo $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                        <?php
+                    } ?>
+                </div>
+                <hr>
+
+                <?php
+                $articles = getAllArticle($bdd);
+                $getCategorie = null;
+                foreach ($articles as $article) {
                 ?>
                 <div class="post-preview row">
                     <div class="col-md-3">
-                        <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" . $article['img'] ?>"
+                        <img src="<?php echo $article['img'] ?>"
                              class="" title="<?php echo $article['legend'] ?>">
                     </div>
                     <div class="col-md-9">
@@ -113,15 +164,16 @@ require_once 'includes/articles.php'; // fichier des fonctions
                             </h3>
                         </a>
                         <p class="post-meta">Posté par <a href="#"> <?php echo $article['author']; ?> </a>
-                            le <?php $date = strtotime($article['date']);
+                            le <?php $date = strtotime($article['date_article']);
                             echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?></p>
 
                     </div>
                 </div>
                 <hr>
-                <?php
-            }
-            ?>
+                <?php } ?>
+
+
+            <?php }?>
 
             <nav aria-label="navigation">
                 <ul class="pager">
@@ -138,9 +190,8 @@ require_once 'includes/articles.php'; // fichier des fonctions
 
                 </ul>
             </nav>
-            <?php
-        }
-        ?>
+
+        <?php } ?>
 
     </div>
 </div>

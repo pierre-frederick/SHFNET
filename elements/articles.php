@@ -1,6 +1,5 @@
 <?php
-require_once '/includes/functions.php'; // fichier des fonctions
-require_once '/includes/articles.php'; // fichier des fonctions
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier des fonctions
 ?>
 
 
@@ -10,15 +9,14 @@ require_once '/includes/articles.php'; // fichier des fonctions
 				<div class="row">
 
                     <?php
-                    if(isset($article) || $PROFILE_DEV == true) {
-                        if (isset($_GET['a'])) {
-                            echo $article['contenu'];
-                        } else {
-                            $articles = getLastArticles($bdd, $idCategorie, $page, 4);
+                    setlocale(LC_ALL, 'fr_FR.UTF-8');
+                    $bdd = connexionDB();
+                    if (isset($bdd)) {
+                            $articles = getLastArticles($bdd, 4);
                             foreach ($articles as $article) {
                                 ?>
                                 <div class="col-md-3">
-                                    <img src="<?php echo "/upload/articles/" . $article['categorie'] . "/" . $article['img'] ?>"
+                                    <img src="<?php echo $article['img'] ?>"
                                          class="" title="<?php echo $article['legend'] ?>">
                                     <h3><a class="hover-effect"
                                            href="/blog.php?a=<?php echo $article['id']; ?>"><?php echo $article['title']; ?></a>
@@ -27,13 +25,12 @@ require_once '/includes/articles.php'; // fichier des fonctions
                                         <?php echo $article['subtitle']; ?>
                                     </h3>
                                     <p class="post-meta">Posté par <a
-                                                href="/pages/apropos.php"> <?php echo $article['author']; ?> </a> <?php $date = strtotime($article['date']);
+                                                href="/portfolio/index.php"> <?php echo $article['author']; ?> </a> <?php $date = strtotime($article['date_article']);
                                         echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?></p>
                                 </div>
                                 <?php
                             }
                         }
-                    }
                     else {
                         echo 'Désolé ! Problème de communication avec la base de donnée';
                     }

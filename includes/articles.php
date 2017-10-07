@@ -4,12 +4,14 @@ $bdd = connexionDB();
 
 if(isset($bdd)) {
     $ListeCategories = getAllCategoriesArticle($bdd);
+    $ListeCategoriesElec = getCategoriesArticleBySubject($bdd, "elec");
+    $ListeCategoriesInfo = getCategoriesArticleBySubject($bdd,"info");
     $idCategorie = null;
 
 
 
 if(isset($_GET['p']) && $_GET['p'] > 0) {
-    $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_STRING);
+    $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
 }
 else {
     $page=1;
@@ -24,10 +26,11 @@ if(isset($_GET['c']))
 		{
 		    if($categorie['img'] != null)
 	                $header['img'] = 'categorie/'. $categorie['name'];
-		    $header['title'] = '<h1>Catégorie</h1><hr class="small"><span class="subheading">'. $categorie['name'] .'</span>';
+		    $header['title'] = 'Catégorie : <a href="blog.php" class="btn btn-default"> '. $categorie['name'] .' <i class="fa fa-times-circle"></i></a>  <hr>';
 		    $idCategorie = $categorie['id'];
 		}
 	}
+
 }
 
 else if(isset($_GET['a']))
@@ -40,11 +43,11 @@ else if(isset($_GET['a']))
         }
 
     $metas['og:type'] = 'article';
-    $metas['og:image'] = 'https://shfnet.fr/img/'.$header['img'];
+    $metas['og:image'] = $article['img'];
     $metas['author'] = $article['author'];
     $metas['og:author'] = $article['author'];
     $metas['og:title'] = $article['title'];
     $metas['og:description'] = $article['subtitle'];
-    $date = new DateTime($article['date']);
+    $date = new DateTime($article['date_article']);
 }
 }

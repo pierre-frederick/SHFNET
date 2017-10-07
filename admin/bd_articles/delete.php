@@ -43,6 +43,10 @@ elseif($_POST['type']=="article") {
         $bdd = connexionDB();
         if(isset($bdd)) {
             $id=$_POST['id'];
+            $liens = getBdTagById($bdd, $id);
+            foreach ($liens as $lien){
+                deleteBdArticleTag($bdd, $lien['id']);
+            }
             deleteBdArticle($bdd, $id);
         } else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';}
         echo "Article supprimé !";

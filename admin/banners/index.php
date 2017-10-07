@@ -26,7 +26,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1>Gestion des banners</h1>
+                    <h1>Gestion des bannières</h1>
                 </div>
             </div>
 
@@ -34,52 +34,107 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                 <div class="col-md-6">
                     <a href="/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>
-                <div class="col-md-6 text-right">
-                    <a href="/admin/banners/add.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Ajouter
-                        une bannière</a>
-                </div>
-
-            </div>
+                       </div>
 
 
             <div class="row">
                 <div class="col-md-12">
+
                     <br>
-                    <div class="table-responsive">
-                        <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
-                                <th>Sous-titre</th>
-                                <th>Media</th>
-                                <th>Url</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            setlocale(LC_ALL, 'fr_FR.UTF-8');
-                            $bdd = connexionDB();
-                            if(isset($bdd)) {
+                    <!-- BANNER -->
+                    <div class="card mb-12">
+                        <div class="card-header">
+                            New
+                        </div>
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="titre">Titre :</label>
+                                        <input class="form-control" id="titre" type="text" placeholder="Titre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subtitle">Sous-titre : </label>
+                                        <input class="form-control" id="subtitle" type="text" placeholder="Sous-Titre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link">Lien de la bannière :</label>
+                                        <input class="form-control" id="link" type="text" placeholder="Lien">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="media">Type de media : </label>
+                                        <select class="custom-select" id="media">
+                                            <option value="img">Image</option>
+                                            <option value="vid">Vidéo</option>
+                                        </select>
+                                    </div>
 
-                                $banners = getLastBanners($bdd);
-                                if(!empty($banners)) {
-                                    foreach($banners as $banner) {?>
+                                    <div class="input-group">
+                                        <label for="path">Chemin du média : </label>
+                                         <span class="input-group-addon" id="sizing-addon2"><a target="_blank" onclick="openKCFinder_singleFile();" ><i class="fa fa-folder-open-o"></i></a> </span>
+                                        <input type="text" class="form-control" id="path" placeholder="Chemin" aria-describedby="sizing-addon2">
+                                    </div>
+                                    <br>
 
-                                        <tr>
-                                            <td><?php echo $banner['id']?></td>
-                                            <td><?php echo $banner['title']?></td>
-                                            <td><?php echo $banner['subtitle']?></td>
-                                            <td><?php echo $banner['mediatype']?></td>
-                                            <td><?php echo $banner['urlmedia']?></td>
-                                            <td><a class="delete btn btn-danger" data-toggle="modal" data-id="/admin/banners/delete.php?id=<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
-                                                <a href="/admin/banners/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                            </td>
-                                        </tr>
-                                    <?php } }} else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';} ?>
-                            </tbody>
-                        </table>
+                                    <div class="form-group">
+                                        <label for="dateBanner">Date : </label>
+                                        <input class="form-control" type="date" value="2017-01-01" id="dateBanner">
+                                    </div>
+
+                                    <button type="submit" id="submit" class="btn btn-primary">Ajouter</button>
+                                </form>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="card mb-12">
+                            <div class="card-header">
+                                Banners
+                            </div>
+                            <div id="divActBann" class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Sous-titre</th>
+                                        <th>Lien</th>
+                                        <th>Media</th>
+                                        <th>Url</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    setlocale(LC_ALL, 'fr_FR.UTF-8');
+                                    $bdd = connexionDB();
+                                    if(isset($bdd)) {
+
+                                        $banners = getLastBanners($bdd);
+                                        if(!empty($banners)) {
+                                            foreach($banners as $banner) {?>
+
+                                                <tr>
+                                                    <td><?php echo $banner['id']?></td>
+                                                    <td><?php echo $banner['title']?></td>
+                                                    <td><?php echo $banner['subtitle']?></td>
+                                                    <td><?php echo $banner['link']?></td>
+                                                    <td><?php echo $banner['mediatype']?></td>
+                                                    <td><?php echo $banner['urlmedia']?></td>
+                                                    <td><?php echo  date("d/m/Y", strtotime($banner['date_banner']));  ?></td>
+                                                    <td><a class="delete btn btn-danger" data-toggle="modal" data-id="<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
+                                                        <a href="/admin/banners/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } }} else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';} ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -112,7 +167,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                <input class="btn btn-danger" type="button" name="lien" onclick="deleteBanner();" value="Supprimer"/>
+                <input class="btn btn-danger" type="button" data-dismiss="modal" name="lien" onclick="deleteBanner();" value="Supprimer"/>
             </div>
         </div>
     </div>
@@ -139,8 +194,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
     }
 
 
-    function v() {
-        var dataString = 'id=' + url;
+    function deleteBanner() {
+        var dataString = 'type=banner&' + 'id=' + url;
         $.ajax({
             type: "POST",
             url: "delete.php",
@@ -167,26 +222,17 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
     $(document).ready(function () {
 
         $("#submit").click(function () {
-            var arrayTag = [];
-            var n = $('div[class="checkboxTag"]').length;
-            for (i = 0, n; i < n; i++) {
-                if ($('#inlineCheckbox' + i).prop('checked')) {
-                    console.log("checkbox" + i + "checked");
-                    var value = $('#inlineCheckbox' + i).val();
-                    arrayTag.push(value);
-                }
-            }
-            var arrayTagSerialized = JSON.stringify(arrayTag);
-            var type = "article";
-            var name = $("#name").val();
-            var contenu = $("#contenu").val();
-            var author = $("#author").val();
-            var magazine = $("#magazine").val();
-
+            var type = "banner";
+            var title = $("#titre").val();
+            var subtitle = $("#subtitle").val();
+            var link = $("#link").val();
+            var media = $("#media").val();
+            var path = $("#path").val();
+            var dateBanner = $("#dateBanner").val();
 
 // Returns successful data submission message when the entered information is stored in database.
-            var dataString = 'type=' + type + '&name=' + name + '&contenu=' + contenu + '&author=' + author + '&id_bd_magazines=' + magazine + '&tags=' + arrayTagSerialized;
-            if (type == '' || name == '' || contenu == '' || author == '' || magazine == '' || arrayTagSerialized == '') {
+            var dataString = 'type=' + type + '&title=' + title + '&subtitle=' + subtitle + '&link=' + link + '&mediatype=' + media + '&urlmedia=' + path + '&dateBanner=' + dateBanner;
+            if (type == '' || title == '' || subtitle == '' || link == '' || media == '' || path == '' || dateBanner == '') {
                 $.notify({
                     // options
                     message: "Please Fill All Fields"
@@ -224,6 +270,17 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
 
     });
+
+
+    function openKCFinder_singleFile() {
+        window.KCFinder = {};
+        window.KCFinder.callBack = function(url) {
+            console.log(url);
+            document.getElementById("path").value = url;
+            window.KCFinder = null;
+        };
+        window.open('/kcfinder/browse.php', 'kcfinder_single');
+    }
 
 </script>
 </body>

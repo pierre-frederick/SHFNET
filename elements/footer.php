@@ -1,6 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des fonctions
-require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des fonctions
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier des fonctions
 ?>
 
     <!-- footerTopSection -->
@@ -34,8 +33,10 @@ require_once  $_SERVER['DOCUMENT_ROOT'].'/includes/articles.php'; // fichier des
 
 
                   <?php
-                  if(isset($article) || $PROFILE_DEV == true) {
-                      $articles = getLastArticles($bdd, null, 1, 3);
+                  setlocale(LC_ALL, 'fr_FR.UTF-8');
+                  $bdd = connexionDB();
+                  if (isset($bdd)) {
+                      $articles = getLastArticles($bdd,  3);
                       foreach ($articles as $article) {
                           ?>
                           <p>

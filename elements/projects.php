@@ -34,12 +34,12 @@ $bdd = connexionDB();
 
                 <?php
                 if(isset($article) || $PROFILE_DEV == true) {
-                    $projects = getLastProjects($bdd, null, null, 1);
+                    $projects = getLastProjects($bdd,4);
                     if (isset($projects)) {
                         foreach ($projects as $project) { ?>
                             <div class="media">
                                 <a class="pull-left"
-                                   href="/<?php echo $project['subject'] ?>/<?php echo $project['id'] ?>">
+                                   href="/<?php echo $project['id'] ?>">
                                     <img src="<?php echo $project['img'] ?>" class="projectImg"
                                          title="<?php echo $project['legend'] ?>">
                                 </a>

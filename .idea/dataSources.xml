@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="site@localhost" uuid="0a80c83e-8bcd-4e96-ad16-a9c825808880">
+    <data-source source="LOCAL" name="shfnet@localhost" uuid="4f703343-f988-4261-b4b0-de98132e94e3">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/site</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/shfnet</jdbc-url>
       <driver-properties>
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
