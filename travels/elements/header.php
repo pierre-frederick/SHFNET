@@ -16,7 +16,7 @@
                 <ul>
                     <li><a href="/travels/index.php" class="act-link">Home</a></li>
                     <li><a href="/travels/voyages.php">Voyages</a></li>
-                    <li><a href="/travels/blog.php">Blog</a></li>
+                    <!--<li><a href="/travels/blog.php">Blog</a></li>-->
 
                 </ul>
             </nav>

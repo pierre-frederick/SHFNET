@@ -62,6 +62,24 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                             </form>
                         </div>
                     </div>
+
+                    <div id="mainform2">
+
+                        <div id="form2">
+                            <form class="form-inline">
+                                <label for="name" class=" mb-1 mr-sm-1 mb-sm-0">Ajouter une catégorie :</label>
+                                <input class="form-control mb-1 mr-sm-1 mb-sm-0" id="name" type="text">
+                                <input id="submitCat" type="button" value="+"  class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
                     <br>
 
 
@@ -73,7 +91,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                             foreach ($categories as $categorie) { ?>
                                 <div class="card mb-12">
                                     <div class="card-header">
-                                        <?php echo $categorie['name']; ?>
+                                        <?php echo $categorie['name']; ?>  <a class="delete" data-toggle="modal" data-id="<?php echo $categorie['id'] ?>" data-target="#deleteModalCat"><i class="fa fa-times-circle"></i></a>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -141,6 +159,31 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
     </div>
 </div>
 
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModalCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation de suppression</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                La suppression de la catégorie et de <b> son contenu</b> est définitive.
+
+                <div id="lien"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <input class="btn btn-danger" type="button" data-dismiss="modal" name="lien" onclick="deleteCatFavori();"
+                       value="Supprimer"/>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
 <script src="/admin/assets/js/notify.js" type="text/javascript"></script>
 <script>
@@ -162,7 +205,30 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
     function deleteFavori() {
-        var dataString = 'id=' + url;
+        var dataString = 'type=favoris' + '&id=' + url;
+        $.ajax({
+            type: "POST",
+            url: "delete.php",
+            data: dataString,
+            cache: false,
+            success: function (result) {
+                $.notify({
+                    // options
+                    message: result
+                }, {
+                    // settings
+                    type: 'danger',
+                    offset: 70,
+
+                });
+            }
+        });
+        actualisedata();
+
+    }
+
+    function deleteCatFavori() {
+        var dataString = 'type=catFavoris' + '&id=' + url;
         $.ajax({
             type: "POST",
             url: "delete.php",
@@ -229,6 +295,47 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             }
             return false;
         });
+
+        $("#submitCat").click(function () {
+            var name = $("#name").val();
+// Returns successful data submission message when the entered information is stored in database.
+            var dataString = 'name=' + name;
+            if (name == '') {
+                $.notify({
+                    // options
+                    message: "Please Fill All Fields"
+                }, {
+                    // settings
+                    type: 'warning',
+                    offset: 70,
+
+                });
+            }
+            else {
+// AJAX Code To Submit Form.
+                $.ajax({
+                    type: "POST",
+                    url: "insert.php",
+                    data: dataString,
+                    cache: false,
+                    success: function (result) {
+
+                        $.notify({
+                            // options
+                            message: result
+                        }, {
+                            // settings
+                            type: 'success',
+                            offset: 70,
+
+                        });
+                    }
+                });
+                actualisedata();
+            }
+            return false;
+        });
+
     });
 
 </script>

@@ -43,7 +43,7 @@ elseif($_POST['type']=="article") {
         $bdd = connexionDB();
         if(isset($bdd)) {
             $id=$_POST['id'];
-            $liens = getBdTagById($bdd, $id);
+            $liens = getBdArticleTagById($bdd, $id);
             foreach ($liens as $lien){
                 deleteBdArticleTag($bdd, $lien['id']);
             }

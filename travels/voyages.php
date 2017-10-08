@@ -76,7 +76,7 @@ $zoom = 3;
                                                     echo $Cat['name'] . " ";
                                                 }
                                             } ?>">
-                                                <img src="<?php echo $voyage['image'] ?>" alt="">
+                                                <img src="<?php echo $voyage['picture_on_top'] ?>" alt="">
                                                 <div class="port-desc-holder">
                                                     <div class="port-desc">
                                                         <div class="overlay"></div>
@@ -130,7 +130,7 @@ $zoom = 3;
                             <!-- Page title section -->
                             <section class="parallax-section">
                                 <div class="overlay"></div>
-                                <div class="bg" style="background-image:url(<?php echo $voyage['image'] ?>)"
+                                <div class="bg" style="background-image:url(<?php echo $voyage['picture_on_top'] ?>)"
                                      data-top-bottom="transform: translateY(200px);"
                                      data-bottom-top="transform: translateY(-200px);"></div>
                                 <div class="container">
@@ -283,7 +283,7 @@ $zoom = 3;
     function initMap() {
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(<?php echo $center_long ?>, <?php echo $center_lat ?>), zoom: <?php echo $zoom ?>});
+            center: new google.maps.LatLng(<?php echo $center_lat ?>, <?php echo $center_long ?>), zoom: <?php echo $zoom ?>});
 
         var infoWindow = new google.maps.InfoWindow;
 

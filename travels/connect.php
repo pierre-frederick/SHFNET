@@ -21,7 +21,7 @@ $bdd = connexionDB();
 function getmarkers(PDO $bdd)
 {
     try {
-        $request = $bdd->query('SELECT * FROM site.public.vg_spot;');
+        $request = $bdd->query('SELECT * FROM shfnet.public.vg_spot;');
         return $request->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (PDOException $e) {

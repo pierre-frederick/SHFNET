@@ -38,11 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             <div class="row">
                 <div class="col-md-6">
                     <a href="/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a>
-                </div>
-                <div class="col-md-6 text-right">
-                    <a href="/admin/bd_articles/article.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i>
-                        Ajouter
-                        un article</a>
+                    <br>
                 </div>
             </div>
 
@@ -50,7 +46,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             <div class="row">
 
                 <div class="col-md-12">
-
 
                     <div class="card mb-12">
                         <div class="card-header">
@@ -65,23 +60,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                     <div class="form-inline">
                                         <div class="mb-3 mr-sm-3 mb-sm-0">
                                             <label for="name">Latitude :</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Ex : 33.863276" >
+                                            <input type="text" class="form-control" id="lat" placeholder="Ex : 33.863276">
                                         </div>
                                         <div class="mb-3 mr-sm-3 mb-sm-0">
                                             <label for="name">Longitude :</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Ex : 151.207977">
+                                            <input type="text" class="form-control" id="lng" placeholder="Ex : 151.207977">
                                         </div>
                                         <div class="mb-3 mr-sm-3 mb-sm-0">
                                             <label for="name">zoom :</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Ex : 3">
+                                            <input type="text" class="form-control" id="zoom" placeholder="Ex : 3">
                                         </div>
                                     </div>
 
 
                                 </div>
-                                    <div class="form-group row" id="cadre">
-                                        <!-- Formulaire d'ajout de point -->
-                                    </div>
+                                <div class="form-group row" id="cadre">
+                                    <!-- Formulaire d'ajout de point -->
+                                </div>
                                 <input type="button" class="btn btn-primary" value="Ajouter un point" onclick="plus()"/>
                                 <input type="button" class="btn btn-danger" style="display:none" id="sup"
                                        value="supprimer un champ" onclick="moins()"/>
@@ -117,13 +112,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                                 <tr>
                                                     <td><?php echo $map['id'] ?></td>
                                                     <td><?php echo $map['name'] ?></td>
-                                                    <td><?php echo $map['center_lat'] . ", " . $map['center_long'] . ", " . $map['zoom']?></td>
+                                                    <td><?php echo $map['center_lat'] . ", " . $map['center_long'] . ", " . $map['zoom'] ?></td>
                                                     <th><a class="delete btn btn-danger" data-toggle="modal"
-                                                           data-id="/admin/bd_articles/delete.php?id=<?php echo $map['id'] ?>"
-                                                           data-target="#deleteTagModal"><i
+                                                           data-id="<?php echo $map['id'] ?>"
+                                                           data-target="#deleteModalMap"><i
                                                                     class="fa fa-times-circle"></i></a>
-                                                        <!-- <a href="/admin/bd_articles/edit.php?id=<?php echo $map['id'] ?>"
-                                                           class="btn btn-success"><i class="fa fa-pencil"></i></a> -->
+                                                        <a href="/admin/bd_articles/edit.php?id=<?php echo $map['id'] ?>"
+                                                           class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                                     </th>
                                                 </tr>
                                             <?php }
@@ -151,7 +146,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 <!-- /.content-wrapper -->
 
 <!-- Delete Modal -->
-<div class="modal fade" id="deleteTagModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="deleteModalMap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -162,7 +157,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                 </button>
             </div>
             <div class="modal-body">
-                La suppression du tag est définitive.
+                La suppression de la carte est définitive.
 
                 <div id="lien"></div>
             </div>
@@ -181,51 +176,73 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 <script src="/admin/assets/js/notify.js" type="text/javascript"></script>
 <script>
 
-    var row, counterField, labelName, fieldName, labelLink, fieldLink, labelAddress, fieldAddress, labelType, fieldType, maDiv;
+    var row, divTreat, counterField, labelName, fieldName, labelLink, fieldLink, labelAddress, fieldAddress, labelType, fieldType, maDiv, labelLat, labelLng, fieldLat,fieldLng;
 
     // ajouter un champ avec son "name" propre;
     function plus() {
         row = document.getElementById('cadre');
+        divTreat = document.createElement("div");
         maDiv = document.createElement("div");
         counterField = row.getElementsByTagName('input');
         labelName = document.createElement('label');
         labelLink = document.createElement('label');
         labelAddress = document.createElement('label');
+        labelLat = document.createElement('label');
+        labelLng = document.createElement('label');
         labelType = document.createElement('label');
         fieldName = document.createElement('input');
         fieldLink = document.createElement('input');
         fieldAddress = document.createElement('input');
+        fieldLat = document.createElement('input');
+        fieldLng = document.createElement('input');
         fieldType = document.createElement('input');
+        divTreat.setAttribute('class', "col-md-3 alert alert-info");
 
-        maDiv.setAttribute('class', "col-md-3 alert alert-info");
+        maDiv.setAttribute('class', "spot");
 
         labelName.setAttribute('for', "name" + counterField.length);
         labelName.setAttribute('id', "name" + counterField.length);
         fieldName.setAttribute('type', 'text');
+        fieldName.setAttribute('id', 'namefield' + counterField.length);
         fieldName.setAttribute('name', "name" + counterField.length);
         fieldName.setAttribute('class', "form-control");
-
 
         labelLink.setAttribute('for', "link" + counterField.length);
         labelLink.setAttribute('id', "link" + counterField.length);
         fieldLink.setAttribute('type', 'text');
+        fieldLink.setAttribute('id', "lienfield" + counterField.length);
         fieldLink.setAttribute('name', "link" + counterField.length);
         fieldLink.setAttribute('class', "form-control");
 
         labelAddress.setAttribute('for', "address" + counterField.length);
         labelAddress.setAttribute('id', "address" + counterField.length);
         fieldAddress.setAttribute('type', 'text');
+        fieldAddress.setAttribute('id', "addressfield" + counterField.length);
         fieldAddress.setAttribute('name', "address" + counterField.length);
-        fieldAddress.setAttribute('id', "addressMap" + counterField.length);
         fieldAddress.setAttribute('class', "form-control");
+
+        labelLat.setAttribute('for', "lat" + counterField.length);
+        labelLat.setAttribute('id', "lat" + counterField.length);
+        fieldLat.setAttribute('type', 'text');
+        fieldLat.setAttribute('id', "latfield" + counterField.length);
+        fieldLat.setAttribute('name', "lat" + counterField.length);
+        fieldLat.setAttribute('class', "form-control");
+
+        labelLng.setAttribute('for', "lng" + counterField.length);
+        labelLng.setAttribute('id', "lng" + counterField.length);
+        fieldLng.setAttribute('type', 'text');
+        fieldLng.setAttribute('id', "lngfield" + counterField.length);
+        fieldLng.setAttribute('name', "lng" + counterField.length);
+        fieldLng.setAttribute('class', "form-control");
 
         labelType.setAttribute('for', "type" + counterField.length);
         labelType.setAttribute('id', "type" + counterField.length);
         fieldType.setAttribute('type', 'text');
+        fieldType.setAttribute('id', "typefield" + counterField.length);
         fieldType.setAttribute('name', "type" + counterField.length);
         fieldType.setAttribute('class', "form-control");
-
-        row.appendChild(maDiv);
+        row.appendChild(divTreat);
+        divTreat.appendChild(maDiv);
 
         maDiv.appendChild(labelName);
         maDiv.appendChild(fieldName);
@@ -236,13 +253,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
         maDiv.appendChild(labelAddress);
         maDiv.appendChild(fieldAddress);
 
+        maDiv.appendChild(labelLat);
+        maDiv.appendChild(fieldLat);
+
+        maDiv.appendChild(labelLng);
+        maDiv.appendChild(fieldLng);
+
         maDiv.appendChild(labelType);
         maDiv.appendChild(fieldType);
         /*document.getElementById('sup').style.display='inline';*/
-        document.getElementById("name" + (counterField.length - 4)).innerHTML = "Nom du lieu :";
-        document.getElementById("link" + (counterField.length - 4)).innerHTML = "Lien :";
-        document.getElementById("address" + (counterField.length - 4)).innerHTML = "Adresse du lieu :";
-        document.getElementById("type" + (counterField.length - 4)).innerHTML = "Type de Lieu :";
+        document.getElementById("name" + (counterField.length - 6)).innerHTML = "Nom du lieu :";
+        document.getElementById("link" + (counterField.length - 6)).innerHTML = "Lien :";
+        document.getElementById("address" + (counterField.length - 6)).innerHTML = "Adresse du lieu :";
+        document.getElementById("lat" + (counterField.length - 6)).innerHTML = "Lat :";
+        document.getElementById("lng" + (counterField.length - 6)).innerHTML = "Lng :";
+        document.getElementById("type" + (counterField.length - 6)).innerHTML = "Type de Lieu :";
     }
 
     // supprimer le dernier champ;
@@ -263,7 +288,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
     });
 
     function actualiseDataMap(divActMap) {
-        $("#divActMap").load("index.php #divActMap");
+        $("#divActMap").load("maps.php #divActMap");
     }
 
 
@@ -275,7 +300,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
     function deleteMap() {
-        var dataString = 'id=' + url;
+        var dataString = 'type=map&' + 'id=' + url;
         $.ajax({
             type: "POST",
             url: "delete.php",
@@ -298,14 +323,36 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
 
 
     $(document).ready(function () {
-        actualiseDataTag();
+        actualiseDataMap();
         $("#submitMap").click(function () {
             var type = "map";
             var name = $("#name").val();
-            var description = $("#description").val();
+            var lat = $("#lat").val();
+            var lng = $("#lng").val();
+            var zoom = $("#zoom").val();
+            var arraySpot = [];
+            var n = $('div[class="spot"]').length;
+            for (i = 0, n; i < n; i++) {
+                var arrayDataSpot = [];
+                    var namefield = $('#namefield' + i * 6).val();
+                    var lienfield = $('#lienfield' + i * 6).val();
+                    var addressfield = $('#addressfield' + i * 6).val();
+                    var latfield = $('#latfield' + i * 6).val();
+                    var lngfield = $('#lngfield' + i * 6).val();
+                    var typefield = $('#typefield' + i * 6).val();
+                    arrayDataSpot.push(namefield);
+                    arrayDataSpot.push(lienfield);
+                    arrayDataSpot.push(addressfield);
+                    arrayDataSpot.push(latfield);
+                    arrayDataSpot.push(lngfield);
+                    arrayDataSpot.push(typefield);
+                arraySpot.push(arrayDataSpot);
+            }
+            var arraySpotSerialized = JSON.stringify(arraySpot);
+
 // Returns successful data submission message when the entered information is stored in database.
-            var dataString = 'type=' + type + '&name=' + name + '&description=' + description;
-            if (type == '' || name == '' || description == '') {
+            var dataString = 'type=' + type + '&name=' + name + '&lat=' + lat + '&lng=' + lng + '&zoom=' + zoom + '&arraySpot=' + arraySpotSerialized;
+            if (type == '' || name == '' || lat == '' || lng == '' || zoom == '' || arraySpotSerialized == '') {
                 $.notify({
                     // options
                     message: "Please Fill All Fields"
@@ -336,16 +383,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                         });
                     }
                 });
-                actualiseDataTag();
+                actualiseDataMap();
             }
             return false;
         });
 
     });
 
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDca_YEHG52wujyMx3C_sAalf_5SOXqfY4&callback=initMap">
 </script>
 
 </body>

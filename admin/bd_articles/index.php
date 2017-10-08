@@ -65,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                                     <input class="form-control mb-1 mr-sm-1 mb-sm-0" id="numero" type="text"
                                            placeholder="Numéro">
                                     <label class="sr-only" for="datepicker">Date : </label>
-                                    <input id="datepicker" width="276"/>
+                                    <input class="form-control" type="date" name="date_article" value="2017-01-01" id="datepicker">
                                     <button type="submit" id="submitMag" class="btn btn-primary">Submit</button>
                                 </form>
                                 <br>
@@ -247,15 +247,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
             </div>
         </div>
     </div>
-
-    <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            format: 'yyyy-mm-dd'
-        });
-    </script>
-
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/admin/elements/footer.php"); ?>
     <script src="/admin/assets/js/notify.js" type="text/javascript"></script>
     <script>

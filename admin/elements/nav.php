@@ -55,7 +55,7 @@
                         <a href="/admin/travels/banners.php"><i class="fa fa-fw fa-table"></i> Banners</a>
                     </li>
                     <li>
-                        <a href="/admin/travels/index.php"><i class="fa fa-map-signs"></i> Voyages</a>
+                        <a href="/admin/travels/voyages.php"><i class="fa fa-map-signs"></i> Voyages</a>
                     </li>
                     <li>
                         <a href="/admin/travels/pictures.php"><i class="fa fa-picture-o"></i> Photos</a>

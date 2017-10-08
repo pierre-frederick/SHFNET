@@ -41,7 +41,7 @@ function getArticle(PDO $BDD, $id){
 
 
 function getAllCategoriesArticle(PDO $BDD){
-	$request = $BDD->query('SELECT * FROM shfnet.public.categorie_article;');
+	$request = $BDD->query('SELECT * FROM shfnet.public.categorie_article ORDER BY subject ASC;');
 	return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -50,6 +50,12 @@ function getCategoriesArticleBySubject(PDO $BDD, $subject){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.categorie_article WHERE subject = ?;');
     $request->execute(array($subject));
     return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCategoriesArticleById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.categorie_article WHERE id = ?;');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
 }
 
 
@@ -201,6 +207,11 @@ function setProjectTag(PDO $BDD, $id_project, $id_categorie_article){
  * **************************** BANNERS *******************************************
  */
 
+function getAllBanners(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.banners ORDER BY date_banner DESC');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getLastBanners(PDO $BDD){
     $request = $BDD->query('SELECT * FROM shfnet.public.banners ORDER BY date_banner DESC LIMIT 5');
     return $request->fetchAll(PDO::FETCH_ASSOC);
@@ -225,6 +236,15 @@ function getAllCategorieFavoris(PDO $BDD){
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function setCatFavoris(PDO $BDD, $name){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.categorie_favoris(name) VALUES (:name)');
+    $request->execute(array('name' => $name));
+}
+
+function deleteCatFavoris(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.categorie_favoris WHERE id = ?');
+    $request->execute(array($id));
+}
 
 function getFavorisById(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.favoris WHERE id = ?');
@@ -233,13 +253,13 @@ function getFavorisById(PDO $BDD, $id){
 }
 
 function getFavorisByCategorie(PDO $BDD, $id_categorie){
-    $request = $BDD->prepare('SELECT * FROM shfnet.public.favoris WHERE categorie_id = ?');
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.favoris WHERE id_categorie_favoris = ?');
     $request->execute(array($id_categorie));
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function setFavoris(PDO $BDD, $nom, $url, $description, $id_categorie){
-    $request = $BDD->prepare('INSERT INTO shfnet.public.favoris(name, link, description, categorie_id) VALUES (:name, :link, :description, :categorie_id)');
+    $request = $BDD->prepare('INSERT INTO shfnet.public.favoris(name, link, description, id_categorie_favoris) VALUES (:name, :link, :description, :categorie_id)');
     $request->execute(array('name' => $nom, 'description' => $description, 'link' => $url, 'categorie_id' => $id_categorie));
 }
 
@@ -347,16 +367,10 @@ function setBdArticleTag(PDO $BDD, $id_article, $id_bd_tag){
     $request->execute(array('id_article' => $id_article, 'id_bd_tag' => $id_bd_tag));
 }
 
-function getAllVgMaps(PDO $BDD){
-    $request = $BDD->query('SELECT * FROM shfnet.public.vg_map;');
-    return $request->fetchAll(PDO::FETCH_ASSOC);
-}
 
-function getVgMapById(PDO $BDD, $id){
-    $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_map WHERE id = ?');
-    $request->execute(array($id));
-    return $request->fetch(PDO::FETCH_ASSOC);
-}
+/*
+ * **************************** SITE VOYAGE : categories *******************************************
+ */
 
 function getAllVgVoyages(PDO $BDD){
     $request = $BDD->query('SELECT * FROM shfnet.public.vg_voyage;');
@@ -368,12 +382,31 @@ function getAllVgCategorie(PDO $BDD){
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function setVgCategorie(PDO $BDD, $name, $description){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_categorie(name, description) VALUES (:name, :description)');
+    $request->execute(array('name' => $name, 'description' => $description));
+}
+
+function setVgCategorieVoyage(PDO $BDD, $id, $id_vg_categorie){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_categorie_voyage(id, id_vg_categorie) VALUES (:id, :id_vg_categorie)');
+    $request->execute(array('id' => $id, 'id_vg_categorie' => $id_vg_categorie));
+}
+
+function deleteVgCategorie(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_categorie WHERE id = ?');
+    $request->execute(array($id));
+}
+
 
 function getVgCategorieById(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_categorie WHERE id = ?');
     $request->execute(array($id));
     return $request->fetch(PDO::FETCH_ASSOC);
 }
+
+/*
+ * **************************** SITE VOYAGE : voyages *******************************************
+ */
 
 function getVgVoyageById(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_voyage WHERE id = ?');
@@ -404,4 +437,135 @@ function getVgPhotoById(PDO $BDD, $id){
     return $request->fetch(PDO::FETCH_ASSOC);
 }
 
+function getAllVgPhoto(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_pictures ORDER BY id DESC');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function setVgVoyage(PDO $BDD, $name, $place, $contenu, $address, $city, $country, $date_debut, $date_fin, $id_vg_map, $picture_on_top){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_voyage(name, place, content, address, city, country, date_debut, date_fin, id_vg_map, picture_on_top) VALUES (:name, :place, :content, :address, :city, :country, :date_debut, :date_fin, :id_vg_map, :picture_on_top)');
+    $request->execute(array('name' => $name, 'place' => $place, 'content' => $contenu, 'address' => $address, 'city' => $city, 'country' => $country, 'date_debut' => $date_debut, 'date_fin' => $date_fin, 'id_vg_map'=> $id_vg_map, 'picture_on_top' => $picture_on_top));
+}
+
+function getLastVgVoyage(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_voyage ORDER BY id DESC LIMIT 1');
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function setVgVoyagePhoto(PDO $BDD, $id, $id_vg_voyage){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_voyage_photo(id, id_vg_voyage) VALUES (:id, :id_vg_voyage)');
+    $request->execute(array('id' => $id, 'id_vg_voyage' => $id_vg_voyage));
+}
+
+function setVgPhoto(PDO $BDD, $name, $link, $description, $spot){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_pictures(name, link, description, id_vg_spot) VALUES (:name, :link, :description, :id_vg_spot)');
+    $request->execute(array('name' => $name, 'link' => $link, 'description' => $description, 'id_vg_spot' => $spot));
+}
+
+function deleteVgPhoto(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_pictures WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function deleteVgVoyage(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_voyage WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function deleteVgVoyagePhoto(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_voyage_photo WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function deleteVgVoyageCategorie(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_categorie_voyage WHERE id = ?');
+    $request->execute(array($id));
+}
+
+/*
+ * **************************** SITE VOYAGE : banners *******************************************
+ */
+
+function getAllVgBanners(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_banners ORDER BY date_banner DESC');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getLastVgBanners(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_banners ORDER BY date_banner DESC LIMIT 5');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function deleteVgBanners(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_banners WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function setVgBanners(PDO $BDD, $title, $subtitle, $link, $urlmedia, $date){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_banners(title, subtitle, link, urlmedia, date_banner) VALUES (:title, :subtitle, :link, :urlmedia, :date_banner)');
+    $request->execute(array('title' => $title, 'subtitle' => $subtitle, 'link' => $link, 'urlmedia' => $urlmedia, 'date_banner' => $date));
+}
+
+
+/*
+ * **************************** SITE VOYAGE : map *******************************************
+ */
+
+
+function getAllVgMaps(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_map;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getVgMapById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_map WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function setVgMap(PDO $BDD, $name, $lat, $lng, $zoom){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_map(name, center_lat, center_long, zoom) VALUES (:name, :center_lat, :center_long, :zoom)');
+    $request->execute(array('name' => $name, 'center_lat' => $lat, 'center_long' => $lng, 'zoom' => $zoom));
+}
+
+function getLastVgMap(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_map ORDER BY id DESC LIMIT 1');
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function deleteVgMap(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_map WHERE id = ?');
+    $request->execute(array($id));
+}
+
+/*
+ * **************************** SITE VOYAGE : spot *******************************************
+ */
+
+function setVgSpot(PDO $BDD, $name, $link, $address, $type, $id_vg_map, $lat, $lng){
+    $request = $BDD->prepare('INSERT INTO shfnet.public.vg_spot(name, link, address, type, id_vg_map, lat, lng) VALUES (:name, :link, :address, :type, :id_vg_map, :lat, :lng)');
+    $request->execute(array('name' => $name, 'link' => $link, 'address' => $address, 'type' => $type, 'id_vg_map' => $id_vg_map, 'lat' => $lat, 'lng' => $lng));
+}
+
+function deleteVgSpot(PDO $BDD, $id){
+    $request = $BDD->prepare('DELETE FROM shfnet.public.vg_spot WHERE id = ?');
+    $request->execute(array($id));
+}
+
+function getVgSpotByIdMap(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_spot WHERE id_vg_map = ?');
+    $request->execute(array($id));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getVgSpotById(PDO $BDD, $id){
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.vg_spot WHERE id = ?');
+    $request->execute(array($id));
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
+
+function getAllVgSpots(PDO $BDD){
+    $request = $BDD->query('SELECT * FROM shfnet.public.vg_spot;');
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
 

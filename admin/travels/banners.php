@@ -18,7 +18,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
             <li class="breadcrumb-item">
                 <a href="/admin/">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Gestion site web</li>
+            <li class="breadcrumb-item">Gestion site web</li>
+            <li class="breadcrumb-item active">Travels</li>
             <li class="breadcrumb-item">Banners</li>
         </ol>
 
@@ -34,7 +35,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                 <div class="col-md-6">
                     <a href="/admin/index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>
-                       </div>
+            </div>
 
 
             <div class="row">
@@ -61,17 +62,9 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                                         <label for="link">Lien de la bannière :</label>
                                         <input class="form-control" id="link" type="text" placeholder="Lien">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="media">Type de media : </label>
-                                        <select class="custom-select" id="media">
-                                            <option value="img">Image</option>
-                                            <option value="vid">Vidéo</option>
-                                        </select>
-                                    </div>
-
                                     <div class="input-group">
                                         <label for="path">Chemin du média : </label>
-                                         <span class="input-group-addon" id="sizing-addon2"><a target="_blank" onclick="openKCFinder_singleFile();" ><i class="fa fa-folder-open-o"></i></a> </span>
+                                        <span class="input-group-addon" id="sizing-addon2"><a target="_blank" onclick="openKCFinder_singleFile();" ><i class="fa fa-folder-open-o"></i></a> </span>
                                         <input type="text" class="form-control" id="path" placeholder="Chemin" aria-describedby="sizing-addon2">
                                     </div>
                                     <br>
@@ -90,10 +83,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
 
                     <br>
                     <div class="card mb-12">
-                            <div class="card-header">
-                                Banners
-                            </div>
-                            <div id="divActBann" class="card-body">
+                        <div class="card-header">
+                            Banners
+                        </div>
+                        <div id="divActBann" class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
                                     <thead>
@@ -102,7 +95,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                                         <th>Titre</th>
                                         <th>Sous-titre</th>
                                         <th>Lien</th>
-                                        <th>Media</th>
                                         <th>Url</th>
                                         <th>Date</th>
                                         <th>Actions</th>
@@ -114,7 +106,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                                     $bdd = connexionDB();
                                     if(isset($bdd)) {
 
-                                        $banners = getAllBanners($bdd);
+                                        $banners = getAllVgBanners($bdd);
                                         if(!empty($banners)) {
                                             foreach($banners as $banner) {?>
 
@@ -123,11 +115,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
                                                     <td><?php echo $banner['title']?></td>
                                                     <td><?php echo $banner['subtitle']?></td>
                                                     <td><?php echo $banner['link']?></td>
-                                                    <td><?php echo $banner['mediatype']?></td>
                                                     <td><?php echo $banner['urlmedia']?></td>
                                                     <td><?php echo  date("d/m/Y", strtotime($banner['date_banner']));  ?></td>
                                                     <td><a class="delete btn btn-danger" data-toggle="modal" data-id="<?php echo $banner['id']?>" data-target="#deleteModal"><i class="fa fa-times-circle"></i></a>
-                                                        <a href="/admin/banners/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <a href="/admin/travels/edit.php?id=<?php echo $banner['id']?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } }} else {echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';} ?>
@@ -183,7 +174,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
     });
 
     function actualiseDataBanner(divActBann) {
-        $("#divActBann").load("index.php #divActBann");
+        $("#divActBann").load("banners.php #divActBann");
     }
 
 
@@ -231,8 +222,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des
             var dateBanner = $("#dateBanner").val();
 
 // Returns successful data submission message when the entered information is stored in database.
-            var dataString = 'type=' + type + '&title=' + title + '&subtitle=' + subtitle + '&link=' + link + '&mediatype=' + media + '&urlmedia=' + path + '&dateBanner=' + dateBanner;
-            if (type == '' || title == '' || subtitle == '' || link == '' || media == '' || path == '' || dateBanner == '') {
+            var dataString = 'type=' + type + '&title=' + title + '&subtitle=' + subtitle + '&link=' + link + '&urlmedia=' + path + '&dateBanner=' + dateBanner;
+            if (type == '' || title == '' || subtitle == '' || link == '' || path == '' || dateBanner == '') {
                 $.notify({
                     // options
                     message: "Please Fill All Fields"
