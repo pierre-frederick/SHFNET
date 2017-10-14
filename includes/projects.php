@@ -13,27 +13,34 @@ else {
     $page=1;
 }
 
-if(isset($_GET['s']))
-{
+
+if(isset($_GET['s']) && isset($_GET['c'])) {
+    $getCategorie = filter_input(INPUT_GET, 'c', FILTER_SANITIZE_STRING);
     $subject = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
-    $ListeCategoriesProjects = getAllCategoriesProjects($bdd, $subject);
+    if ($subject =="elec") {
+        $ListeCategoriesProjects = getCategoriesProjectBySubject($bdd, "elec");
+    }
+    elseif ($subject =="info") {
+        $ListeCategoriesProjects = getCategoriesProjectBySubject($bdd, "info");
+    }
+}
+
+elseif(isset($_GET['s'])) {
+    $subject = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
+    if ($subject =="elec") {
+        $ListeCategoriesProjects = getCategoriesProjectBySubject($bdd, "elec");
+    }
+    elseif ($subject =="info") {
+        $ListeCategoriesProjects = getCategoriesProjectBySubject($bdd, "info");
+    }
+    else{
+        $ListeCategoriesProjects =null;
+    }
     $getCategorie = null;
 }
-
-
-else if(isset($_GET['s']) && isset($_GET['c']))
-{
-    $getCategorie = filter_input(INPUT_GET, 'c', FILTER_SANITIZE_STRING);
-    $ListeCategoriesProjects = getAllCategoriesProjects($bdd, $subject);
-
-}
-else if(isset($_GET['project']))
-{
+elseif(isset($_GET['project'])) {
     $idProject = filter_input(INPUT_GET, 'project', FILTER_SANITIZE_STRING);
     $project = getProject($bdd, $idProject);
-    if($project == null) {
-        header('Location: /error/404.php');
-    }
 
     $metas['og:type'] = 'article';
     $metas['author'] = 'Pierre-Frédérick DENYS';

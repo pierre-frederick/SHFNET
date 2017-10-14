@@ -132,7 +132,7 @@ function getAllProject(PDO $BDD){
 function getProject(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.projects WHERE id = ?');
     $request->execute(array($id));
-    return $request->fetch(PDO::FETCH_ASSOC);
+    return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getAllCategoriesProject(PDO $BDD){
@@ -167,6 +167,16 @@ WHERE id_categorie_article = ? AND subject = ? ORDER BY date_project DESC LIMIT 
     $request->execute(array($idCategorie, $subject, $offset, ($page-1)*$offset));
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getProjectsBySubjectAndNameCategory(PDO $BDD, $categorie, $subject,  $page, $offset){
+    $request = $BDD->prepare('SELECT * FROM shfnet.public.projects 
+INNER JOIN shfnet.public.cat_projects ON shfnet.public.projects.id = shfnet.public.cat_projects.id  
+INNER JOIN shfnet.public.categorie_article ON shfnet.public.cat_projects.id_categorie_article = shfnet.public.categorie_article.id 
+WHERE categorie_article.name = ? AND subject = ? ORDER BY date_project DESC LIMIT ? OFFSET ?');
+    $request->execute(array($categorie, $subject, $offset, ($page-1)*$offset));
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 function getProjectsBySubject(PDO $BDD, $subject,  $page, $offset){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.projects 

@@ -55,7 +55,8 @@ require_once 'includes/projects.php'; // fichier des fonctions
             } ?></h1>
 
         <?php
-        if (isset($_GET['project'])) { ?>
+        if (isset($_GET['project'])) {
+            var_dump($project);?>
             <a href="javascript:history.go(-1)" class="btn btn-outline-warning">&larr; Retour </a>
 
 
@@ -83,45 +84,65 @@ require_once 'includes/projects.php'; // fichier des fonctions
             <?php
         } else {
             ?>
-            Catégorie :
-            <div class="btn-group" role="group" aria-label="categorie">
-                <?php
-                foreach ($ListeCategoriesProjects as $categorie) { ?>
-                    <a class="btn btn-default"
-                       href="projects.php?<?php echo "s=" . $subject . "&c=" . $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
-                    <?php
-                } ?>
-            </div>
-            <hr>
+
 
 
             <?php
-            $projects = getLastProjects($bdd, $subject, $idCategorie, $page);
-            foreach ($projects as $project) {
-                ?>
-                <div class="post-preview row">
-                    <div class="col-md-3">
-                        <img src="<?php echo "/upload/projects/" . $subject . "/" . $project['id_categorie'] . "/" . $project['img'] ?>"
-                             class="" title="<?php echo $project['img'] ?>">
-                    </div>
-                    <div class="col-md-9">
-                        <a href="projects.php?project=<?php echo $project['id']; ?>">
-                            <h2 class="post-title">
-                                <?php echo $project['title']; ?>
-                            </h2>
-                            <h3 class="post-subtitle">
-                                <?php echo $project['subtitle']; ?>
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posté le <?php $date = strtotime($project['date']);
-                            echo "Le " . date("d-m-Y", $date) . " à " . date("H:i", $date); ?></p>
+            setlocale(LC_ALL, 'fr_FR.UTF-8');
+            $bdd = connexionDB();
+            if (isset($bdd)) {
 
+                //*******************************gestion des catégories***************************
+                if($getCategorie) { ?>
+                    Catégorie : <a href="projects.php?s=<?php echo $subject ?>" class="btn btn-default"> <?php echo $getCategorie ?> <i class="fa fa-times-circle"></i></a>  <hr>
+                    <?php
+                    $projects = getProjectsBySubjectAndNameCategory($bdd, $getCategorie, $subject, 1,4);
+                }
+                elseif  ($getCategorie == null) { ?>
+                    Catégorie :
+                    <div class="btn-group" role="group" aria-label="categorie">
+                        <?php
+
+                        foreach ($ListeCategoriesProjects as $categorie) { ?>
+                            <a class="btn btn-default"
+                               href="projects.php?<?php echo "s=" . $subject . "&c=" . $categorie['name']; ?>"><?php echo $categorie['name']; ?></a>
+                            <?php
+                        } ?>
                     </div>
-                </div>
-                <hr>
-                <?php
-            }
-            ?>
+                    <hr>
+                    <?php
+                    $projects = getProjectsBySubject($bdd, $subject, 1,4);
+                }
+
+                //*******************************gestion des projets***************************
+                if (!empty($projects)) {
+                        foreach ($projects as $project) {
+                            var_dump($project);
+                            ?>
+                            <div class="post-preview row">
+                                <div class="col-md-3">
+                                    <img src="<?php echo $project['img'] ?>"
+                                         class="" title="<?php echo $project['img'] ?>">
+                                </div>
+                                <div class="col-md-9">
+                                    <a href="projects.php?project=<?php echo $project['id']; ?>">
+                                        <h2 class="post-title">
+                                            <?php echo $project['title']; ?>
+                                        </h2>
+                                        <h3 class="post-subtitle">
+                                            <?php echo $project['subtitle']; ?>
+                                        </h3>
+                                    </a>
+                                    <p class="post-meta">Posté le <?php $date = strtotime($project['date_project']);
+                                        echo "Le " . date("d-m-Y", $date); ?></p>
+                                </div>
+                            </div>
+                            <hr>
+                        <?php }
+                    }
+                } else {
+                    echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times-circle"></i> Erreur de connexion à la base de donnée</div>';
+                } ?>
 
             <nav aria-label="navigation">
                 <ul class="pager">
