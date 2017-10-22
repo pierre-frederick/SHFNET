@@ -69,8 +69,8 @@ require_once 'includes/projects.php'; // fichier des fonctions
                 </h3>
 
                 <div class="col-md-offset-2 col-md-8">
-                    <img src="<?php echo "/upload/projects/" . $project['subject'] . "/" . $project['id_categorie'] . "/" . $project['img'] ?>"
-                         class="" title="<?php echo $project['img'] ?>">
+                    <img src="<?php echo $project['img'] ?>"
+                         class="" title="<?php echo $project['legend'] ?>">
                 </div>
             </div>
 
@@ -96,7 +96,7 @@ require_once 'includes/projects.php'; // fichier des fonctions
                 if($getCategorie) { ?>
                     Catégorie : <a href="projects.php?s=<?php echo $subject ?>" class="btn btn-default"> <?php echo $getCategorie ?> <i class="fa fa-times-circle"></i></a>  <hr>
                     <?php
-                    $projects = getProjectsBySubjectAndNameCategory($bdd, $getCategorie, $subject, 1,4);
+                    $projects = getProjectsBySubjectAndNameCategory($bdd, $getCategorie, $subject, $page,4);
                 }
                 elseif  ($getCategorie == null) { ?>
                     Catégorie :
@@ -111,7 +111,7 @@ require_once 'includes/projects.php'; // fichier des fonctions
                     </div>
                     <hr>
                     <?php
-                    $projects = getProjectsBySubject($bdd, $subject, 1,4);
+                    $projects = getProjectsBySubject($bdd, $subject, $page,4);
                 }
 
                 //*******************************gestion des projets***************************
@@ -148,12 +148,12 @@ require_once 'includes/projects.php'; // fichier des fonctions
                 <ul class="pager">
                     <?php if ($page > 1) { ?>
                         <li class="previous">
-                            <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page - 1); else echo 'projects.php?s=' . $subject . '?c=' . $getCategorie . '&p=' . ($page - 1); ?>"><span
+                            <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page - 1); else echo 'projects.php?s=' . $subject . '&c=' . $getCategorie . '&p=' . ($page - 1); ?>"><span
                                         aria-hidden="true">&larr;</span> Newer posts</a>
                         </li>
                     <?php } ?>
                     <li class="next">
-                        <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page + 1); else echo 'projects.php?s=' . $subject . '?c=' . $getCategorie . '&p=' . ($page + 1); ?>">Older
+                        <a href="<?php if ($getCategorie == null) echo 'projects.php?s=' . $subject . '&p=' . ($page + 1); else echo 'projects.php?s=' . $subject . '&c=' . $getCategorie . '&p=' . ($page + 1); ?>">Older
                             Posts <span aria-hidden="true">&rarr;</span></a>
                     </li>
 

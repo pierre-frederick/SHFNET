@@ -6,30 +6,21 @@ $bdd = connexionDB();
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h3 class="title">Reason to choose us</h3>
+            <h3 class="title">Le gif du jour</h3>
             <p>
-                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
+                git merge
             </p>
-            <ul>
-                <li>Tick mark here Reason one</li>
-                <li>Tick mark here  Reason one</li>
-                <li>Tick mark here  Reason one</li>
-                <li>Reason one</li>
-                <li>Reason one</li>
-                <li>Reason one</li>
-            </ul>
-            <p>
-                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
-            </p>
-            <p>
-                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire
-            </p>
+
+            <img src="/img/gif/merge.gif" alt="git merge" width=250>
+
+
+
         </div>
 
 
         <div class="col-md-8">
 			<div class="projectList">
-				<h3 class="title">Latest Projects</h3>
+				<h3 class="title">Les derniers projets</h3>
 
 
                 <?php

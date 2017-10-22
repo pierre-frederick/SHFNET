@@ -47,7 +47,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.php"><img src="/img/logo_shfnet.png" width = 150 alt="Logo SHFNET" /></a>
+          <a class="navbar-brand" href="/index.php"><img src="/img/logo_shfnet.png" width=150 alt="Logo SHFNET" /></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -62,7 +62,7 @@
                   <li><a href="/pages/electronique/caisse_a_outils/index.php">Caisse à outil</a></li>
                 <li><a href="/pages/electronique/circuits_communs/index.php">Circuits Communs</a></li>
                 <li><a href="/pages/electronique/arduino/index.php">Arduino</a></li>
-                  <li><a href="/projects.php?s=élec">Projets</a></li>
+                  <li><a href="/projects.php?s=elec">Projets</a></li>
               </ul>
             </li>
               <li class="dropdown">
@@ -74,6 +74,7 @@
                       <li><a href="/pages/informatique/raspi/index.php">Raspberry Pi</a></li>
                       <li><a href="/pages/informatique/git.php">Git</a></li>
                       <li><a href="/pages/informatique/bootstrap.php">Bootstrap</a></li>
+                      <li><a href="/projects.php?s=info">Projets</a></li>
                   </ul>
               </li>
               <li><a href="/pages/services.php">Services</a></li>

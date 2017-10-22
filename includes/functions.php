@@ -32,7 +32,6 @@ function getAllArticle(PDO $BDD){
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
 function getArticle(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.articles WHERE id = ?');
     $request->execute(array($id));
@@ -132,7 +131,7 @@ function getAllProject(PDO $BDD){
 function getProject(PDO $BDD, $id){
     $request = $BDD->prepare('SELECT * FROM shfnet.public.projects WHERE id = ?');
     $request->execute(array($id));
-    return $request->fetchAll(PDO::FETCH_ASSOC);
+    return $request->fetch(PDO::FETCH_ASSOC);
 }
 
 function getAllCategoriesProject(PDO $BDD){
@@ -169,7 +168,7 @@ WHERE id_categorie_article = ? AND subject = ? ORDER BY date_project DESC LIMIT 
 }
 
 function getProjectsBySubjectAndNameCategory(PDO $BDD, $categorie, $subject,  $page, $offset){
-    $request = $BDD->prepare('SELECT * FROM shfnet.public.projects 
+    $request = $BDD->prepare('SELECT projects.id, title, subtitle, contenu, date_project, projects.img, projects.legend, id_categorie_article, name, description, subject FROM shfnet.public.projects 
 INNER JOIN shfnet.public.cat_projects ON shfnet.public.projects.id = shfnet.public.cat_projects.id  
 INNER JOIN shfnet.public.categorie_article ON shfnet.public.cat_projects.id_categorie_article = shfnet.public.categorie_article.id 
 WHERE categorie_article.name = ? AND subject = ? ORDER BY date_project DESC LIMIT ? OFFSET ?');
@@ -179,7 +178,7 @@ WHERE categorie_article.name = ? AND subject = ? ORDER BY date_project DESC LIMI
 
 
 function getProjectsBySubject(PDO $BDD, $subject,  $page, $offset){
-    $request = $BDD->prepare('SELECT * FROM shfnet.public.projects 
+    $request = $BDD->prepare('SELECT projects.id, title, subtitle, contenu, date_project, projects.img, projects.legend, id_categorie_article, name, description, subject FROM shfnet.public.projects 
 INNER JOIN shfnet.public.cat_projects ON shfnet.public.projects.id = shfnet.public.cat_projects.id  
 INNER JOIN shfnet.public.categorie_article ON shfnet.public.cat_projects.id_categorie_article = shfnet.public.categorie_article.id 
 WHERE subject = ? ORDER BY date_project DESC LIMIT ? OFFSET ?');

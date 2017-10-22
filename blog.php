@@ -145,7 +145,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/articles.php'; // fichier de
                 <hr>
 
                 <?php
-                $articles = getAllArticle($bdd);
+                $articles = getArticleByPage($bdd, $page, 4);
                 $getCategorie = null;
                 foreach ($articles as $article) {
                 ?>

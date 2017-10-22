@@ -11,11 +11,9 @@
     <!-- footer social -->
     <div class="footer-social">
         <ul>
-            <li><a href="#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-            <li><a href="#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+            <li><a href="https://www.facebook.com/pierre.denys.3" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/PFdenys" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.flickr.com/people/151992893@N07/" target="_blank" ><i class="fa fa-flickr"></i></a></li>
         </ul>
     </div>
     <!-- footer social end -->

@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php'; // fichier des fonctions ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,66 +26,51 @@
                 <div class="full-height-wrap">
                     <div class="swiper-container" id="horizontal-slider" data-mwc="1" data-mwa="0">
                         <div class="swiper-wrapper">
-                            <!--=============== 1 ===============-->
-                            <div class="swiper-slide">
-                                <div class="bg" style="background-image:url(https://farm5.staticflickr.com/4283/35373182621_236f4c3be2_h.jpg)"></div>
-                                <div class="overlay"></div>
-                                <div class="zoomimage"><img src="https://farm5.staticflickr.com/4283/35373182621_236f4c3be2_h.jpg" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                                <div class="slide-title-holder">
-                                    <div class="slide-title">
-                                        <span class="subtitle">At posuere sem accumsan </span>
-                                        <div class="separator-image"><img src="images/separator.png" alt=""></div>
-                                        <h3 class="transition">  <a href="portfolio-single.html">Blandit praesent</a></h3>
-                                        <h4><a  href="portfolio-single.html">View</a></h4>
+
+                            <?php
+                            setlocale(LC_ALL, 'fr_FR.UTF-8');
+                            $bdd = connexionDB();
+                            if(isset($bdd)) {
+
+                                $banners = getLastVgBanners($bdd);
+                                if(!empty($banners)) {
+                                    foreach($banners as $banner) {?>
+                                        <div class="swiper-slide">
+                                            <div class="bg" style="background-image:url(<?php echo $banner['urlmedia']?>)"></div>
+                                            <div class="overlay"></div>
+                                            <div class="zoomimage"><img src="<?php echo $banner['urlmedia']?>" class="intense" alt="<?php echo $banner['title']?>"><i class="fa fa-expand"></i></div>
+                                            <div class="slide-title-holder">
+                                                <div class="slide-title">
+                                                    <span class="subtitle"><?php echo $banner['title']?></span>
+                                                    <div class="separator-image"><img src="images/separator.png" alt=""></div>
+                                                    <h3 class="transition">  <a href="<?php echo $banner['link']?>"><?php echo $banner['subtitle']?></a></h3>
+                                                    <h4><a  href="<?php echo $banner['link']?>">View</a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } }}
+                            else
+                            { ?>
+                                <!--=============== 1 ===============-->
+                                <div class="swiper-slide">
+                                    <div class="bg" style="background-image:url(https://farm5.staticflickr.com/4283/35373182621_236f4c3be2_h.jpg)"></div>
+                                    <div class="overlay"></div>
+                                    <div class="zoomimage"><img src="https://farm5.staticflickr.com/4283/35373182621_236f4c3be2_h.jpg" class="intense" alt=""><i class="fa fa-expand"></i></div>
+                                    <div class="slide-title-holder">
+                                        <div class="slide-title">
+                                            <span class="subtitle">Erreur</span>
+                                            <div class="separator-image"><img src="images/separator.png" alt=""></div>
+                                            <h3 class="transition">  <a href="">Aucun slide présent sur le site</a></h3>
+                                            <h4><a  href="">View</a></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- 1 end -->
-                            <!--=============== 2 ===============-->
-                            <div class="swiper-slide">
-                                <div class="bg" style="background-image:url(https://farm5.staticflickr.com/4284/35336823852_107df81324_h.jpg)"></div>
-                                <div class="overlay"></div>
-                                <div class="zoomimage"><img src="images/bg/1.jpg" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                                <div class="slide-title-holder">
-                                    <div class="slide-title">
-                                        <span class="subtitle">At posuere sem accumsan </span>
-                                        <div class="separator-image"><img src="images/separator.png" alt=""></div>
-                                        <h3 class="transition">  <a href="portfolio-single.html">In tortor neque</a>  </h3>
-                                        <h4><a  href="portfolio-single.html">View</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 2 end -->
-                            <!--=============== 3 ===============-->
-                            <div class="swiper-slide">
-                                <div class="bg" style="background-image:url(images/bg/1.jpg)"></div>
-                                <div class="overlay"></div>
-                                <div class="zoomimage"><img src="images/bg/1.jpg" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                                <div class="slide-title-holder">
-                                    <div class="slide-title">
-                                        <span class="subtitle">At posuere sem accumsan </span>
-                                        <div class="separator-image"><img src="images/separator.png" alt=""></div>
-                                        <h3 class="transition">  <a  href="portfolio-single.html">Vestibulum tincidunt</a>  </h3>
-                                        <h4><a  href="portfolio-single.html">View</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 3 end -->
-                            <!--=============== 4 ===============-->
-                            <div class="swiper-slide">
-                                <div class="bg" style="background-image:url(images/bg/1.jpg)"></div>
-                                <div class="overlay"></div>
-                                <div class="zoomimage"><img src="images/bg/1.jpg" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                                <div class="slide-title-holder">
-                                    <div class="slide-title">
-                                        <span class="subtitle">At posuere sem accumsan </span>
-                                        <div class="separator-image"><img src="images/separator.png" alt=""></div>
-                                        <h3 class="transition">  <a  href="portfolio-single.html">Libero bibendum</a>  </h3>
-                                        <h4><a  href="portfolio-single.html">View</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 4 end -->
+                            <?php  } ?>
+
+
+
+
+
                         </div>
                     </div>
                     <!-- slider  pagination -->

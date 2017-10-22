@@ -6,6 +6,7 @@ $metas = array('author' => 'Pierre-Frederick DENYS', 'description' => 'Blog de s
 $idCategorie = null;
 
 
+//pages
 if(isset($_GET['p']) && $_GET['p'] > 0) {
     $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_STRING);
 }
@@ -13,7 +14,7 @@ else {
     $page=1;
 }
 
-
+//tri par sujet et catégorie
 if(isset($_GET['s']) && isset($_GET['c'])) {
     $getCategorie = filter_input(INPUT_GET, 'c', FILTER_SANITIZE_STRING);
     $subject = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
@@ -24,7 +25,7 @@ if(isset($_GET['s']) && isset($_GET['c'])) {
         $ListeCategoriesProjects = getCategoriesProjectBySubject($bdd, "info");
     }
 }
-
+//tri par sujet
 elseif(isset($_GET['s'])) {
     $subject = filter_input(INPUT_GET, 's', FILTER_SANITIZE_STRING);
     if ($subject =="elec") {
@@ -41,13 +42,12 @@ elseif(isset($_GET['s'])) {
 elseif(isset($_GET['project'])) {
     $idProject = filter_input(INPUT_GET, 'project', FILTER_SANITIZE_STRING);
     $project = getProject($bdd, $idProject);
-
     $metas['og:type'] = 'article';
     $metas['author'] = 'Pierre-Frédérick DENYS';
     $metas['og:author'] = 'Pierre-Frédérick DENYS';
     $metas['og:title'] = $project['title'];
     $metas['og:description'] = $project['subtitle'];
-    $date = new DateTime($project['date']);
+    $date = new DateTime($project['date_project']);
 }
 
 else {

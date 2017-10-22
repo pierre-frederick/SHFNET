@@ -74,7 +74,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
                     <i class="fa fa-mouse-pointer"></i>   shfnet.fr<br>
 				</p>
 				<h3>Stay Connected</h3>
-				<p><a href=""><i class="fa fa-facebook-square fa-2x"></i></a>  <a href=""><i class="fa fa-twitter-square fa-2x"></i></a>   <a href=""><i class="fa fa-flickr fa-2x"></i></a>
+				<p><a href="" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    <a href="https://twitter.com/PFdenys" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                    <a href="https://www.flickr.com/people/151992893@N07/" target="_blank"><i class="fa fa-flickr fa-2x"></i></a>
 				</p>
 
 			  </div>
@@ -84,7 +86,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php'; // fichier d
     <!-- footerBottomSection -->	
 	<div class="footerBottomSection">
 		<div class="container">
-			&copy; SHFNET, 2017 <a href="/pages/conditions.php">Terms and Condition</a> | <a href="/pages/policy.php">Privacy Policy</a>
-			<div class="pull-right"> <a href="/index.php"><img src="/img/logo_shfnet_footer.png" width = 100 alt="Logo SHFNET" /></a></div>
+			&copy; SHFNET, 2017 <!--<a href="/pages/conditions.php">Terms and Condition</a> | <a href="/pages/policy.php">Privacy Policy</a>-->
+			<div class="pull-right"> <a href="/index.php"><img src="/img/logo_shfnet_footer.png" width =100 alt="Logo SHFNET" /></a></div>
 		</div>
 	</div>
